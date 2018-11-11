@@ -1,12 +1,16 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
-
-  <mdb-navbar-brand><a class="navbar-brand" href="#">Navbar</a></mdb-navbar-brand>
-
-  <links>
-
-      <ul class="navbar-nav mr-auto">
-
-      </ul>
-     <button class="btn btn-danger btn-sm">Logout</button>
-  </links>
-</mdb-navbar>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue scrolling-navbar ie-nav">
+    <mdb-navbar-brand>
+        <a class="logo navbar-brand" href="#"><strong>Tutor</strong></a>
+    </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            
+        </ul>
+        <ul class="navbar-nav nav-flex-icons">
+            <button
+              *ngIf="authService.isLogged()"
+            class="btn btn-danger btn-sm" (click)="logOut()">LogOut</button>
+  
+        </ul>
+    </links>
+  </mdb-navbar>

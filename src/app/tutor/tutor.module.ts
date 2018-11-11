@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TutorRoutingModule } from './tutor-routing.module';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
 
 @NgModule({
   imports: [
@@ -10,10 +10,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     TutorRoutingModule
   ],
   declarations: [
-    DashboardComponent
+    TutorDashboardComponent
   ],
+
   exports: [
-    DashboardComponent
+    TutorDashboardComponent
   ]
 })
 export class TutorModule { }

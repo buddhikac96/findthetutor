@@ -19,8 +19,7 @@ import { RegisterStudentComponent } from './components/register/register-student
 import { AuthService } from './shared/services/auth.service';
 import { HttpModule } from '@angular/http';
 import { RegisterService } from './shared/services/register.service';
-import { TutorModule } from './tutor/tutor.module';
-import { StudentModule } from './student/student.module';
+import { StudentService } from './student/shared/services/student.service';
 
 @NgModule({
   declarations: [
@@ -43,12 +42,12 @@ import { StudentModule } from './student/student.module';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpModule,
-    TutorModule,
-    StudentModule
+    
   ],
   providers: [
     AuthService,
-    RegisterService
+    RegisterService,
+    StudentService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]

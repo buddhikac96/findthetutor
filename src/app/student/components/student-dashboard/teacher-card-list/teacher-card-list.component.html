@@ -1,0 +1,15 @@
+<div *ngFor="let user of techerList">
+  <teacher-card [teacher]="user" (click)="onClick(user)"></teacher-card>
+</div>
+
+<div *ngIf="isEmpty">
+    <div class="card hoverable">
+        <div class="card-header">
+            Sorry...!
+        </div>
+        <div class="card-body">
+            <h3 class="card-title"> No teachers </h3>
+        </div>
+    </div>
+    <hr>
+</div>
