@@ -1,0 +1,43 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="text-center border border-light p-5">
+        <p class="h4 mb-4">Sign up</p>
+        <div class="form-row mb-4">
+          <div class="col">
+            <input type="text" formControlName="fname" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" formControlName="lname" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+        <input type="email" formControlName="email" class="form-control mb-4" placeholder="E-mail">
+        <input type="password" formControlName="password" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <br>
+        <input type="text" formControlName="cpassword" class="form-control" placeholder="Confirm Password"
+          aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="form.invalid">Sign in</button>
+
+        <small>Already a member?<a routerLink="/loginTutor">Login</a></small>
+
+
+        <p>or sign up with:</p>
+        <a type="button" class="light-blue-text mx-2">
+          <mdb-icon icon="facebook"></mdb-icon>
+        </a>
+        <a type="button" class="light-blue-text mx-2">
+          <mdb-icon icon="twitter"></mdb-icon>
+        </a>
+        <a type="button" class="light-blue-text mx-2">
+          <mdb-icon icon="linkedin"></mdb-icon>
+        </a>
+        <a type="button" class="light-blue-text mx-2">
+          <mdb-icon icon="github"></mdb-icon>
+        </a>
+
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="text-center border border-light p-5">
+        <p class="h4 mb-4">Sign in</p>
+        <input type="email" formControlName="username" class="form-control mb-4" placeholder="E-mail">
+        <input type="password" formControlName="password" class="form-control mb-4" placeholder="Password">
+        <div class="d-flex justify-content-around">
+          
+          <div>
+            <a href="">Forgot password?</a>
+          </div>
+        </div>
+        <button [disabled]="form.invalid" mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+        <small>Not a member?
+          <a routerLink="/registerTutor">Register</a>
+        </small>
+        <p>or sign in with:</p>
+        <a type="button" class="light-blue-text mx-2">
+          <mdb-icon icon="facebook"></mdb-icon>
+        </a>
+        <a type="button" class="light-blue-text mx-2">
+          <mdb-icon icon="twitter"></mdb-icon>
+        </a>
+        <a type="button" class="light-blue-text mx-2">
+          <mdb-icon icon="linkedin"></mdb-icon>
+        </a>
+        <a type="button" class="light-blue-text mx-2">
+          <mdb-icon icon="github"></mdb-icon>
+        </a>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
