@@ -69,7 +69,7 @@ export class RegisterTutorComponent implements OnInit {
         console.log(res);
         if(res.success){
           console.log('teacher registered successfully');
-          this.router.navigate(['/login']);
+          this.router.navigate(['tutor']);
         }else{
           if(res.has){
             this.has = true;

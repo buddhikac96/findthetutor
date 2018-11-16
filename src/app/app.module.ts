@@ -20,6 +20,7 @@ import { AuthService } from './shared/services/auth.service';
 import { HttpModule } from '@angular/http';
 import { RegisterService } from './shared/services/register.service';
 import { StudentService } from './student/shared/services/student.service';
+import { TutorService } from './tutor/shared/services/tutor-service.service';
 
 @NgModule({
   declarations: [
@@ -42,12 +43,12 @@ import { StudentService } from './student/shared/services/student.service';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpModule,
-    
   ],
   providers: [
     AuthService,
     RegisterService,
-    StudentService
+    StudentService,
+    TutorService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]

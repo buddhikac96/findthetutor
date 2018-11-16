@@ -1,24 +1,27 @@
 <div class="card hoverable">
-  <div class="card-header">
-      <h4><b>{{teacher.fname + " " + teacher.lname}}</b></h4>  
-  </div>
-  <div class="card-body">
-      <div class="row">
-          <div class="col-md-4">
-              <img src="{{teacher.imgURL}}" alt="..." class="mx-auto d-block img-thumbnail image">
-          </div>
-          <div class="col-md-8">
-              <h5 class="card-title">{{teacher.subject}}</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              
-              <div class="row">
-                  <div class="col-md-5"><button class="btn btn-primary btn-sm left">Send Request</button></div>
-                  <div class="col-md-4"></div>
-                  <div class="col-md-3"><button class="btn btn-warning btn-sm right" disabled>{{teacher.rate}}</button></div>
-              </div>
-          </div>
-      </div>
+    <div class="card-header">
+        <h4><b>{{teacher.fname + " " + teacher.lname}}</b></h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{teacher.imgURL}}" alt="..." class="mx-auto d-block img-thumbnail image">
+            </div>
+            <div class="col-md-8">
+                <h5 class="card-title">{{teacher.subject}}</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
-  </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <app-request></app-request>
+                        <!-- <button class="btn btn-primary btn-sm left">Send Request</button> -->
+                    </div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-3"><button class="btn btn-warning btn-sm right" disabled>{{teacher.rate}}</button></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 <hr>

@@ -67,7 +67,7 @@ export class RegisterStudentComponent implements OnInit {
         let res = response.json();
         if(res.success){
           console.log('student registered successfully');
-          this.router.navigate(['/login']);
+          this.router.navigate(['student']);
         }else{
           if(res.has){
             this.has = true;

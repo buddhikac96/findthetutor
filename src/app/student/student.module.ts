@@ -11,6 +11,7 @@ import { LocationComponent } from './components/student-dashboard/top-nav-bar/lo
 import { SubjectComponent } from './components/student-dashboard/top-nav-bar/subject/subject.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { StudentService } from './shared/services/student.service';
+import { RequestComponent } from './components/student-dashboard/teacher-card-list/teacher-card/request/request.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { StudentService } from './shared/services/student.service';
     TeacherCardListComponent, 
     TeacherCardComponent, 
     LocationComponent, 
-    SubjectComponent
+    SubjectComponent, RequestComponent
   ],
   exports: [
     StudentDashboardComponent, 
