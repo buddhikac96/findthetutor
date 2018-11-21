@@ -17,6 +17,12 @@ export class RegisterService {
   }
 
   googleRegister(role){
-    return this.http.post("https://guarded-beyond-19031.herokuapp.com/google-reg", role);
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/google-reg", {"role": role});
+  }
+
+  facebokRegister(role){
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/facebook-reg", {"role": role});
   }
 }
+
+

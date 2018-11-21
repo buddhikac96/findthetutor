@@ -33,4 +33,8 @@ export class StudentService {
         return this.http.get('https://guarded-beyond-19031.herokuapp.com/subject');
     }
 
+    getTutorProfile(email: string){
+        return this.http.get('https://guarded-beyond-19031.herokuapp.com/subject');
+    }
+
 }

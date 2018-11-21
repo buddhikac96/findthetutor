@@ -38,13 +38,11 @@ export class TutorEditProfileComponent implements OnInit {
   ngOnInit() {
     this.tutorService.getAllSubjects()
       .subscribe(response => {
-        console.log(response.json());
         this.subjects = response.json().subject;
       })
   }
 
   uploadImage(){
-    console.log('upload image');
   }
 
   addSelectedSubject(item){
@@ -64,6 +62,5 @@ export class TutorEditProfileComponent implements OnInit {
   }
 
   updatePrice(price){
-    console.log(price);
   }
 }

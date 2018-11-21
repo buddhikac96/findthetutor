@@ -33,9 +33,4 @@ export class TeacherCardListComponent implements OnInit {
     })
   }
 
-
-  onClick(user) {
-    console.log(user.fname);
-  }
-
 }

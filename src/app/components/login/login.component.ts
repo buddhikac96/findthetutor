@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   userSelected: boolean = false;
 
   toggleUser(user){
-    console.log(user);
     this.userSelected = !this.userSelected;
     this.loginView = user;
   }

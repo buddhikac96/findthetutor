@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/student/shared/services/student.service';
 
 @Component({
-  selector: 'model-subject',
-  templateUrl: './subject.component.html',
-  styleUrls: ['./subject.component.scss']
+  selector: 'app-subject-modal',
+  templateUrl: './subject-modal.component.html',
+  styleUrls: ['./subject-modal.component.scss']
 })
-export class SubjectComponent implements OnInit {
+export class SubjectModalComponent implements OnInit {
 
   subjectsF: string[] = [];
  
@@ -30,8 +30,6 @@ export class SubjectComponent implements OnInit {
      }else{
        this.subjectButtonValue = subject;
      }
-     this.studentService.s = subject;
-     this.studentService.getTeachers();    
    }
 
 }

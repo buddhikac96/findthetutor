@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
-import { TutorProfileComponent } from './components/tutor-profile/tutor-profile.component';
 import { TutorEditProfileComponent } from './components/tutor-edit-profile/tutor-edit-profile.component';
 import { TutorHomeComponent } from './components/tutor-home/tutor-home.component';
 
@@ -11,7 +10,6 @@ const routes: Routes = [
     component: TutorHomeComponent,
     children: [
       {path: 'dashboard', component: TutorDashboardComponent},
-      {path: 'profile', component: TutorProfileComponent},
       {path: 'edit-profile',component: TutorEditProfileComponent},
     ]
   }

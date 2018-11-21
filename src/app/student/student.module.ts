@@ -12,6 +12,10 @@ import { SubjectComponent } from './components/student-dashboard/top-nav-bar/sub
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { StudentService } from './shared/services/student.service';
 import { RequestComponent } from './components/student-dashboard/teacher-card-list/teacher-card/request/request.component';
+import { LocationModalComponent } from './components/student-dashboard/teacher-card-list/teacher-card/request/location-modal/location-modal.component';
+import { SubjectModalComponent } from './components/student-dashboard/teacher-card-list/teacher-card/request/subject-modal/subject-modal.component';
+import { CommonService } from '../shared/services/common.service';
+import { TutorProfileComponent } from './components/tutor-profile/tutor-profile.component';
 
 @NgModule({
   imports: [
@@ -26,7 +30,11 @@ import { RequestComponent } from './components/student-dashboard/teacher-card-li
     TeacherCardListComponent, 
     TeacherCardComponent, 
     LocationComponent, 
-    SubjectComponent, RequestComponent
+    SubjectComponent, 
+    RequestComponent, 
+    LocationModalComponent, 
+    SubjectModalComponent, 
+    TutorProfileComponent,
   ],
   exports: [
     StudentDashboardComponent, 
@@ -39,7 +47,8 @@ import { RequestComponent } from './components/student-dashboard/teacher-card-li
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    StudentService
+    StudentService,
+    CommonService,
   ]
 })
 export class StudentModule { }

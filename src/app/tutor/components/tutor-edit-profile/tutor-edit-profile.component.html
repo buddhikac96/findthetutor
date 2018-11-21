@@ -30,10 +30,9 @@
 
         <div class="form-row mb-4">
             <label for="customRange1">Price</label>
-            <input type="range" class="custom-range" id="customRange1" min="500" max="5000" 
-            (onChange)="updatePrice(this.value)">
+            <input type="range" class="custom-range" id="customRange1" min="500" max="5000" (onChange)="updatePrice(this.value)">
             {{price}}
-        </div>   
+        </div>
 
 
         <div class="row">
@@ -53,9 +52,11 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-8"> <select class="browser-default custom-select" #ss>
+                    <div class="col-md-8">
+                        <select class="browser-default custom-select" #ss>
                             <option *ngFor="let item of subjects">{{item}}</option>
-                        </select></div>
+                        </select>
+                    </div>
                     <div class="col-md-4">
                         <a class="btn btn-purple btn-sm" (click)="addSelectedSubject(ss.value)">Add</a>
                     </div>

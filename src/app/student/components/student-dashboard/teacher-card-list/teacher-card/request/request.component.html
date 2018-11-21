@@ -1,10 +1,8 @@
-<button 
-  type="button" 
-  mdbBtn color="primary" 
-  class="btn btn-purple btn-sm" 
-  (click)="basicModal.show()" mdbWavesEffect>Send Request</button>
+<button type="button" mdbBtn color="primary" class="btn btn-purple btn-sm" (click)="basicModal.show()" mdbWavesEffect>Send
+  Request</button>
 
-<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,13 +12,35 @@
         <h4 class="modal-title w-100" id="myModalLabel">I want to arrange a class</h4>
       </div>
       <div class="modal-body">
-        <model-location></model-location>
-        <model-subject></model-subject>
+        <!-- <app-subject-modal></app-subject-modal>
+        <app-location-modal></app-location-modal> -->
+
+        <form [formGroup]="form">
+          <label>Location</label>
+          <select class="browser-default custom-select" formControlName="location">
+            <option *ngFor="let item of districts">{{item}}</option>
+          </select>
+          <p></p>
+          <label>Subject</label>
+          <select class="browser-default custom-select" formControlName="subject">
+            <option *ngFor="let item of subjects">{{item}}</option>
+          </select>
+          <p></p>
+          <label>Date</label>
+          <select class="browser-default custom-select" formControlName="day">
+            <option *ngFor="let item of days">{{item}}</option>
+          </select>
+          <div class="modal-footer">
+            <button type="button" mdbBtn color="red" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
+              mdbWavesEffect>Discard</button>
+            <button (click)="onSend(form)" type="button" mdbBtn color="green" class="relative waves-light"
+              mdbWavesEffect>Send</button>
+          </div>
+
+        </form>
+
       </div>
-      <div class="modal-footer">
-        <button type="button" mdbBtn color="red" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Discard</button>
-        <button type="button" mdbBtn color="green" class="relative waves-light" mdbWavesEffect>Send</button>
-      </div>
+
     </div>
   </div>
 </div>

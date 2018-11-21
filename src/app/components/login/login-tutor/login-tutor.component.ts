@@ -37,9 +37,7 @@ export class LoginTutorComponent implements OnInit {
     this.authService.loginUser(user).
       subscribe(response=>{
         let res = response.json();
-        console.log(res);
         if(res.success){
-          console.log('teacher logged successfully');
           localStorage.setItem('token', res.token);
           this.router.navigate(['/tutor']);
         }else{

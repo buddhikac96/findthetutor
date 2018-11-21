@@ -66,7 +66,6 @@ export class RegisterStudentComponent implements OnInit {
       subscribe(response => {
         let res = response.json();
         if(res.success){
-          console.log('student registered successfully');
           this.router.navigate(['student']);
         }else{
           if(res.has){
@@ -82,8 +81,15 @@ export class RegisterStudentComponent implements OnInit {
     this.registerService.googleRegister('student').
       subscribe(response=>{
         let res = response.json();
-        console.log(res);
       });
+  }
+
+  facebookRegister(){
+    this.registerService.facebokRegister('tutor')
+      .subscribe(res => {
+        console.log(res.json());
+      })
+    console.log("facebook log");
   }
 
 }

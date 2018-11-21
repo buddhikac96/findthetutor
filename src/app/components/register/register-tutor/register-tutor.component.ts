@@ -66,9 +66,7 @@ export class RegisterTutorComponent implements OnInit {
     this.registerService.registerUser(user).
       subscribe(response => {
         let res = response.json();
-        console.log(res);
         if(res.success){
-          console.log('teacher registered successfully');
           this.router.navigate(['tutor']);
         }else{
           if(res.has){
