@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StudentService } from '../../shared/services/student.service';
 import { TutorPrfile } from '../../shared/models/teacher-profile';
 
 @Component({
@@ -18,7 +17,7 @@ export class TutorProfileComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      
+      //get all the teacher details using teacher id
     })
 
   }
