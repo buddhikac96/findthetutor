@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TutorPrfile } from '../../shared/models/teacher-profile';
+import { TutorPrfile } from 'src/app/shared/models/tutor-profile.model';
 
 @Component({
   selector: 'app-tutor-profile',

@@ -66,6 +66,7 @@ export class RegisterStudentComponent implements OnInit {
       subscribe(response => {
         let res = response.json();
         if(res.success){
+          localStorage.setItem('token', res.token);
           this.router.navigate(['student']);
         }else{
           if(res.has){

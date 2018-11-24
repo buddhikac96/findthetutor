@@ -17,27 +17,22 @@
 </div>
 
 <div class="container p-3">
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="text-center border border-light p-5">
+    <form [formGroup]="form"  class="text-center border border-light p-5">
         <div class="form-row mb-4">
             <div class="col">
-                <input type="text" formControlName="fname" class="form-control" placeholder="First name">
+                <input type="text" formControlName="fname" class="form-control" placeholder={{tutor.FirstName}}>
             </div>
             <div class="col">
-                <input type="text" formControlName="lname" class="form-control" placeholder="Last name">
+                <input type="text" formControlName="lname" class="form-control" placeholder={{tutor.LastName}}>
             </div>
         </div>
+        <div class="form-row mb-4"></div>
         <br>
 
-        <div class="form-row mb-4">
-            <label for="customRange1">Price</label>
-            <input type="range" class="custom-range" id="customRange1" min="500" max="5000" (onChange)="updatePrice(this.value)">
-            {{price}}
-        </div>
-
-
+      
         <div class="row">
             <div class="col-md-6">
-                <h3>Subjects</h3>
+                <h6>Subjects</h6>
                 <hr>
                 <div class="row">
                     <div class="col-md-2"></div>
@@ -63,7 +58,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h3>Districs</h3>
+                <h6>Districs</h6>
                 <hr>
                 <div class="row">
                     <div class="col-md-2"></div>
@@ -87,6 +82,5 @@
                 </div>
             </div>
         </div>
-
     </form>
 </div>
