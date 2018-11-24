@@ -40,6 +40,9 @@
               },
               {
                 "input": "src/styles.scss"
+              },
+              {
+                "input": "node_modules/ionicons/dist/scss/ionicons.scss"
               }
             ],
             "scripts": [

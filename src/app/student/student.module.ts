@@ -12,16 +12,20 @@ import { SubjectComponent } from './components/student-dashboard/top-nav-bar/sub
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { StudentService } from './shared/services/student.service';
 import { RequestComponent } from './components/student-dashboard/teacher-card-list/teacher-card/request/request.component';
-import { LocationModalComponent } from './components/student-dashboard/teacher-card-list/teacher-card/request/location-modal/location-modal.component';
-import { SubjectModalComponent } from './components/student-dashboard/teacher-card-list/teacher-card/request/subject-modal/subject-modal.component';
 import { CommonService } from '../shared/services/common.service';
 import { TutorProfileComponent } from './components/tutor-profile/tutor-profile.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthService } from '../shared/services/auth.service';
+import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 
 @NgModule({
   imports: [
     CommonModule,
     StudentRoutingModule,
     MDBBootstrapModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FloatingActionMenuModule
   ],
   declarations: [
     StudentDashboardComponent, 
@@ -31,9 +35,7 @@ import { TutorProfileComponent } from './components/tutor-profile/tutor-profile.
     TeacherCardComponent, 
     LocationComponent, 
     SubjectComponent, 
-    RequestComponent, 
-    LocationModalComponent, 
-    SubjectModalComponent, 
+    RequestComponent,
     TutorProfileComponent,
   ],
   exports: [
@@ -49,6 +51,7 @@ import { TutorProfileComponent } from './components/tutor-profile/tutor-profile.
   providers: [
     StudentService,
     CommonService,
+    AuthService
   ]
 })
 export class StudentModule { }

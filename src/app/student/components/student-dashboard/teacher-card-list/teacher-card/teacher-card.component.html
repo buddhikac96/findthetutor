@@ -13,8 +13,12 @@
 
                 <div class="row">
                     <div class="col-md-5">
-                        <app-request></app-request>
-                        <!-- <button class="btn btn-primary btn-sm left">Send Request</button> -->
+                        <div *ngIf="isLogged">
+                            <app-request [teacherId]="teacher.fname" ></app-request>
+                        </div>
+                        <div *ngIf="!isLogged">
+                            <button class="btn btn-sm disabled">Send Request</button>
+                        </div>
                     </div>
                     <div class="col-md-4"></div>
                     <div class="col-md-3"><button class="btn btn-warning btn-sm right" disabled>{{teacher.rate}}</button></div>
