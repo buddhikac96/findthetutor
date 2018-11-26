@@ -21,4 +21,6 @@ export class TeacherCardComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  rate = 3.14;
 }

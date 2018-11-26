@@ -15,22 +15,19 @@ export class StudentDashboardComponent implements OnInit {
   config;
   buttons: Array<FloatingActionButton> = [
     {
-      iconClass: 'ion-social-github',
-      label: 'follow me on github',
+      iconClass: 'fa fa-android',
       onClick: function(){
         console.log("Github");
       }
     },
     {
-      iconClass: 'ion-social-facebook',
-      label: 'follow me on facebook',
+      iconClass: 'fa fa-address-book',
       onClick: function(){
  
       }
     },
     {
-      iconClass: 'ion-social-linkedin',
-      label: 'linkedin',
+      iconClass: 'fa fa-cab',
       onClick: function(){
  
       }
@@ -88,8 +85,8 @@ export class StudentDashboardComponent implements OnInit {
     this.config = {
       placment: 'br',
       effect: 'mfb-slidein',
-      iconClass: 'ion-plus-round',
-      activeIconClass: 'ion-close-round',
+      iconClass: 'fa fa-comment',
+      activeIconClass: 'fa fa-comment',
       toggle: 'hover',
       buttons: this.buttons
     };

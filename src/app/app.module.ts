@@ -21,6 +21,7 @@ import { HttpModule } from '@angular/http';
 import { RegisterService } from './shared/services/register.service';
 import { StudentService } from './student/shared/services/student.service';
 import { TutorService } from './tutor/shared/services/tutor-service.service';
+import { BarRatingModule } from "ngx-bar-rating";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TutorService } from './tutor/shared/services/tutor-service.service';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpModule,
+    BarRatingModule
   ],
   providers: [
     AuthService,

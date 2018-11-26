@@ -17,6 +17,8 @@ import { TutorProfileComponent } from './components/tutor-profile/tutor-profile.
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BarRatingModule } from 'ngx-bar-rating';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
     MDBBootstrapModule,
     FormsModule,
     ReactiveFormsModule,
-    FloatingActionMenuModule
+    FloatingActionMenuModule,
+    NgbModule,
+    BarRatingModule
   ],
   declarations: [
     StudentDashboardComponent, 
