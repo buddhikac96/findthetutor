@@ -40,7 +40,7 @@ import { BarRatingModule } from "ngx-bar-rating";
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    RouterModule,
+    RouterModule, 
     AppRoutingModule,
     ReactiveFormsModule,
     HttpModule,

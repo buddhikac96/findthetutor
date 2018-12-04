@@ -7,13 +7,38 @@
         <div class="form-row mb-4">
           <div class="col">
             <input type="text" formControlName="fname" class="form-control" placeholder="First name">
+            <div *ngIf="fname.touched && fname.invalid">
+              <small class="invalidInput">First name is required</small>
+            </div>
           </div>
+          
           <div class="col">
             <input type="text" formControlName="lname" class="form-control" placeholder="Last name">
+            <div *ngIf="lname.touched && lname.invalid">
+              <small class="invalidInput">Last name is required</small>
+            </div>
+          </div>
+          
+        </div>
+        <input type="email" formControlName="email" class="form-control" placeholder="E-mail">
+        <div *ngIf="email.touched && email.invalid">
+          <div *ngIf="email.errors.required">
+            <small class="invalidInput">Email is required</small>
+          </div>
+          <div *ngIf="email.errors.email">
+            <small class="invalidInput">Please input correct email type</small>
           </div>
         </div>
-        <input type="email" formControlName="email" class="form-control mb-4" placeholder="E-mail">
+        <br>
         <input type="password" formControlName="password" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <div *ngIf="password.touched && password.invalid">
+          <div *ngIf="password.errors.minlength">
+            <small class="invalidInput">Password must be longer than 8 letters</small>
+          </div>
+          <div *ngIf="password.errors.required">
+            <small class="invalidInput">Please enter a password</small>
+          </div>
+        </div>
         <br>
         <input type="text" formControlName="cpassword" class="form-control" placeholder="Confirm Password"
           aria-describedby="defaultRegisterFormPhoneHelpBlock">

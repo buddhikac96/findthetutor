@@ -19,6 +19,7 @@ import { AuthService } from '../shared/services/auth.service';
 import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BarRatingModule } from 'ngx-bar-rating';
+import { AchievementComponent } from './components/tutor-profile/achievement/achievement.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { BarRatingModule } from 'ngx-bar-rating';
     SubjectComponent, 
     RequestComponent,
     TutorProfileComponent,
+    AchievementComponent,
   ],
   exports: [
     StudentDashboardComponent, 

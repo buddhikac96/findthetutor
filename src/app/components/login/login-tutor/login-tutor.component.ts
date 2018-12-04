@@ -42,7 +42,11 @@ export class LoginTutorComponent implements OnInit {
           this.router.navigate(['/tutor']);
         }else{
           this.loginErr = true;
+          alert("Login err");
         }
+      }, err=>{
+        this.loginErr = true;
+        alert("Login error");
       });   
       this.form.reset();     
   }

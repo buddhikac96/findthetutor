@@ -73,8 +73,12 @@ export class RegisterStudentComponent implements OnInit {
             this.has = true;
           }else{
             this.regErr = true;
+            alert("Register error");
           }
         }
+      },err=>{
+          this.regErr = true;
+          alert("Register error");
       });    
   }  
 

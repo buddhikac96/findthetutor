@@ -41,8 +41,13 @@ export class LoginStudentComponent implements OnInit {
           localStorage.setItem('token', res.token);
           this.router.navigate(['student']);
         }else{
-          this.loginErr = true;
+          this.loginErr = true; 
+          alert("Login err");
         }
+      },
+      err => {
+        this.loginErr = true;
+        alert("Login err");
       });   
       this.form.reset();     
   }
