@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class StudentDashboardComponent implements OnInit {
 
+
   ngOnInit() {
   }
 
@@ -17,13 +18,13 @@ export class StudentDashboardComponent implements OnInit {
     {
       iconClass: 'fa fa-android',
       onClick: function(){
-        console.log("Github");
+        this.router.navigate(['teachers']);
       }
     },
     {
       iconClass: 'fa fa-address-book',
       onClick: function(){
- 
+        this.router.navigate(['allrequests']);
       }
     },
     {

@@ -20,6 +20,7 @@ import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { AchievementComponent } from './components/tutor-profile/achievement/achievement.component';
+import { AllrequestsComponent } from './components/student-dashboard/allrequests/allrequests.component';
 
 @NgModule({
   imports: [
@@ -43,6 +44,7 @@ import { AchievementComponent } from './components/tutor-profile/achievement/ach
     RequestComponent,
     TutorProfileComponent,
     AchievementComponent,
+    AllrequestsComponent,
   ],
   exports: [
     StudentDashboardComponent, 

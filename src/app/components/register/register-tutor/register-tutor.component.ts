@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/shared/services/register.service';
+import { PasswordValidator } from 'src/app/shared/validators/password.validator';
 
 @Component({
   selector: 'app-register-tutor',
@@ -31,7 +32,10 @@ export class RegisterTutorComponent implements OnInit {
         Validators.required,
         Validators.minLength(8)
       ]],
-      cpassword: ['', Validators.required]
+      cpassword: ['', [
+        Validators.required,
+        PasswordValidator('password')
+      ]]
     });
    }
 
@@ -61,8 +65,6 @@ export class RegisterTutorComponent implements OnInit {
   onSubmit(form){
     let user = form.value;
     user['role'] = 'tutor';
-    form.reset();
-
     this.registerService.registerUser(user).
       subscribe(response => {
         let res = response.json();
@@ -79,8 +81,8 @@ export class RegisterTutorComponent implements OnInit {
         }
       }, err=>{
         alert("Register error");
-      });    
-    
+      });   
+      form.reset();    
   }  
 
 }

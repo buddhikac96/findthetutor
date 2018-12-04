@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/shared/services/register.service';
+import { PasswordValidator } from 'src/app/shared/validators/password.validator';
 
 @Component({
   selector: 'app-register-student',
@@ -30,7 +31,10 @@ export class RegisterStudentComponent implements OnInit {
         Validators.required,
         Validators.minLength(8)
       ]],
-      cpassword: ['', Validators.required]
+      cpassword: ['', [
+        Validators.required,
+        PasswordValidator('password')
+      ]]
     });
    }
 
@@ -60,8 +64,6 @@ export class RegisterStudentComponent implements OnInit {
   onSubmit(form){
     let user = form.value;
     user['role'] = 'student';
-    form.reset();
-
     this.registerService.registerUser(user).
       subscribe(response => {
         let res = response.json();
@@ -79,7 +81,8 @@ export class RegisterStudentComponent implements OnInit {
       },err=>{
           this.regErr = true;
           alert("Register error");
-      });    
+      }); 
+      form.reset();   
   }  
 
   googleReg(){

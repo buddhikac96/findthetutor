@@ -3,6 +3,7 @@ import { CommonService } from 'src/app/shared/services/common.service';
 import { FormBuilder } from '@angular/forms';
 import { TutorRequest } from 'src/app/shared/models/request.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { StudentService } from 'src/app/student/shared/services/student.service';
 
 @Component({
   selector: 'app-request',
@@ -27,7 +28,8 @@ export class RequestComponent implements OnInit {
   constructor(
     private commonservice: CommonService,
     private fb: FormBuilder,
-    private auth: AuthService
+    private auth: AuthService,
+    private studentService: StudentService
   ) {
     this.form = this.fb.group({
       location: [''],
@@ -53,6 +55,13 @@ export class RequestComponent implements OnInit {
     console.log(fd);
     let request = new TutorRequest(fd.location, fd.subject, fd.day, this.teacherId, this.student);
     console.log(request);
+    this.studentService.sendRequest(request)
+      .subscribe(response=>{
+        console.log(response);
+      }, err=>{
+        console.log(err);
+        alert("request sending error");
+      })
   }
 
 }

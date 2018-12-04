@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Http } from '@angular/http';
 import { TeacherCard } from '../models/teacher-card.model';
+import { TutorRequest } from 'src/app/shared/models/request.model';
 
 @Injectable()
 export class StudentService {
@@ -35,6 +36,14 @@ export class StudentService {
 
     getTutorProfile(email: string){
         return this.http.get('https://guarded-beyond-19031.herokuapp.com/subject');
+    }
+
+    sendRequest(request: TutorRequest){
+        return this.http.post('https://guarded-beyond-19031.herokuapp.com/makeRequest', request);
+    }
+
+    myrequests(){
+        return this.http.get('https://guarded-beyond-19031.herokuapp.com/viewMyRequests');
     }
 
 }

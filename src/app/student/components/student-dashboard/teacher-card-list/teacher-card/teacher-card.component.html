@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div *ngIf="isLogged">
-                            <app-request [teacherId]="teacher.fname"></app-request>
+                            <app-request [teacherId]="teacher.email"></app-request>
                         </div>
                         <div *ngIf="!isLogged">
                             <button class="btn btn-sm disabled">Send Request</button>
