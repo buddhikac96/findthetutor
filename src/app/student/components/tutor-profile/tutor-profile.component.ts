@@ -10,6 +10,7 @@ import { TutorPrfile } from 'src/app/shared/models/tutor-profile.model';
 export class TutorProfileComponent implements OnInit {
 
   tutorProfile: TutorPrfile;
+  tutorEmail: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -17,7 +18,7 @@ export class TutorProfileComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      //get all the teacher details using teacher id
+      this.tutorEmail = params.id;
     })
 
   }

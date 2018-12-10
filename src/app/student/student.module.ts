@@ -21,6 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { AchievementComponent } from './components/tutor-profile/achievement/achievement.component';
 import { AllrequestsComponent } from './components/student-dashboard/allrequests/allrequests.component';
+import { RatingComponent } from './components/tutor-profile/rating/rating.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { AllrequestsComponent } from './components/student-dashboard/allrequests
     TutorProfileComponent,
     AchievementComponent,
     AllrequestsComponent,
+    RatingComponent,
   ],
   exports: [
     StudentDashboardComponent, 

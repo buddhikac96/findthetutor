@@ -1,4 +1,4 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue scrolling-navbar ie-nav">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark special-color-dark scrolling-navbar ie-nav">
     <mdb-navbar-brand>
         <a class="logo navbar-brand" href="#"><strong>Tutor</strong></a>
     </mdb-navbar-brand>
@@ -9,7 +9,7 @@
         <ul class="navbar-nav nav-flex-icons">
             <button
               *ngIf="authService.isLogged()"
-            class="btn btn-danger btn-sm" (click)="logOut()">LogOut</button>
+            class="btn mdb-color lighten-2 btn-sm" (click)="logOut()">LogOut</button>
   
         </ul>
     </links>

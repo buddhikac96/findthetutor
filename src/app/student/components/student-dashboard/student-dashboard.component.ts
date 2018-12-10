@@ -9,6 +9,18 @@ import { Router } from '@angular/router';
 })
 export class StudentDashboardComponent implements OnInit {
 
+  constructor(
+    private router: Router
+  ) {
+    this.config = {
+      placment: 'br',
+      effect: 'mfb-slidein',
+      iconClass: 'fa fa-comment',
+      activeIconClass: 'fa fa-comment',
+      toggle: 'hover',
+      buttons: this.buttons
+    };
+  }
 
   ngOnInit() {
   }
@@ -18,7 +30,8 @@ export class StudentDashboardComponent implements OnInit {
     {
       iconClass: 'fa fa-android',
       onClick: function(){
-        this.router.navigate(['teachers']);
+        console.log("button pressed");
+        this.router.navigate(['student/teachers']);
       }
     },
     {
@@ -80,17 +93,6 @@ export class StudentDashboardComponent implements OnInit {
  
  
  
-  constructor(
-    private router: Router
-  ) {
-    this.config = {
-      placment: 'br',
-      effect: 'mfb-slidein',
-      iconClass: 'fa fa-comment',
-      activeIconClass: 'fa fa-comment',
-      toggle: 'hover',
-      buttons: this.buttons
-    };
-  }
+  
 }
 

@@ -11,22 +11,23 @@ export class TeacherCardListComponent implements OnInit {
 
   techerList: TeacherCard[] = [];
   isEmpty: boolean = false;
+  loading: boolean = true;
 
   constructor(
     private studentService: StudentService
-  ) {
+  ) { }
+
+  ngOnInit() {
     this.studentService.getAllTeachers()
       .subscribe(res=>{
         this.techerList = res.json().user;
         res.json().user.length === 0? this.isEmpty = true: this.isEmpty = false;
       })
-   }
-
-  ngOnInit() {
-    this.getTeachers();
+    this.loading = false;
   }
 
   getTeachers() {
+    console.log(this.techerList)
     this.studentService.change.subscribe(response=>{
       this.techerList = response;
       response.length === 0? this.isEmpty = true: this.isEmpty = false;

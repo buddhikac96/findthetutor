@@ -1,49 +1,50 @@
 <div *ngIf="userSelected">
-  <div *ngIf="loginView === 'teacher'">
+  <div *ngIf="loginView === 'teacher'" style="margin-top:6%;">
     <app-login-tutor></app-login-tutor>
   </div>
 
-  <div *ngIf="loginView === 'student'">
+  <div *ngIf="loginView === 'student'" style="margin-top:6%;">
     <app-login-student></app-login-student>
   </div>
 </div>
 
 <div *ngIf="!userSelected">
-  <div class="container" style="margin-top:10%;">
+  <div class="container" style="margin-top:14%;">
     <div class="row">
       <div class="col-md-6">
-        <mdb-card class="text-center animated slideInLeft">
-          <mdb-card-header class="primary-color white-text">
-            <h4>Student</h4>
-          </mdb-card-header>
-          <mdb-card-body>
-            <mdb-card-title>
-              <h4>Special title treatment</h4>
-            </mdb-card-title>
-            <mdb-card-text>With supporting text below as a natural lead-in to additional content.</mdb-card-text>
-            <a mdbBtn color="primary" size="sm" class="waves-light" mdbWavesEffect (click)="toggleUser('student')">Go somewhere</a>
-          </mdb-card-body>
-          <mdb-card-footer class="text-muted primary-color white-text">
-            <p class="mb-0">2 days ago</p>
-          </mdb-card-footer>
-        </mdb-card>
+        <div class="card card-image mb-3 animated slideInLeft" style="background-image: url(https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);">        
+          <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+            <div>
+              <h5 class="pink-text"><i class="fa fa-pie-chart"></i>eTutor</h5>
+              <h3 class="card-title pt-2"><strong>Student</strong></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                Odit sed qui, dolorum!.</p>
+              <a mdbBtn color="pink" class="waves-light" mdbWavesEffect
+              (click)="toggleUser('student')"
+              ><i class="fa fa-clone left"></i>Start as a Student</a>
+            </div>
+          </div>
+          
+        </div>
       </div>
+
       <div class="col-md-6">
-        <mdb-card class="text-center animated slideInRight">
-          <mdb-card-header class="primary-color white-text">
-            <h4>Teacher</h4>
-          </mdb-card-header>
-          <mdb-card-body>
-            <mdb-card-title>
-              <h4>Special title treatment</h4>
-            </mdb-card-title>
-            <mdb-card-text>With supporting text below as a natural lead-in to additional content.</mdb-card-text>
-            <a mdbBtn color="primary" size="sm" class="waves-light" mdbWavesEffect (click)="toggleUser('teacher')">Go somewhere</a>
-          </mdb-card-body>
-          <mdb-card-footer class="text-muted primary-color white-text">
-            <p class="mb-0">2 days ago</p>
-          </mdb-card-footer>
-        </mdb-card>
+        <div class="card card-image mb-3 animated slideInRight" style="background-image: url(https://images.pexels.com/photos/1181398/pexels-photo-1181398.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);">        
+          <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+            <div>
+              <h5 class="pink-text"><i class="fa fa-pie-chart"></i>eTutor</h5>
+              <h3 class="card-title pt-2"><strong>Tutor</strong></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                Odit sed qui, dolorum!.</p>
+              <a mdbBtn color="pink" class="waves-light" mdbWavesEffect
+              (click)="toggleUser('teacher')"
+              ><i class="fa fa-clone left"></i>Start as a Tutor</a>
+            </div>
+          </div>
+          
+        </div>
       </div>
     </div>
   </div>

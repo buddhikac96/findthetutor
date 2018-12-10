@@ -1,5 +1,5 @@
 <div class="card hoverable">
-    <div class="card-header" [routerLink]="['tutor/', teacher.fname]">
+    <div class="card-header special-color-dark white-text" [routerLink]="[teacher.email]">
         <h4><b>{{teacher.fname + " " + teacher.lname}}</b></h4>
     </div>
     <div class="card-body">
@@ -20,10 +20,10 @@
                             <button class="btn btn-sm disabled">Send Request</button>
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-4">
-                        <button class="btn btn-sm btn-orange" >{{teacher.rate}}</button>
-                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5">
+<!--                         <app-rating [tutorEmail]="tutorEmail" [rating]=teacher.rate></app-rating>
+ -->                    </div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<button type="button" mdbBtn color="yellow" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
+<button type="button" mdbBtn  class="waves-light mdb-color lighten-2" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
   mdbWavesEffect>
   <i class="fa fa-map-marker" aria-hidden="true"></i>
   {{locationButtonValue}}
@@ -17,7 +17,7 @@
             (click)="onLocationClicked(item)"
             (click)="frame.hide()"
             *ngFor = "let item of districtsF" 
-            class="btn btn-sm btn-green">
+            class="btn btn-sm mdb-color lighten-2">
                 {{item}}
             </button>  
 

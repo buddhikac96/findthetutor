@@ -16,7 +16,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'tutor/:id',
+    path: 'teachers/:id',
     component: TutorProfileComponent
   }
 ];

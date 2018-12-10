@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { StudentService } from 'src/app/student/shared/services/student.service';
 
 @Component({
@@ -21,8 +21,7 @@ export class LocationComponent implements OnInit {
    ) { }
  
    ngOnInit() {
-   }
- 
+   } 
  
    locationButtonValue: string = "Location";
  
@@ -33,7 +32,7 @@ export class LocationComponent implements OnInit {
        this.locationButtonValue = location;
      }
      this.studentService.d = location;
-     this.studentService.getTeachers();    
+     this.studentService.getTeachers();   
    }
 
 }

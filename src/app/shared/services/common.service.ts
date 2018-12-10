@@ -12,4 +12,6 @@ export class CommonService {
         return this.http.get("https://guarded-beyond-19031.herokuapp.com/subject");
     }
 
+    
+
 }

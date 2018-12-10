@@ -1,23 +1,22 @@
-<div class="card hoverable">
-    <div class="card-header">
-        <h4><b>lskdflsdkjf</b></h4>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-8">
-                <h5 class="card-title">sdfjsdhf</h5>
-                <div class="row">
-                    <div class="col-md-5">
-                        <button class="btn btn-sm btn-red">Delete</button>
-                    </div>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-4">
-                        <button class="btn btn-sm btn-orange">lkjlckvjd</button>
-                    </div>
+<div *ngFor="let item of reqests">
+    <div class="card hoverable">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-9">
+                    {{item.FirstName}} {{item.LastName}}
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-sm btn-red" (click)="cancelReq(item)">Cancel</button>
                 </div>
             </div>
+            <div class="row">
+                <ul>
+                    <li>Subject - {{item.subject}}</li>
+                    <li>Day - {{item.day}}</li>
+                    <li>Location - {{item.location}}</li>
+                </ul>
+            </div>
         </div>
-
     </div>
+    <p></p>
 </div>
-<hr>

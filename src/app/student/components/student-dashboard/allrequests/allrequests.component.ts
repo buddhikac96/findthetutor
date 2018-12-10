@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/student/shared/services/student.service';
-import { TutorRequest } from 'src/app/shared/models/request.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-allrequests',
@@ -10,20 +10,33 @@ import { TutorRequest } from 'src/app/shared/models/request.model';
 export class AllrequestsComponent implements OnInit {
 
   reqests = [];
+  student;
 
   constructor(
-    private studentService: StudentService
+    private studentService: StudentService,
+    private auth: AuthService
   ) {
-    this.studentService.myrequests()
-      .subscribe(res=>{
-        this.reqests = res.json().reqest;
-        console.log(this.reqests);
-      },err=>{
+    this.student = auth.currentUser.user.email;
+  }
+
+  ngOnInit() {
+    console.log(this.student);
+    this.studentService.myrequests(this.student)
+      .subscribe(res => {
+        this.reqests = res.json().request;
+        console.log(res.json());
+      }, err => {
         console.log(err);
       })
   }
 
-  ngOnInit() {
+  cancelReq(index){
+    this.reqests.splice(index, 1);
+    this.studentService.cancelReq(index.id)
+      .subscribe(response=>{
+      }, err=>{
+        alert("Request cancel failed")
+      })
   }
 
 
