@@ -31,8 +31,7 @@ export class LocationComponent implements OnInit {
      }else{
        this.locationButtonValue = location;
      }
-     this.studentService.d = location;
-     this.studentService.getTeachers();   
+     this.studentService.sendMessageLocation(location);
    }
 
 }

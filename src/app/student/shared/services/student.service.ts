@@ -2,6 +2,7 @@ import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Http } from '@angular/http';
 import { TeacherCard } from '../models/teacher-card.model';
 import { TutorRequest } from 'src/app/shared/models/request.model';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable()
 export class StudentService {
@@ -11,19 +12,35 @@ export class StudentService {
     ) { }
 
     teacherList: TeacherCard[] = [];
+
     d:string = 'all';
     s:string = 'all';
-    searchObject = {'district': this.d, 'subject':this.s};
 
-    @Output() change: EventEmitter<TeacherCard[]> = new EventEmitter();
 
-   
-    getTeachers() {
-        return this.http.post('https://guarded-beyond-19031.herokuapp.com/search', {'district': this.d,'subject': this.s})
-            .subscribe(response=>{
-                this.teacherList = response.json().user;
-                this.change.emit(this.teacherList);
-            });
+    private subject = new Subject<any>();
+
+    getMessage(): Observable<any> {
+        return this.subject.asObservable();
+    }
+
+    sendMessageLocation(location: string) {
+        this.d = location;
+        this.getMessageTeacher();
+    }
+
+    sendMessageSubject(subject: string) {
+        this.s = subject;
+        this.getMessageTeacher();
+    }
+
+    getMessageTeacher(){
+        console.log(this.d);
+        console.log(this.s);
+        this.http.post('https://guarded-beyond-19031.herokuapp.com/search', {'district': this.d,'subject': this.s})
+        .subscribe(res=>{
+            this.teacherList = res.json().user;
+            this.subject.next({ teachers: this.teacherList });
+        })
     }
 
     getAllTeachers(){
@@ -53,5 +70,5 @@ export class StudentService {
     cancelReq(id){
         return this.http.post("https://guarded-beyond-19031.herokuapp.com/cancelRequest",id);
     }
-
+ 
 }

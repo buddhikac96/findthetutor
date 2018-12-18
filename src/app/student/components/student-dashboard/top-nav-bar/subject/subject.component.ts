@@ -30,8 +30,8 @@ export class SubjectComponent implements OnInit {
      }else{
        this.subjectButtonValue = subject;
      }
-     this.studentService.s = subject;
-     this.studentService.getTeachers();    
+
+     this.studentService.sendMessageSubject(subject);
    }
 
 }
