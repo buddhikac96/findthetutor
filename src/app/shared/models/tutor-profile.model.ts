@@ -1,13 +1,21 @@
 export class TutorPrfile{
     first_name: string;
     last_name: string;
-    emial: string;
+    email: string;
     mobile: string;
+    location: string;
     subjects: string[];
-    locations: string[];
 
     reviews: Review[];
     performances: Performance[];
+
+    constructor(fname, lname, email, mobile,location){
+        this.first_name = fname;
+        this.last_name = lname;
+        this.email = email;
+        this.mobile = mobile;
+        this.location = location;
+    }
 }
 
 class Review{

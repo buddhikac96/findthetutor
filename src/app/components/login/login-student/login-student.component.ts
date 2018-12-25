@@ -28,6 +28,13 @@ export class LoginStudentComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.authService.currentUser){
+      if(this.authService.currentUser.user.role === "student"){
+        this.router.navigate(['student']);
+      }else{
+        this.router.navigate(['tutor']);
+      }
+    }
   }
   
 

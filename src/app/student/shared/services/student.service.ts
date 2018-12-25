@@ -8,7 +8,7 @@ import { Subject, Observable } from 'rxjs';
 export class StudentService {
 
     constructor(
-        private http: Http
+        private http: Http,
     ) { }
 
     teacherList: TeacherCard[] = [];
@@ -52,14 +52,14 @@ export class StudentService {
     }
 
     getTutorProfile(email: string){
-        return this.http.get('https://guarded-beyond-19031.herokuapp.com/subject');
+        return this.http.post('https://guarded-beyond-19031.herokuapp.com/viewProfile',{'email': email, 'role':'tutor'});
     }
 
     sendRequest(request: TutorRequest){
         return this.http.post('https://guarded-beyond-19031.herokuapp.com/makeRequest', request);
     }
 
-    myrequests(student){
+    getAllrequests(student){
         return this.http.post('https://guarded-beyond-19031.herokuapp.com/viewMyRequests', {'student': student});
     }
 
@@ -68,6 +68,7 @@ export class StudentService {
     }
 
     cancelReq(id){
+        console.log(id);
         return this.http.post("https://guarded-beyond-19031.herokuapp.com/cancelRequest",id);
     }
  

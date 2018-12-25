@@ -1,58 +1,60 @@
 <div class="container p-4">
-  <div class="card p-4">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="avatar mx-auto">
-          <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle" alt="woman avatar">
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="container">
-          <div class="row">
-            <h3>Name</h3>
-          </div>
-          <div class="row">
-            <h5>email</h5>
-          </div>
-          <div class="row">
-            <h5>Mobile</h5>
-          </div>
-          <div class="row">
-            <h5>subjects</h5>
-          </div>
-          <div class="row">
-            <h5>Location</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
+  <div class="card testimonial-card">
+
+    <div class="card-up heavy-rain-gradient lighten-4" style="height:30px;"></div>
+
+    <div class="avatar mx-auto white p-3">
+      <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle" alt="woman avatar">
+    </div>
+
+    <div class="card-body">
+      <div style="text-align:center;">
+        <h4 class="card-title">{{tutorProfile.firstName + " " + tutorProfile.lastName}}</h4>
+        <p>0711765356 | {{tutorProfile.location}} | Physics</p>
         <app-request></app-request>
-        <app-rating [tutorEmail]="tutorEmail" [rating]="3"></app-rating>
       </div>
     </div>
-    <div class="card-body">
-      <hr>
+    <div class="card-up heavy-rain-gradient lighten-4" style="height:30px;"></div>
+  </div>
+
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-md-7">
+        <app-achievement [student]="sldkfj"></app-achievement>
+        <app-achievement [student]="sldkfj"></app-achievement>
+        <app-achievement [student]="sldkfj"></app-achievement>
+      </div>
+      <div style="overflow-y: scroll; height:600px;" class="col-md-5">
+        <app-review></app-review>
+        <app-review></app-review>
+        <app-review></app-review>
+        <app-review></app-review>
+        <app-review></app-review>
+      </div>
     </div>
   </div>
 
-  <div class="p-3">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-6">
-            <app-achievement></app-achievement>
-          </div>
-          <div class="col-md-6">
-            <app-achievement></app-achievement>
-          </div>
+
+  <div class="container">
+    <section class="my-5">
+
+      <div class="card-header border-0 font-weight-bold">Add a review</div>
+
+      <div class="d-md-flex flex-md-fill mt-4 px-1">
+        <div class="d-flex justify-content-center mr-md-5">
+          <img class="card-img-100 z-depth-1 mb-4" src="https://mdbootstrap.com/img/Photos/Avatars/img (32).jpg" alt="avatar">
         </div>
+        <textarea class="form-control pl-3 pt-3" id="exampleFormControlTextarea1" rows="4" placeholder="Write something here..."></textarea>
       </div>
-      <div class="col-md-4">
-
-        
-
+      <app-rating 
+      [rating]=3
+      [tutorEmail] = "tutorProfile.email"
+      ></app-rating>
+      <div class="text-center mt-4">
+        <button class="btn btn-primary btn-md">Submit</button>
       </div>
-    </div>
+
+    </section>
   </div>
 
 </div>

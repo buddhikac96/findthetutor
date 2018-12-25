@@ -35,6 +35,7 @@
     "hammerjs": "^2.0.8",
     "ionicons": "^4.4.7",
     "ng2-floating-action-menu": "^2.1.0",
+    "ngc-float-button": "^1.2.1",
     "ngx-bar-rating": "^1.1.0",
     "ngx-floating-action-menu": "^0.2.5",
     "rxjs": "^6.0.0-rc.1",

@@ -22,6 +22,7 @@ import { BarRatingModule } from 'ngx-bar-rating';
 import { AchievementComponent } from './components/tutor-profile/achievement/achievement.component';
 import { AllrequestsComponent } from './components/student-dashboard/allrequests/allrequests.component';
 import { RatingComponent } from './components/tutor-profile/rating/rating.component';
+import { ReviewComponent } from './components/tutor-profile/review/review.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { RatingComponent } from './components/tutor-profile/rating/rating.compon
     AchievementComponent,
     AllrequestsComponent,
     RatingComponent,
+    ReviewComponent,
   ],
   exports: [
     StudentDashboardComponent, 

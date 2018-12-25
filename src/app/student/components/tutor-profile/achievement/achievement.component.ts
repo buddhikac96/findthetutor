@@ -12,10 +12,10 @@ export class AchievementComponent implements OnInit {
   ngOnInit() {
   }
 
-  @Input() studentName;
+  @Input() student;
   @Input() title;
-  @Input() description;
-  @Input() imgUrl;
+  @Input() desc;
+  @Input() img;
 
 
 }

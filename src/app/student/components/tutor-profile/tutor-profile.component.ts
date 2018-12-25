@@ -1,3 +1,4 @@
+import { StudentService } from 'src/app/student/shared/services/student.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TutorPrfile } from 'src/app/shared/models/tutor-profile.model';
@@ -9,18 +10,32 @@ import { TutorPrfile } from 'src/app/shared/models/tutor-profile.model';
 })
 export class TutorProfileComponent implements OnInit {
 
-  tutorProfile: TutorPrfile;
+  tutorProfile = {
+    firstName: "",
+    emial: "",
+    lastName: "",
+    location: "",
+    mobile: "mobile",
+  }
   tutorEmail: string;
 
   constructor(
     private route: ActivatedRoute,
+    private studentService: StudentService
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.tutorEmail = params.id;
-    })
 
+      this.studentService.getTutorProfile(this.tutorEmail)
+      .subscribe(res=>{
+        console.log(res.json());
+        this.tutorProfile = res.json().profile;
+      })
+    })
   }
+
+
 
 }

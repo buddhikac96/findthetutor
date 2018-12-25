@@ -24,7 +24,7 @@ export class RatingComponent implements OnInit {
   inputName: string;
   ngOnInit() {
     this.inputName = this.itemId + '_rating';
-    this.student = this.auth.currentUser.email;
+    this.student = this.auth.currentUser.user.email;
   }
 
   onClick(rating: number): void {

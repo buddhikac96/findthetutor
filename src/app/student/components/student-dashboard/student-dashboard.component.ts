@@ -31,7 +31,7 @@ export class StudentDashboardComponent implements OnInit {
       iconClass: 'fa fa-android',
       onClick: function(){
         console.log("button pressed");
-        this.router.navigate(['student/teachers']);
+       // this.router.navigate(['allrequests']);
       }
     },
     {

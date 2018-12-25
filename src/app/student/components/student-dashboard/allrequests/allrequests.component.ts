@@ -20,11 +20,9 @@ export class AllrequestsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.student);
-    this.studentService.myrequests(this.student)
+    this.studentService.getAllrequests(this.student)
       .subscribe(res => {
         this.reqests = res.json().request;
-        console.log(res.json());
       }, err => {
         console.log(err);
       })
@@ -34,7 +32,9 @@ export class AllrequestsComponent implements OnInit {
     this.reqests.splice(index, 1);
     this.studentService.cancelReq(index.id)
       .subscribe(response=>{
+        console.log(response);
       }, err=>{
+        console.log(err);
         alert("Request cancel failed")
       })
   }

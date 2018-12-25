@@ -1,4 +1,6 @@
+import { AuthService } from './../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    if(this.authService.currentUser){
+      if(this.authService.currentUser.user.role === "student"){
+        this.router.navigate(['student']);
+      }else{
+        this.router.navigate(['tutor']);
+      }
+    }
   }
 
   loginView: string;
