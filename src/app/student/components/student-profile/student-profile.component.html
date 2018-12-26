@@ -1,0 +1,121 @@
+<div class="container p-4">
+  <div class="card testimonial-card">
+
+    <div class="card-up heavy-rain-gradient lighten-4" style="height:30px;"></div>
+
+    <div class="avatar mx-auto white p-3">
+      <img 
+      (click)="editProfilePicture()"
+      src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle hover" alt="woman avatar">
+    </div>
+
+    <div class="card-body">
+      <div style="text-align:center;">
+        <p>0711765356 | Physics</p>
+        <button type="button" mdbBtn class="special-color-dark relative waves-light btn-sm" (click)="basicModal.show()"
+          mdbWavesEffect>Edit Profile</button>
+
+      </div>
+    </div>
+    <div class="card-up heavy-rain-gradient lighten-4" style="height:30px;"></div>
+  </div>
+
+  <div class="container p-3">
+    <div class="card">
+      <h5 class="card-header h5">My Reqeuets</h5>
+      <div class="card-body">
+      <app-allrequests></app-allrequests>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ========================MODAL===================MODAL============================-->
+
+
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header mdb-color lighten-5">
+        <button type="button" class="close pull-right " aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Edit Profile</h4>
+      </div>
+      <div class="modal-body">
+
+
+        <form class="text-center border border-light p-5">
+
+          <p class="h4 mb-4">Edit Profile</p>
+
+
+          <div class="mb-4">
+            <img [src]="url" height="100"> <br />
+          </div>
+
+          <div class="input-group mb-4">
+            <div class="input-group-prepend">
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"
+                (change)="onSelectFile($event)">
+              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            </div>
+          </div>
+
+
+
+          <div class="form-row mb-4">
+            <div class="col">
+              <!-- First name -->
+              <input type="text" id="firstName" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+              <!-- Last name -->
+              <input type="text" id="lastName" class="form-control" placeholder="Last name">
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-4">
+            <input type="password" id="password" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+          </div>
+
+          <!-- confirm-password -->
+          <div class="mb-4">
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password"
+              aria-describedby="defaultRegisterFormPasswordHelpBlock">
+          </div>
+
+
+
+          <!-- Phone number -->
+          <input type="text" id="mobileNumber" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+
+        </form>
+        <!-- Default form register -->
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn class="special-color-dark btn-sm" aria-label="Close" (click)="basicModal.hide()"
+          mdbWavesEffect>Close</button>
+        <button type="button" mdbBtn class="mdb-color darken-3 btn-sm" mdbWavesEffect>Save</button>
+      </div>
+    </div>
+  </div>
+</div>

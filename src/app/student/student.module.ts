@@ -23,6 +23,7 @@ import { AchievementComponent } from './components/tutor-profile/achievement/ach
 import { AllrequestsComponent } from './components/student-dashboard/allrequests/allrequests.component';
 import { RatingComponent } from './components/tutor-profile/rating/rating.component';
 import { ReviewComponent } from './components/tutor-profile/review/review.component';
+import { StudentProfileComponent } from './components/student-profile/student-profile.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,7 @@ import { ReviewComponent } from './components/tutor-profile/review/review.compon
     ReactiveFormsModule,
     FloatingActionMenuModule,
     NgbModule,
-    BarRatingModule
+    BarRatingModule,
   ],
   declarations: [
     StudentDashboardComponent, 
@@ -49,6 +50,7 @@ import { ReviewComponent } from './components/tutor-profile/review/review.compon
     AllrequestsComponent,
     RatingComponent,
     ReviewComponent,
+    StudentProfileComponent,
   ],
   exports: [
     StudentDashboardComponent, 

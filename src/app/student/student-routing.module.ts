@@ -4,6 +4,7 @@ import { StudentDashboardComponent } from './components/student-dashboard/studen
 import { TutorProfileComponent } from './components/tutor-profile/tutor-profile.component';
 import { TeacherCardListComponent } from './components/student-dashboard/teacher-card-list/teacher-card-list.component';
 import { AllrequestsComponent } from './components/student-dashboard/allrequests/allrequests.component';
+import { StudentProfileComponent } from './components/student-profile/student-profile.component';
 
 const routes: Routes = [
   {
@@ -12,12 +13,16 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: "teachers"},
       {path: "teachers", component: TeacherCardListComponent},
-      {path: "allrequests", component: AllrequestsComponent}
+      {path: "allrequests", component: AllrequestsComponent},
     ]
   },
   {
     path: 'teachers/:id',
     component: TutorProfileComponent
+  },
+  {
+    path: 'profile',
+    component: StudentProfileComponent
   }
 ];
 

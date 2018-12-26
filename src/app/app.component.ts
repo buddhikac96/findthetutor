@@ -10,6 +10,8 @@ export class AppComponent implements OnInit{
   title = 'app';
   isLogged: boolean = false;
 
+  private onlineOffline: boolean = navigator.onLine;
+
   constructor(private auth: AuthService){
     if(localStorage.getItem('token')){
       this.isLogged = true;
@@ -20,5 +22,6 @@ export class AppComponent implements OnInit{
     if(localStorage.getItem('token')){
       this.isLogged = true;
     }
+    console.log(this.onlineOffline);
   }
 }

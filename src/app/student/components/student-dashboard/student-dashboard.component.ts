@@ -29,21 +29,20 @@ export class StudentDashboardComponent implements OnInit {
   buttons: Array<FloatingActionButton> = [
     {
       iconClass: 'fa fa-android',
-      onClick: function(){
-        console.log("button pressed");
-       // this.router.navigate(['allrequests']);
+      onClick: ()=>{
+        this.router.navigate(['student/allrequests']);
       }
     },
     {
       iconClass: 'fa fa-address-book',
-      onClick: function(){
-        this.router.navigate(['allrequests']);
+      onClick: ()=>{
+        this.router.navigate(['student/teachers']);
       }
     },
     {
       iconClass: 'fa fa-cab',
-      onClick: function(){
- 
+      onClick: ()=>{
+        this.router.navigate(['student/profile']);
       }
     },
   ];
@@ -90,9 +89,7 @@ export class StudentDashboardComponent implements OnInit {
     'click',
     'hover'
   ];
- 
- 
- 
+
   
 }
 
