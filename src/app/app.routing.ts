@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/shared/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -12,53 +13,56 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 export const routes: Routes = [
-   {
-       path: '',
-       component: HomeComponent
-   },
-   {
-       path: 'login',
-       component: LoginComponent,
-   },
-   {
-       path: 'register',
-       component: RegisterComponent
-   },
-   {
-       path: 'loginStudent',
-       component: LoginStudentComponent
-   },
-   {
-       path: 'loginTutor',
-       component: LoginTutorComponent
-   },
-   {
-       path: 'registerTutor',
-       component: RegisterTutorComponent
-   },
-   {
-       path: 'registerStudent',
-       component: RegisterStudentComponent
-   },
-   {
-       path: 'tutor',
-       loadChildren: './tutor/tutor.module#TutorModule'
-   },
-   {
-       path: 'student',
-       loadChildren: './student/student.module#StudentModule'
-   }
-   
-   
-];
+    {
+        path: '',
+        component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
+    },
+    {
+        path: 'loginStudent',
+        component: LoginStudentComponent
+    },
+    {
+        path: 'loginTutor',
+        component: LoginTutorComponent
+    },
+    {
+        path: 'registerTutor',
+        component: RegisterTutorComponent
+    },
+    {
+        path: 'registerStudent',
+        component: RegisterStudentComponent
+    },
+    {
+        path: 'tutor',
+        loadChildren: './tutor/tutor.module#TutorModule'
+    },
+    {
+        path: 'student',
+        loadChildren: './student/student.module#StudentModule'
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
+    }
+
+];  
 
 @NgModule({
     imports: [
-      CommonModule,
-      BrowserModule,
-      RouterModule.forRoot(routes)
+        CommonModule,
+        BrowserModule,
+        RouterModule.forRoot(routes)
     ],
     exports: [
     ],
-  })
-  export class AppRoutingModule { }
+})
+export class AppRoutingModule { }

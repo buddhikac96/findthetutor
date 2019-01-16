@@ -1,28 +1,35 @@
+import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TutorRoutingModule } from './tutor-routing.module';
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { TutorEditProfileComponent } from './components/tutor-edit-profile/tutor-edit-profile.component';
-import { TutorHomeComponent } from './components/tutor-home/tutor-home.component';
 import { TutorService } from './shared/services/tutor-service.service';
 import { CommonService } from '../shared/services/common.service';
+import { RequestsComponent } from './components/tutor-dashboard/requests/requests.component';
+import { StatsComponent } from './components/tutor-dashboard/stats/stats.component';
+import { TutorProfileComponent } from './components/profile/profile.component';
+import { TutorProfileEditComponent } from './components/profile/edit/edit.component';
 
 @NgModule({
   imports: [
     CommonModule,
     TutorRoutingModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    FloatingActionMenuModule,
   ],
   declarations: [
     TutorDashboardComponent,
-    TutorEditProfileComponent,
-    TutorHomeComponent,
+    RequestsComponent,
+    StatsComponent,
+    TutorProfileComponent,
+    TutorProfileEditComponent,
   ],
   exports: [
     TutorDashboardComponent,
-    TutorEditProfileComponent
+    TutorProfileComponent,
+    TutorProfileEditComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [

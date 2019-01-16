@@ -1,31 +1,31 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
-import { TutorEditProfileComponent } from './components/tutor-edit-profile/tutor-edit-profile.component';
-import { TutorHomeComponent } from './components/tutor-home/tutor-home.component';
+import { TutorProfileEditComponent } from './components/profile/edit/edit.component';
+import { TutorProfileComponent } from './components/profile/profile.component';
+import { StatsComponent } from './components/tutor-dashboard/stats/stats.component';
+import { RequestsComponent } from './components/tutor-dashboard/requests/requests.component';
+
+
 
 const routes: Routes = [
   {
     path: '',
-    component: TutorHomeComponent,
+    component: TutorDashboardComponent,
     children: [
-      {path: 'dashboard', component: TutorDashboardComponent},
-      {path: 'edit-profile',component: TutorEditProfileComponent},
+      {path:'', redirectTo: 'stat'},
+      {path: 'stat',component: StatsComponent},
+      {path: 'requests',component:RequestsComponent},
+    ]
+  },
+  {
+    path: 'profile',
+    component: TutorProfileComponent,
+    children: [
+      {path: 'edit', component: TutorProfileEditComponent}
     ]
   }
-  // },
-  // {
-  //   path: 'profile',
-  //   component: TutorProfileComponent,
-  // },
-  // {
-  //   path: 'edit-profile',
-  //   component: TutorEditProfileComponent
-  // },
-  // {
-  //   path: 'dashboard',
-  //   component: TutorDashboardComponent
-  // }
 ];
 
 @NgModule({

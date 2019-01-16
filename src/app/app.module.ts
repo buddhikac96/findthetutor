@@ -22,6 +22,8 @@ import { RegisterService } from './shared/services/register.service';
 import { StudentService } from './student/shared/services/student.service';
 import { TutorService } from './tutor/shared/services/tutor-service.service';
 import { BarRatingModule } from "ngx-bar-rating";
+import { BlockUIModule } from 'ng-block-ui';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { BarRatingModule } from "ngx-bar-rating";
     LoginStudentComponent,
     RegisterTutorComponent,
     RegisterStudentComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { BarRatingModule } from "ngx-bar-rating";
     AppRoutingModule,
     ReactiveFormsModule,
     HttpModule,
-    BarRatingModule
+    BarRatingModule,
+    BlockUIModule.forRoot()
   ],
   providers: [
     AuthService,
