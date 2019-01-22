@@ -12,4 +12,8 @@ export class StatsComponent implements OnInit {
   ngOnInit() {
   }
 
+  requestClick(){
+    console.log("requests");
+  }
+
 }

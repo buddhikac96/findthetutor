@@ -11,6 +11,8 @@ import { RequestsComponent } from './components/tutor-dashboard/requests/request
 import { StatsComponent } from './components/tutor-dashboard/stats/stats.component';
 import { TutorProfileComponent } from './components/profile/profile.component';
 import { TutorProfileEditComponent } from './components/profile/edit/edit.component';
+import { DistrictChartComponent } from './components/tutor-dashboard/stats/district-chart/district-chart.component';
+import { SubjectChartComponent } from './components/tutor-dashboard/stats/subject-chart/subject-chart.component';
 
 @NgModule({
   imports: [
@@ -25,6 +27,8 @@ import { TutorProfileEditComponent } from './components/profile/edit/edit.compon
     StatsComponent,
     TutorProfileComponent,
     TutorProfileEditComponent,
+    DistrictChartComponent,
+    SubjectChartComponent,
   ],
   exports: [
     TutorDashboardComponent,
