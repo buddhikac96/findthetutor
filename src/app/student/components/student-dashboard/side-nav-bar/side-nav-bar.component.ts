@@ -1,3 +1,4 @@
+import { StudentService } from './../../../shared/services/student.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private studentService: StudentService
+  ) { }
 
   ngOnInit() {
   }
+
+  pMin = 0;
+  pMax = 9999999;
+  time = "all";
+
+  filter(){
+    this.studentService.filterTeachers();
+  }
+
 
 }

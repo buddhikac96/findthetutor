@@ -6,4 +6,11 @@ export class TeacherCard{
     location: String;
     rating: String;
     imgUrl: String;
+    price: number;
+    time: String;
+}
+
+export class Price{
+    min: 0;
+    max: 999999999;
 }

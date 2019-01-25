@@ -13,6 +13,7 @@ import { TutorProfileComponent } from './components/profile/profile.component';
 import { TutorProfileEditComponent } from './components/profile/edit/edit.component';
 import { DistrictChartComponent } from './components/tutor-dashboard/stats/district-chart/district-chart.component';
 import { SubjectChartComponent } from './components/tutor-dashboard/stats/subject-chart/subject-chart.component';
+import { ReviewComponent } from './components/profile/review/review.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { SubjectChartComponent } from './components/tutor-dashboard/stats/subjec
     TutorProfileEditComponent,
     DistrictChartComponent,
     SubjectChartComponent,
+    ReviewComponent,
   ],
   exports: [
     TutorDashboardComponent,

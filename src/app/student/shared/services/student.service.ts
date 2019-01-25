@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Http } from '@angular/http';
-import { TeacherCard } from '../models/teacher-card.model';
+import { TeacherCard, Price } from '../models/teacher-card.model';
 import { TutorRequest } from 'src/app/shared/models/request.model';
 import { Subject, Observable } from 'rxjs';
 
@@ -15,7 +15,6 @@ export class StudentService {
 
     d:string = 'all';
     s:string = 'all';
-
 
     private subject = new Subject<any>();
 
@@ -42,6 +41,15 @@ export class StudentService {
             this.subject.next({ teachers: this.teacherList });
         })
     }
+
+    filterTeachers(){
+        /* for(var i=0; i<this.teacherList.length; i++){
+            if(this.teacherList[i].price < price.max && this.teacherList[i].price > price.min){
+
+            }
+        } */
+        this.subject.next({teachers: []});
+    }   
 
     getAllTeachers(){
         return this.http.post('https://guarded-beyond-19031.herokuapp.com/search', {'district': 'all', 'subject': 'all'});

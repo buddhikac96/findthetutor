@@ -1,3 +1,119 @@
-<p>
-  profile works!
-</p>
+<div class="p-3 container">
+  <div class="card testimonial-card">
+
+    <div class="card-up lighten-4 modal-header" style="height:80px;">
+      <h3 class="p-1">{{tutor.name}}</h3>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="avatar mx-auto white p-4">
+
+            <div class="view overlay" (click)="frame.show()">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" 
+                class="rounded-circle hoverable"
+                alt="woman avatar"
+                height="200" width="200">
+              <div class="mask flex-center rgba-black-light rounded-circle" style="height:200px; width:200px;">
+                <p class="white-text">Update Profile Picture</p>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+        <div class="col-md-6">
+          <ul style="list-style:none;" class="p-5">
+            <li><h5><i class="fa fa-phone mr-3"></i>  {{tutor.mobile}}  </h5> </li>
+            <li><h5><i class="fa fa-envelope mr-3"></i>  {{tutor.email}}  </h5> </li>
+            <li><h5><i class="fa fa-compass mr-3"></i>  {{tutor.location}}  </h5> </li>
+            <li><h5><i class="fa fa-book mr-3"></i>  {{tutor.subject}}  </h5> </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+      </div>
+    </div>
+
+    
+
+  </div>
+
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7 pr-2">
+        <div class="container border">
+            <app-review *ngFor="let item of reviews"
+            [studentName]="item.studentName"
+            [date]="item.date"
+            [content]="item.content"
+            [studentImgUrl]="item.studentImgUrl"
+            >
+          </app-review>
+        </div>
+          
+      </div>
+
+      <div class="col-md-5">
+        <div class="container border pt-3">
+          <app-tutor-profile-edit></app-tutor-profile-edit>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+    
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Update Profile Picture</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+
+        <div class="file-upload-wrapper">
+          <input type="file" id="input-file-now" class="file-upload" (change)="onSelectFile($event)" />
+        </div>
+
+        <div class="container p-1">
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <img [src]="url" height="150" width="150" class="rounded-circle" *ngIf="imageView">
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Save</button>
+      </div>
+    </div>
+  </div>
+</div>

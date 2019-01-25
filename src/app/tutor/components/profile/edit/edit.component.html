@@ -1,3 +1,131 @@
-<p>
-  edit works!
-</p>
+<div class="p-2">
+  <h5 class="grey-text"><b> Edit Profile </b> </h5>
+  <hr>
+
+  <div>
+    <div class="row">
+      <div class="col-md-3">Name</div>
+      <div class="col-md-9">
+        <input type="text" id="name" class="borderless" placeholder="Buddhika Chathuranga">
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-3">Mobile</div>
+      <div class="col-md-9">
+        <input type="text" id="name" class="borderless" placeholder="071176536">
+      </div>
+    </div>
+
+
+    <div class="row mt-2">
+      <div class="col-md-3">Price</div>
+      <div class="col-md-9">
+        <input type="text" id="name" class="borderless" placeholder="Rs.5000.00">
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-3">Time</div>
+      <div class="col-md-9">
+
+
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="day">
+          <label class="custom-control-label" for="day">Day</label>
+        </div>
+
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="night">
+          <label class="custom-control-label" for="night">Night</label>
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- add location -->
+    <div class="row pt-2 mt-4">
+      <div class="col-md-3 pt-2">Location</div>
+      <div class="col-md-9">
+
+        <div class="btn-group" mdbDropdown>
+          <button type="button" mdbBtn color="blue-grey" class="waves-light" outline="true" mdbWavesEffect class="btn-sm">Location</button>
+          <button type="button" mdbDropdownToggle mdbBtn color="blue-grey" class="dropdown-toggle dropdown-toggle-split px-3 waves-light btn-sm"
+            mdbWavesEffect></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" *ngFor="let item of districts" (click)="addLocation(item)">{{item}}</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <!-- location list -->
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-9">
+        <ul class="list-group mt-2 mb-2 pl-3">
+          <li style="list-style:none;" *ngFor="let item of selectedDistricts"><small> {{item}} </small>
+            <i class="fa fa-times red-text" (click)="removeLocation(item)"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- add subject -->
+    <div class="row pt-2">
+      <div class="col-md-3 pt-2">Subjects</div>
+      <div class="col-md-9">
+
+        <div class="btn-group" mdbDropdown>
+          <button type="button" mdbBtn color="blue-grey" class="waves-light" outline="true" mdbWavesEffect class="btn-sm">Subject</button>
+          <button type="button" mdbDropdownToggle mdbBtn color="blue-grey" class="dropdown-toggle dropdown-toggle-split px-3 waves-light btn-sm"
+            mdbWavesEffect></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" *ngFor="let item of subjects" (click)="addSubject(item)">{{item}}</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- subject list -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <ul class="list-group mt-2 pl-3">
+        <li style="list-style:none;" *ngFor="let item of selectedSubjects"> <small> {{item}} </small>
+          <i class="fa fa-times red-text" (click)="removeSubject(item)"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button class="btn btn-sm btn-success d-flex">Save</button>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+</div>
