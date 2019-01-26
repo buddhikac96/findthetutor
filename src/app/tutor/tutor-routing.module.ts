@@ -6,6 +6,9 @@ import { TutorProfileEditComponent } from './components/profile/edit/edit.compon
 import { TutorProfileComponent } from './components/profile/profile.component';
 import { StatsComponent } from './components/tutor-dashboard/stats/stats.component';
 import { RequestsComponent } from './components/tutor-dashboard/requests/requests.component';
+import { ForumComponent } from './components/tutor-dashboard/forum/forum.component';
+import { MystudentsComponent } from './components/tutor-dashboard/mystudents/mystudents.component';
+import { AchievementsComponent } from './components/tutor-dashboard/achievements/achievements.component';
 
 
 
@@ -14,9 +17,13 @@ const routes: Routes = [
     path: '',
     component: TutorDashboardComponent,
     children: [
-      {path:'', redirectTo: 'stat'},
-      {path: 'stat',component: StatsComponent},
+      {path:'', redirectTo: 'profile'},
       {path: 'requests',component:RequestsComponent},
+      {path: 'achievements',component:AchievementsComponent},
+      {path: 'profile',component:TutorProfileComponent},
+      {path: 'learn',component:StatsComponent},
+      {path: 'forum',component:ForumComponent},
+      {path: 'boost',component:ForumComponent},
     ]
   },
   {

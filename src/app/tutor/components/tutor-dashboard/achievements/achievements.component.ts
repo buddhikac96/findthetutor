@@ -1,25 +1,24 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FloatingActionButton } from 'ng2-floating-action-menu';
 
 
 @Component({
-  selector: 'app-tutor-dashboard',
-  templateUrl: './tutor-dashboard.component.html',
-  styleUrls: ['./tutor-dashboard.component.scss']
+  selector: 'app-achievements',
+  templateUrl: './achievements.component.html',
+  styleUrls: ['./achievements.component.scss']
 })
-export class TutorDashboardComponent implements OnInit {
+export class AchievementsComponent implements OnInit {
 
   constructor(
-    private router: Router
   ) {
     this.config = {
       placment: 'br',
       effect: 'mfb-slidein',
-      iconClass: 'fa fa-comment',
-      activeIconClass: 'fa fa-comment',
+      iconClass: 'fa fa-plus',
+      activeIconClass: 'fa fa-plus',
       toggle: 'hover',
-      buttons: this.buttons
+      buttons: this.buttons,
+      label: "Add Achievement"
     };
   }
 
@@ -28,26 +27,9 @@ export class TutorDashboardComponent implements OnInit {
 
   config;
   buttons: Array<FloatingActionButton> = [
-    {
-      iconClass: 'fa fa-android',
-      onClick: ()=>{
-        //this.router.navigate(['student/allrequests']);
-      }
-    },
-    {
-      iconClass: 'fa fa-address-book',
-      onClick: ()=>{
-        //this.router.navigate(['student/teachers']);
-      }
-    },
-    {
-      iconClass: 'fa fa-cab',
-      onClick: ()=>{
-        //this.router.navigate(['student/profile']);
-      }
-    },
+
   ];
- 
+
   placements = [
     {
       value: 'br',
@@ -66,7 +48,7 @@ export class TutorDashboardComponent implements OnInit {
       key: 'top left'
     },
   ];
- 
+
   effects = [
     {
       value: 'mfb-zoomin',
@@ -85,17 +67,24 @@ export class TutorDashboardComponent implements OnInit {
       key: 'Slide In (Spring)'
     }
   ];
- 
+
   toggles = [
     'click',
     'hover'
   ];
 
+  url = "";
+  imageView = false;
 
-  toggleTab(tab){
-    console.log(tab);
-    this.router.navigate(['tutor/'+tab]);
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.url = event.target['result'];
+      }
+      this.imageView = true;
+    }
   }
-
 
 }

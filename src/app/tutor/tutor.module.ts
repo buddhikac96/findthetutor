@@ -14,6 +14,11 @@ import { TutorProfileEditComponent } from './components/profile/edit/edit.compon
 import { DistrictChartComponent } from './components/tutor-dashboard/stats/district-chart/district-chart.component';
 import { SubjectChartComponent } from './components/tutor-dashboard/stats/subject-chart/subject-chart.component';
 import { ReviewComponent } from './components/profile/review/review.component';
+import { AchievementsComponent } from './components/tutor-dashboard/achievements/achievements.component';
+import { AchieveComponent } from './components/tutor-dashboard/achievements/achieve/achieve.component';
+import { MystudentsComponent } from './components/tutor-dashboard/mystudents/mystudents.component';
+import { ForumComponent } from './components/tutor-dashboard/forum/forum.component';
+import { RequestComponent } from './components/tutor-dashboard/requests/request/request.component';
 
 @NgModule({
   imports: [
@@ -31,6 +36,11 @@ import { ReviewComponent } from './components/profile/review/review.component';
     DistrictChartComponent,
     SubjectChartComponent,
     ReviewComponent,
+    AchievementsComponent,
+    AchieveComponent,
+    MystudentsComponent,
+    ForumComponent,
+    RequestComponent,
   ],
   exports: [
     TutorDashboardComponent,

@@ -1,0 +1,92 @@
+<h2> <strong>Achievements</strong> </h2>
+
+
+<hr>
+
+<div (click)="frame.show()">
+    <ng2-floating-action-menu [placement]="config.placment" [effect]="config.effect" [label]="config.label" [iconClass]="config.iconClass"
+        [activeIconClass]="config.activeIconClass" [toggle]="config.toggle" [buttons]="buttons">
+    </ng2-floating-action-menu>
+
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <app-achieve></app-achieve>
+    </div>
+    <div class="col">
+        <app-achieve></app-achieve>
+    </div>
+    <div class="col">
+        <app-achieve></app-achieve>
+    </div>
+</div>
+<p></p>
+<div class="row">
+    <div class="col">
+        <app-achieve></app-achieve>
+    </div>
+    <div class="col">
+        <app-achieve></app-achieve>
+    </div>
+    <div class="col">
+    </div>
+</div>
+
+
+
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Add new Achievement</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+
+                <div class="container p-1">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <img [src]="url" height="150" width="150" class="rounded-circle" *ngIf="imageView">
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>  
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"
+                            (change)="onSelectFile($event)">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+
+                <div class="md-form mb-5">
+                    <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control validate"
+                        mdbInputDirective>
+                    <label data-error="wrong" data-success="right" for="defaultForm-email">Student Name</label>
+                </div>
+
+                <div class="form-group purple-border">
+                    <label for="exampleFormControlTextarea4" class="grey-text"> Content </label>
+                    <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Add</button>
+            </div>
+        </div>
+    </div>
+</div>

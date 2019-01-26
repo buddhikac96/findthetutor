@@ -1,4 +1,4 @@
-<ng2-floating-action-menu
+<!-- <ng2-floating-action-menu
      [placement]="config.placment"
      [effect]="config.effect"
      [label]="config.label"
@@ -7,7 +7,48 @@
      [toggle]="config.toggle"
      [buttons]="buttons">
 </ng2-floating-action-menu>
+ -->
+<div class="container mt-4">
+     <div class="row border pt-2 pb-2">
+         <div class="col">
+             <button class="btn btn-info btn-block"
+             (click)="toggleTab('profile')"
+             >Profile</button>
+         </div>
+         <div class="col">
+             <button class="btn btn-info btn-block"
+                (click)="toggleTab('requests')"
+             >Requests</button>
+         </div>
+         <div class="col">
+             <button class="btn btn-info btn-block"
+             (click)="toggleTab('achievements')"
+             >Achievemnets</button>
+         </div>
+         <div class="col">
+             <button class="btn btn-info btn-block"
+             (click)="toggleTab('forum')"
+             >Chat</button>
+         </div>
+         <div class="col">
+             <button class="btn btn-info btn-block"
+             (click)="toggleTab('learn')"
+             >Learn</button>
+         </div>
+         <div class="col">
+             <button class="btn btn-info btn-block"
+             (click)="toggleTab('boost')"
+             >Boost</button>
+         </div>
+     </div>
+ </div>
+
 
 <div class="container p-3">
      <router-outlet></router-outlet>
 </div>
+
+ 
+ 
+ 
+ 
