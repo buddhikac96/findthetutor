@@ -5,5 +5,6 @@
     <app-request
         *ngFor="let item of requests"
         [requestObject]="item"
+        (react)="removeRequest(reqObj)"
     ></app-request>
 </div>

@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class AchieveComponent implements OnInit {
 
-  
+
 
   @Input() name;
   @Input() content;
@@ -18,7 +18,7 @@ export class AchieveComponent implements OnInit {
   @Input() item;
   @Input() hideStatus;
 
-  hide = this.hideStatus == 0? false:true;
+  hide = this.hideStatus == 0 ? false : true;
 
   @Output()
   delete = new EventEmitter<Object>();
@@ -34,28 +34,29 @@ export class AchieveComponent implements OnInit {
   ngOnInit() {
   }
 
-  
-  hideAch(){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-  
-    let p = this.hideStatus==1? 0 : 1;
+
+  hideAch() {
+
+    let p = this.hideStatus == 1 ? 0 : 1;
 
     this.hide = !this.hide;
 
-    this.tutorService.hideAchievement({'id':this.id, 'hide':p})
-    .subscribe(res=>{
-      console.log(res.json());
-    }) 
-  }
-
-  deleteAch(){
-    this.tutorService.deleteAchievement({'id':this.id, 'tutor':this.tutor})
-      .subscribe(res=>{
+    this.tutorService.hideAchievement({ 'id': this.id, 'hide': p })
+      .subscribe(res => {
         console.log(res.json());
       })
-    this.deleteComplete();
   }
 
-  editAch(){
+  deleteAch() {
+    this.tutorService.deleteAchievement({ 'id': this.id, 'tutor': this.tutor })
+      .subscribe(res => {
+        console.log(res.json());
+        this.deleteComplete();
+      })
+
+  }
+
+  editAch() {
     //edit achievement
   }
 

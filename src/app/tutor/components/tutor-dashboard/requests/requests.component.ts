@@ -25,5 +25,9 @@ export class RequestsComponent implements OnInit {
       })
   }
 
+  removeRequest(reqObj){
+    this.requests.splice(this.requests.indexOf(reqObj), 1);
+  }
+
 
 }

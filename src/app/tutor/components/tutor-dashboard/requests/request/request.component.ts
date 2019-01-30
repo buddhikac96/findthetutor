@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TutorService } from 'src/app/tutor/shared/services/tutor-service.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class RequestComponent implements OnInit {
       .subscribe(res => {
         console.log(res.json());
         alert("Requests accepted")
+        this.deleteComplete();
       });
     this.reacted = true;
   }
@@ -34,9 +35,18 @@ export class RequestComponent implements OnInit {
     this.tutorService.rejectRequests(this.requestObject.id)
       .subscribe(res => {
         console.log(res.json());
-        alert("Requests rejected")
+        alert("Requests rejected");
+        this.deleteComplete();
       });
     this.reacted = true;
+  }
+
+
+  @Output()
+  react = new EventEmitter<Object>();
+
+  deleteComplete() {
+    this.react.emit(this.requestObject);
   }
 
 
