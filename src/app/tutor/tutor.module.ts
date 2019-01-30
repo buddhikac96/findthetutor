@@ -1,6 +1,8 @@
+import { NgChatModule } from 'ng-chat';
 import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
 
 import { TutorRoutingModule } from './tutor-routing.module';
 import { TutorDashboardComponent } from './components/tutor-dashboard/tutor-dashboard.component';
@@ -26,6 +28,9 @@ import { RequestComponent } from './components/tutor-dashboard/requests/request/
     TutorRoutingModule,
     MDBBootstrapModule,
     FloatingActionMenuModule,
+    NgChatModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     TutorDashboardComponent,

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgChatModule } from 'ng-chat';
 
 import { AppComponent } from './app.component';
 
@@ -48,7 +49,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ReactiveFormsModule,
     HttpModule,
     BarRatingModule,
-    BlockUIModule.forRoot()
+    BlockUIModule.forRoot(),
+    NgChatModule
   ],
   providers: [
     AuthService,

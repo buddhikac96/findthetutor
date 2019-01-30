@@ -12,27 +12,20 @@
 
 
 <div class="row">
-    <div class="col">
-        <app-achieve></app-achieve>
-    </div>
-    <div class="col">
-        <app-achieve></app-achieve>
-    </div>
-    <div class="col">
-        <app-achieve></app-achieve>
-    </div>
-</div>
-<p></p>
-<div class="row">
-    <div class="col">
-        <app-achieve></app-achieve>
-    </div>
-    <div class="col">
-        <app-achieve></app-achieve>
-    </div>
-    <div class="col">
+    <div class="col-md-4" *ngFor="let item of achievements">
+        <app-achieve 
+            [name]="item.name"
+            [content]="item.description"
+            [img]="img"
+            [id]="item.id"
+            [tutor]="cur_user"
+            [hideStatus]="item.hide"
+            (delete)="deleteAck(item)"
+    ></app-achieve>
+    <p></p><p></p>
     </div>
 </div>
+
 
 
 
@@ -57,7 +50,7 @@
                         </div>
                         <div class="col-md-4"></div>
                     </div>
-                </div>  
+                </div>
 
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -70,23 +63,34 @@
                     </div>
                 </div>
 
-                <div class="md-form mb-5">
-                    <input type="email" id="defaultForm-email" [formControl]="loginFormModalEmail" class="form-control validate"
-                        mdbInputDirective>
-                    <label data-error="wrong" data-success="right" for="defaultForm-email">Student Name</label>
-                </div>
+                <form [formGroup]="achievementForm" (ngSubmit)="addAchievement(achievementForm)">
 
-                <div class="form-group purple-border">
-                    <label for="exampleFormControlTextarea4" class="grey-text"> Content </label>
-                    <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
-                </div>
+                    <div class="md-form mb-5">
+                        <input type="text" class="form-control validate" formControlName="name" name="studentName"
+                            mdbInputDirective>
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Student Name</label>
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <input type="text" class="form-control validate" formControlName="title" name="studentName"
+                            mdbInputDirective>
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Title</label>
+                    </div>
+
+                    <div class="form-group purple-border">
+                        <label for="exampleFormControlTextarea4" class="grey-text"> Content </label>
+                        <textarea class="form-control" rows="3" formControlName="content" name="content"></textarea>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+
+                        <button type="submit" color="default" class="relative waves-light btn btn-default" (click)="frame.hide()">Send</button>
+                    </div>
+                </form>
 
 
 
             </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Add</button>
-            </div>
+
         </div>
     </div>
 </div>

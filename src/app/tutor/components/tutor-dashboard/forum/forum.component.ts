@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatAdapter } from 'ng-chat';
 
 @Component({
   selector: 'app-forum',
@@ -11,5 +12,10 @@ export class ForumComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  title = 'app';
+  userId = 999;
+
+  // public adapter: ChatAdapter = new MyAdapter();
 
 }

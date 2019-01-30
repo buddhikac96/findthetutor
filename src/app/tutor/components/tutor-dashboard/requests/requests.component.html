@@ -2,8 +2,8 @@
 <hr>
 
 <div>
-    <app-request></app-request>
-    <app-request></app-request>
-    <app-request></app-request>
-    <app-request></app-request>
+    <app-request
+        *ngFor="let item of requests"
+        [requestObject]="item"
+    ></app-request>
 </div>

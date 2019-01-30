@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestsComponent implements OnInit {
 
+  requests = []
+
   constructor(
     private tutorService: TutorService,
     private authService: AuthService
@@ -16,15 +18,12 @@ export class RequestsComponent implements OnInit {
 
   ngOnInit() {
     let email = this.authService.currentUser.user.email;
-    console.log(email);
-    console.log("requests");
     this.tutorService.getAllRequests(email)
       .subscribe(res=>{
-        console.log(res.json());
-        console.log("requests");
+        this.requests = res.json().request;
+        console.log(res.json().request);
       })
   }
 
-  requests = []
 
 }

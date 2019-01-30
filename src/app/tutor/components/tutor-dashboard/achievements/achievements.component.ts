@@ -1,3 +1,6 @@
+import { AuthService } from './../../../../shared/services/auth.service';
+import { TutorService } from './../../../shared/services/tutor-service.service';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { FloatingActionButton } from 'ng2-floating-action-menu';
 
@@ -9,7 +12,25 @@ import { FloatingActionButton } from 'ng2-floating-action-menu';
 })
 export class AchievementsComponent implements OnInit {
 
+  achievements = [];
+  achievementForm;
+  url = "";
+  imageView = false;
+  img = "https://i.kinja-img.com/gawker-media/image/upload/s--_DBGLHVf--/c_scale,f_auto,fl_progressive,q_80,w_800/eibgv7kctah62iddzywm.jpg"
+
+  cur_user = this.auth.currentUser.user.email;
+
+  achievement = {
+    'tutor': this.auth.currentUser.user.email,
+    'name': "",
+    'title':"",
+    'description': ""
+  }
+
   constructor(
+    private fb: FormBuilder,
+    private tutorService: TutorService,
+    private auth: AuthService
   ) {
     this.config = {
       placment: 'br',
@@ -20,10 +41,68 @@ export class AchievementsComponent implements OnInit {
       buttons: this.buttons,
       label: "Add Achievement"
     };
+
+    this.achievementForm = fb.group({
+      name: ['', Validators.required],
+      title: ['', Validators.required],
+      content: ['', Validators.required]
+    });
   }
 
   ngOnInit() {
+    let email = this.auth.currentUser.user.email;
+    this.tutorService.getAchievements(email)
+      .subscribe(res=>{
+        console.log(res.json().achievements);
+        this.achievements = res.json().achievements;
+        console.log(this.achievements);
+      })
   }
+
+
+
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.url = event.target['result'];
+      }
+      this.imageView = true;
+    }
+  }
+
+
+  addAchievement(form) {
+    this.achievement.name = form.value.name;
+    this.achievement.description = form.value.content;
+    this.achievement.title = form.value.title;
+    console.log(this.achievement);
+    this.tutorService.addAchievement(this.achievement)
+      .subscribe(res=>{
+        console.log(res.json());
+        this.uploadAchievementImg(res.json().id);
+        this.achievements = res.json().achievements;
+      });
+      this.achievementForm.reset();
+  }
+
+  uploadAchievementImg(id){
+    //upload img of achivement
+  }
+
+  deleteAck(item){
+    console.log("delte");
+    console.log(item);
+    this.achievements.splice(this.achievements.indexOf(item), 1);
+  }
+
+
+
+
+
+
+  // ============ FAB config ============
 
   config;
   buttons: Array<FloatingActionButton> = [
@@ -72,19 +151,5 @@ export class AchievementsComponent implements OnInit {
     'click',
     'hover'
   ];
-
-  url = "";
-  imageView = false;
-
-  onSelectFile(event) {
-    if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload = (event) => {
-        this.url = event.target['result'];
-      }
-      this.imageView = true;
-    }
-  }
 
 }
