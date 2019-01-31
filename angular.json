@@ -51,6 +51,9 @@
               },
               {
                 "input": "node_modules/hammerjs/hammer.min.js"
+              },
+              {
+                "input":"../node_modules/pusher-js/dist/web/pusher.min.js"
               }
             ]
           },

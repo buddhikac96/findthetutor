@@ -7,12 +7,12 @@ interface Message {
 }
 
 @Component({
-  selector: 'app-forum',
-  templateUrl: './forum.component.html',
-  styleUrls: ['./forum.component.scss']
+  selector: 'app-message',
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.scss']
 })
-export class ForumComponent implements OnInit {
-
+export class MessageComponent implements OnInit {
+  
   messages: Array<Message>;
   constructor(
     private pusherService: PusherService

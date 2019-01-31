@@ -1,1 +1,12 @@
-<ng-chat [adapter]="adapter" [userId]="userId"></ng-chat>
+<div *ngFor="let message of messages">
+        <b>{{ message.user }}</b>: {{ message.text }}
+      </div>
+    
+    
+      <label for="userName">Username</label>
+    <input type="text" id="userName" [(ngModel)]="userName">
+    
+    <label for="message">Message</label>
+    <input type="text" id="message" [(ngModel)]="messageText">
+    
+    <button (click)="sendMessage(userName, messageText)">Send</button>

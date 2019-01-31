@@ -27,6 +27,8 @@ import { BlockUIModule } from 'ng-block-ui';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { PusherService } from './shared/services/pusher.service';
+import { MessageComponent } from './components/shared/message/message.component';
 
 
 
@@ -44,6 +46,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     PageNotFoundComponent,
     SpinnerComponent,
     FooterComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,12 +65,14 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     AuthService,
     RegisterService,
     StudentService,
-    TutorService
+    TutorService,
+    PusherService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports:[
-    SpinnerComponent
+    SpinnerComponent,
+    MessageComponent
   ]
 })
 export class AppModule { }
