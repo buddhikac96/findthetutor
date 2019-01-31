@@ -2,6 +2,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { TutorPrfile } from './../../../shared/models/tutor-profile.model';
 import { TutorService } from './../../shared/services/tutor-service.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -25,13 +26,6 @@ export class TutorProfileComponent implements OnInit {
     imgUrl: "",
     fname: "",
     lname: ""
-  }
-
-  review = {
-    date: "",
-    studentName: "",
-    content: "",
-    studentImgUrl: "",
   }
 
   reviews = []
@@ -60,25 +54,17 @@ export class TutorProfileComponent implements OnInit {
         this.tutor.lname = user.lastName;
 
         this.reviews = res.json().reviews;
+        console.log(res.json().reviews);
       })
   }
 
-  img: File = null;
+  img: File;
 
   updateImage() {
     if (this.img === null) {
       console.log("null image");
       return
     }
-
-    (this.img !== undefined || this.img !== null)
-    let formData: FormData = new FormData();
-    formData.append('image', this.img, this.img.name);
-
-    // let headers = new Headers();
-    // headers.append('Content-Type', 'multipart/form-data');
-    // headers.append('Accept', 'application/json');
-    // let options = new RequestOptions({ headers: headers });
 
     console.log("update image");
     console.log(this.img);
@@ -88,6 +74,7 @@ export class TutorProfileComponent implements OnInit {
       'role': 'tutor',
       'email': this.authService.currentUser.user.email
     }
+
     this.tutorService.uploadImage(file)
       .subscribe(res => {
         console.log(res.json());

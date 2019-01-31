@@ -26,6 +26,7 @@ import { BarRatingModule } from "ngx-bar-rating";
 import { BlockUIModule } from 'ng-block-ui';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 
 
@@ -42,6 +43,7 @@ import { SpinnerComponent } from './components/shared/spinner/spinner.component'
     RegisterStudentComponent,
     PageNotFoundComponent,
     SpinnerComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

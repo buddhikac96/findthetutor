@@ -2,35 +2,20 @@
   <div class="border testimonial-card">
 
     <div class="card-up lighten-4 modal-header" style="height:80px;">
-      <h3 class="p-1">{{tutor.name}}</h3>
+      <strong> <b> <h3 class="p-1">{{tutor.name}}</h3> </b> </strong>
     </div>
 
     <div class="container">
-      <div class="row">
+      <div class="row d-flex justify-content-center">
         <div class="col-md-3">
           <div class="avatar mx-auto white p-4">
-
             <div class="view overlay" (click)="frame.show()">
-              <img [src]="tutor.imgUrl" 
-                class="rounded-circle hoverable"
-                height="170" width="170">
+              <img [src]="tutor.imgUrl" class="rounded-circle hoverable" height="170" width="170">
               <div class="mask flex-center rgba-black-light rounded-circle" style="height:170px; width:170px;">
                 <p class="white-text">Update Profile Picture</p>
               </div>
             </div>
-      
           </div>
-        </div>
-        <div class="col-md-6">
-          <ul style="list-style:none;" class="p-5">
-            <li><h5><i class="fa fa-phone mr-3"></i>  {{tutor.mobile}}  </h5> </li>
-            <li><h5><i class="fa fa-envelope mr-3"></i>  {{tutor.email}}  </h5> </li>
-            <li><h5><i class="fa fa-compass mr-3"></i>  {{tutor.location}}  </h5> </li>
-            <li><h5><i class="fa fa-book mr-3"></i>  {{tutor.subject}}  </h5> </li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-
         </div>
       </div>
     </div>
@@ -39,31 +24,22 @@
 
   <div class="container mt-5">
     <div class="row">
-      <div class="col-md-7 pr-2">
-        <div class="container border">
-            <app-review *ngFor="let item of reviews"
-            [studentName]="item.studentName"
-            [date]="item.date"
-            [content]="item.content"
-            [studentImgUrl]="item.studentImgUrl"
-            >
-          </app-review>
-          
+      <div class="col-md-7 pr-2" style="overflow-y: scroll; height:436.48px;">
+        <div class="container border p-4">
+            <h5 class="grey-text"><b> Edit Profile </b> </h5>
+            <hr>
+          <div *ngFor="let item of reviews">
+            <app-review [studentName]="item.student" [date]="item.date" [content]="item.content" [studentImgUrl]="item.image"></app-review>
+          </div>
+
         </div>
-          
+
       </div>
 
       <div class="col-md-5">
         <div class="container border pt-3">
-          <app-tutor-profile-edit
-           [fname]="tutor.fname"
-           [lname]="tutor.lname"
-           [mobile]="tutor.mobile"
-           [price]="tutor.price"
-           [location]="tutor.location"
-           [subject]="tutor.subject"
-           [available]="tutor.time"
-          ></app-tutor-profile-edit>
+          <app-tutor-profile-edit [fname]="tutor.fname" [lname]="tutor.lname" [mobile]="tutor.mobile" [price]="tutor.price"
+            [location]="tutor.location" [subject]="tutor.subject" [available]="tutor.time"></app-tutor-profile-edit>
         </div>
       </div>
     </div>
@@ -74,7 +50,7 @@
 
 
 
-  
+
 
 
 <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
