@@ -1,0 +1,62 @@
+<form [formGroup]="form" (ngSubmit)="updateProfile(form)">
+
+
+  <div class="p-2">
+    <h5 class="grey-text"><b> Edit Profile </b> </h5>
+    <hr>
+
+    <div>
+      <div class="row">
+        <div class="col-md-4">First Name</div>
+        <div class="col-md-8 ">
+          <input type="text" id="name" class="borderless" [placeholder]="fname" formControlName="fname">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">Last Name</div>
+        <div class="col-md-8">
+          <input type="text" id="name" class="borderless" [placeholder]="lname" formControlName="lname">
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-4">Mobile</div>
+        <div class="col-md-8">
+          <input type="text" id="name" class="borderless" [placeholder]="mobile" formControlName="mobile">
+        </div>
+      </div>
+
+
+      <div class="row mt-2">
+        <div class="col-md-4">Price</div>
+        <div class="col-md-8">
+          <input type="text" id="name" class="borderless" [placeholder]="price" formControlName="price">
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-4">Available</div>
+        <div class="col-md-8">
+          <input type="text" id="name" class="borderless" [placeholder]="available" formControlName="available">
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-4">Location</div>
+        <div class="col-md-8">
+          <input type="text" id="name" class="borderless" [placeholder]="location" formControlName="price">
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-4">Subject</div>
+        <div class="col-md-8">
+          <input type="text" id="name" class="borderless" [placeholder]="subject" formControlName="available">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

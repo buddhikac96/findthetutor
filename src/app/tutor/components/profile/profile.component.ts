@@ -2,7 +2,6 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { TutorPrfile } from './../../../shared/models/tutor-profile.model';
 import { TutorService } from './../../shared/services/tutor-service.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',

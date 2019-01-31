@@ -1,60 +1,50 @@
-<div class="container p-4">
-  <div class="card testimonial-card">
+<div class="p-3 container">
+  <div class="border testimonial-card">
 
-    <div class="card-up heavy-rain-gradient lighten-4" style="height:30px;"></div>
-
-    <div class="avatar mx-auto white p-3">
-      <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle" alt="woman avatar">
+    <div class="card-up lighten-4 modal-header" style="height:80px;">
+      <strong> <b>
+          <h3 class="p-1">{{tutor.name}}</h3>
+        </b> </strong>
     </div>
 
-    <div class="card-body">
-      <div style="text-align:center;">
-        <h4 class="card-title">{{tutorProfile.firstName + " " + tutorProfile.lastName}}</h4>
-        <p>0711765356 | {{tutorProfile.location}} | Physics</p>
-        <app-request></app-request>
-      </div>
-    </div>
-    <div class="card-up heavy-rain-gradient lighten-4" style="height:30px;"></div>
-  </div>
-
-  <div class="container p-3">
-    <div class="row">
-      <div class="col-md-7">
-        <app-achievement [student]="sldkfj"></app-achievement>
-        <app-achievement [student]="sldkfj"></app-achievement>
-        <app-achievement [student]="sldkfj"></app-achievement>
-      </div>
-      <div style="overflow-y: scroll; height:600px;" class="col-md-5">
-        <app-review></app-review>
-        <app-review></app-review>
-        <app-review></app-review>
-        <app-review></app-review>
-        <app-review></app-review>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="container">
-    <section class="my-5">
-
-      <div class="card-header border-0 font-weight-bold">Add a review</div>
-
-      <div class="d-md-flex flex-md-fill mt-4 px-1">
-        <div class="d-flex justify-content-center mr-md-5">
-          <img class="card-img-100 z-depth-1 mb-4" src="https://mdbootstrap.com/img/Photos/Avatars/img (32).jpg" alt="avatar">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-3">
+          <div class="avatar mx-auto white p-4">
+            <div class="view overlay">
+              <img [src]="tutor.imgUrl" class="rounded-circle hoverable" height="170" width="170">
+              <div class="mask flex-center rgba-black-light rounded-circle" style="height:170px; width:170px;">
+              </div>
+            </div>
+          </div>
         </div>
-        <textarea class="form-control pl-3 pt-3" id="exampleFormControlTextarea1" rows="4" placeholder="Write something here..."></textarea>
       </div>
-      <app-rating 
-      [rating]=3
-      [tutorEmail] = "tutorProfile.email"
-      ></app-rating>
-      <div class="text-center mt-4">
-        <button class="btn btn-primary btn-md">Submit</button>
-      </div>
-
-    </section>
+    </div>
   </div>
 
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7 pr-2" style="overflow-y: scroll; height:436.48px;">
+        <div class="container border p-4">
+          <h5 class="grey-text"><b> Reviews </b> </h5>
+          <hr>
+          <div *ngFor="let item of reviews">
+            <app-review [studentName]="item.student" [date]="item.date" [content]="item.content" [studentImgUrl]="item.image"></app-review>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-5">
+        <div class="container border pt-3">
+          <app-details [fname]="tutor.fname" [lname]="tutor.lname" [mobile]="tutor.mobile" [price]="tutor.price"
+            [location]="tutor.location" [subject]="tutor.subject" [available]="tutor.time"></app-details>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<app-rating></app-rating>

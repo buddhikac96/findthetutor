@@ -51,7 +51,8 @@ import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
   exports: [
     TutorDashboardComponent,
     TutorProfileComponent,
-    TutorProfileEditComponent
+    TutorProfileEditComponent,
+    ReviewComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [

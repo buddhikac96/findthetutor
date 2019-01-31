@@ -13,7 +13,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { StudentService } from './shared/services/student.service';
 import { RequestComponent } from './components/student-dashboard/teacher-card-list/teacher-card/request/request.component';
 import { CommonService } from '../shared/services/common.service';
-import { TutorProfileComponent } from './components/tutor-profile/tutor-profile.component';
+import { StudentTutorProfileComponent } from './components/tutor-profile/tutor-profile.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
@@ -24,6 +24,7 @@ import { AllrequestsComponent } from './components/student-dashboard/allrequests
 import { RatingComponent } from './components/tutor-profile/rating/rating.component';
 import { ReviewComponent } from './components/tutor-profile/review/review.component';
 import { StudentProfileComponent } from './components/student-profile/student-profile.component';
+import { DetailsComponent } from './components/tutor-profile/details/details.component';
 
 @NgModule({
   imports: [
@@ -45,12 +46,13 @@ import { StudentProfileComponent } from './components/student-profile/student-pr
     LocationComponent, 
     SubjectComponent, 
     RequestComponent,
-    TutorProfileComponent,
+    StudentTutorProfileComponent,
     AchievementComponent,
     AllrequestsComponent,
     RatingComponent,
     ReviewComponent,
     StudentProfileComponent,
+    DetailsComponent,
   ],
   exports: [
     StudentDashboardComponent, 
