@@ -1,6 +1,6 @@
+<app-spinner class="postn"></app-spinner>
+
 <h2> <strong>Achievements</strong> </h2>
-
-
 <hr>
 
 <div (click)="frame.show()">
@@ -20,6 +20,7 @@
             [id]="item.id"
             [tutor]="cur_user"
             [hideStatus]="item.hide"
+            [item]="item"
             (delete)="deleteAck(item)"
     ></app-achieve>
     <p></p><p></p>

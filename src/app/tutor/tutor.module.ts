@@ -1,5 +1,3 @@
-import { NgChatModule } from 'ng-chat';
-import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
@@ -21,6 +19,9 @@ import { AchieveComponent } from './components/tutor-dashboard/achievements/achi
 import { MystudentsComponent } from './components/tutor-dashboard/mystudents/mystudents.component';
 import { ForumComponent } from './components/tutor-dashboard/forum/forum.component';
 import { RequestComponent } from './components/tutor-dashboard/requests/request/request.component';
+import { NgChatModule } from 'ng-chat';
+import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
+
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { RequestComponent } from './components/tutor-dashboard/requests/request/
     FloatingActionMenuModule,
     NgChatModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     TutorDashboardComponent,

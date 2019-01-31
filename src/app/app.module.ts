@@ -25,6 +25,9 @@ import { TutorService } from './tutor/shared/services/tutor-service.service';
 import { BarRatingModule } from "ngx-bar-rating";
 import { BlockUIModule } from 'ng-block-ui';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+
+
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     RegisterTutorComponent,
     RegisterStudentComponent,
     PageNotFoundComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HttpModule,
     BarRatingModule,
     BlockUIModule.forRoot(),
-    NgChatModule
+    NgChatModule,
   ],
   providers: [
     AuthService,
@@ -59,6 +63,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     TutorService
   ],
   bootstrap: [AppComponent],
-  schemas: [ NO_ERRORS_SCHEMA ]
+  schemas: [ NO_ERRORS_SCHEMA ],
+  exports:[
+    SpinnerComponent
+  ]
 })
 export class AppModule { }

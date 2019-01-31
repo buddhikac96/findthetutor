@@ -19,7 +19,12 @@ export class TutorProfileComponent implements OnInit {
     name: "",
     mobile: "",
     location: "",
-    subject: ""
+    subject: "",
+    time: "",
+    price: "",
+    imgUrl: "",
+    fname: "",
+    lname: ""
   }
 
   review = {
@@ -47,14 +52,48 @@ export class TutorProfileComponent implements OnInit {
         this.tutor.mobile = user.mobile;
         this.tutor.location = user.location;
         this.tutor.subject = user.subject;
+        this.tutor.time = user.time;
+        this.tutor.time = user.available;
+        this.tutor.price = user.price;
+        this.tutor.imgUrl = user.imgUrl;
+        this.tutor.fname = user.firstName;
+        this.tutor.lname = user.lastName;
 
         this.reviews = res.json().reviews;
-        console.log(this.reviews);
       })
   }
 
+  img: File = null;
+
   updateImage() {
+    if (this.img === null) {
+      console.log("null image");
+      return
+    }
+
+    (this.img !== undefined || this.img !== null)
+    let formData: FormData = new FormData();
+    formData.append('image', this.img, this.img.name);
+
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'multipart/form-data');
+    // headers.append('Accept', 'application/json');
+    // let options = new RequestOptions({ headers: headers });
+
     console.log("update image");
+    console.log(this.img);
+
+    let file = {
+      'image': this.img,
+      'role': 'tutor',
+      'email': this.authService.currentUser.user.email
+    }
+    this.tutorService.uploadImage(file)
+      .subscribe(res => {
+        console.log(res.json());
+      })
+
+
   }
 
   onSelectFile(event) {
@@ -65,8 +104,13 @@ export class TutorProfileComponent implements OnInit {
         this.url = event.target['result'];
       }
       this.imageView = true;
+      this.img = event.target.files[0];
+      console.log(this.img);
     }
+
   }
+
+
 
 
 

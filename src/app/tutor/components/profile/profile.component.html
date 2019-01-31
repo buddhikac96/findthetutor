@@ -11,9 +11,8 @@
           <div class="avatar mx-auto white p-4">
 
             <div class="view overlay" (click)="frame.show()">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" 
+              <img [src]="tutor.imgUrl" 
                 class="rounded-circle hoverable"
-                alt="woman avatar"
                 height="170" width="170">
               <div class="mask flex-center rgba-black-light rounded-circle" style="height:170px; width:170px;">
                 <p class="white-text">Update Profile Picture</p>
@@ -56,7 +55,15 @@
 
       <div class="col-md-5">
         <div class="container border pt-3">
-          <app-tutor-profile-edit></app-tutor-profile-edit>
+          <app-tutor-profile-edit
+           [fname]="tutor.fname"
+           [lname]="tutor.lname"
+           [mobile]="tutor.mobile"
+           [price]="tutor.price"
+           [location]="tutor.location"
+           [subject]="tutor.subject"
+           [available]="tutor.time"
+          ></app-tutor-profile-edit>
         </div>
       </div>
     </div>
@@ -99,7 +106,7 @@
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Save</button>
+        <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="updateImage()" (click)="frame.hide()">Save</button>
       </div>
     </div>
   </div>

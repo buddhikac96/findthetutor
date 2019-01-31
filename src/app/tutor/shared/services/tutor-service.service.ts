@@ -44,6 +44,16 @@ export class TutorService {
     return this.http.post('https://guarded-beyond-19031.herokuapp.com/rejectRequest', {'id':id});
   }
 
+  editProfile(user){
+    return this.http.post('https://guarded-beyond-19031.herokuapp.com/editProfile', user);
+  }
+
+  uploadImage(img){
+    return this.http.post('https://guarded-beyond-19031.herokuapp.com/uploadImage', img);
+  }
+
+
+
 
 
 
