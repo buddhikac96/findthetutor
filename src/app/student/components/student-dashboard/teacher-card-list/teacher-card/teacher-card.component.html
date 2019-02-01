@@ -1,6 +1,14 @@
 <div class="border hoverable">
     <div class="card-header  white-black grab" [routerLink]="[teacher.email]">
-        <h4><b>{{teacher.fname + " " + teacher.lname}}</b></h4>
+        <h4>
+            <img src="../../../../../../assets/icons/tutor.png" class="mr-3">
+            <span><b> {{teacher.fname + " " + teacher.lname}} </b></span>
+            <span class="float-right">
+                <img src="../../../../../../assets/icons/star.png" class="mr-2">
+                <p class="float-right pt-1"> <b> {{teacher.rate}} </b> </p>
+            </span>
+
+        </h4>
     </div>
     <div class="card-body">
         <div class="row">
