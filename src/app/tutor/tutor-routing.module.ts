@@ -7,8 +7,8 @@ import { TutorProfileComponent } from './components/profile/profile.component';
 import { StatsComponent } from './components/tutor-dashboard/stats/stats.component';
 import { RequestsComponent } from './components/tutor-dashboard/requests/requests.component';
 import { ForumComponent } from './components/tutor-dashboard/forum/forum.component';
-import { MystudentsComponent } from './components/tutor-dashboard/mystudents/mystudents.component';
 import { AchievementsComponent } from './components/tutor-dashboard/achievements/achievements.component';
+import { BoostComponent } from './components/tutor-dashboard/boost/boost.component';
 
 
 
@@ -23,7 +23,7 @@ const routes: Routes = [
       {path: 'profile',component:TutorProfileComponent},
       {path: 'learn',component:StatsComponent},
       {path: 'forum',component:ForumComponent},
-      {path: 'boost',component:ForumComponent},
+      {path: 'boost',component:BoostComponent},
     ]
   },
   {

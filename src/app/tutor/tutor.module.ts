@@ -21,6 +21,7 @@ import { ForumComponent } from './components/tutor-dashboard/forum/forum.compone
 import { RequestComponent } from './components/tutor-dashboard/requests/request/request.component';
 import { NgChatModule } from 'ng-chat';
 import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
+import { BoostComponent } from './components/tutor-dashboard/boost/boost.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
     MystudentsComponent,
     ForumComponent,
     RequestComponent,
+    BoostComponent,
   ],
   exports: [
     TutorDashboardComponent,

@@ -1,0 +1,163 @@
+<hr>
+
+<div class="row pt-2 pb-4">
+  <div class="col-md-12 text-center">
+    <h1>
+      <img src="../../../../../assets/icons/reach.png" style="margin:0; padding:0;">
+      Reach out to more students...! Boost your profile now...!</h1>
+  </div>
+</div>
+
+
+<div class="container pointer">
+  <mdb-carousel [animation]="'slide'">
+    <mdb-carousel-item (click)="boostProfile('gold')">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="First slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item (click)="boostProfile('silver')">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item (click)="boostProfile('bronze')">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide">
+    </mdb-carousel-item>
+  </mdb-carousel>
+</div>
+
+<div class="row mt-5 p-3">
+  <div class="col">
+
+
+    <div>
+      <div class="jumbotron text-center">
+        <h2 class="card-title h2">
+          <img src="../../../../../assets/icons/boost.png" alt="">
+          You are Boosted</h2>
+        <p class="blue-text my-4 font-weight-bold">You have successfully reached this much students</p>
+        <div class="row d-flex justify-content-center">
+          <div class="col-xl-7 pb-2">
+
+            <h1 class="display-1">543</h1>
+          </div>
+
+        </div>
+
+        <hr class="my-4">
+
+        <div class="pt-2">
+          <button type="button" class="btn btn-outline-primary waves-effect">Renew Package<i class="fa fa-plus ml-1"></i></button>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="jumbotron text-center">
+        <h2 class="card-title h2">
+          <img src="../../../../../assets/icons/sadface.png" alt="">
+          No student yet..?</h2>
+        <div class="row d-flex justify-content-center">
+          <div class="col-xl-7 pb-2">
+
+            <h1 class="display-4">Boost your profile right now!</h1>
+          </div>
+
+        </div>
+
+        <hr class="my-4">
+
+        <div class="pt-2">
+          <button type="button" class="btn btn-outline-primary waves-effect" (click)="frame.show()">Boost Profile<i
+              class="fa fa-plus ml-1"></i></button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+  </div>
+  <div class="col pt-5 mt-5 text-center" (click)="frame.show()">
+
+    <img src="../../../../../assets/icons/boostbutton.png" class="pointer">
+    <p></p>
+    <h3 class="pointer mt-1">Boost Now</h3>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<div mdbModal #frame="mdbModal" class="modal fade ml-5 mr-5" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-fluid" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Select Your Package</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="card-deck">
+          <div class="card mb-4">
+            <div class="view overlay">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Gold Package</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+              <button type="button" class="btn btn-light-blue btn-md">Boost</button>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="view overlay">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Silver Package</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+              <button type="button" class="btn btn-light-blue btn-md">Boost</button>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="view overlay">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Bronze Package</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+              <button type="button" class="btn btn-light-blue btn-md">Boost</button>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect data-dismiss="modal"
+          (click)="frame.hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

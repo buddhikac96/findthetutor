@@ -46,15 +46,8 @@
               }
             ],
             "scripts": [
-              {
-                "input": "node_modules/chart.js/dist/Chart.js"
-              },
-              {
-                "input": "node_modules/hammerjs/hammer.min.js"
-              },
-              {
-                "input":"../node_modules/pusher-js/dist/web/pusher.min.js"
-              }
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/hammerjs/hammer.min.js",             
             ]
           },
           "configurations": {
