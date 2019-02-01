@@ -25,7 +25,8 @@ export class StudentTutorProfileComponent implements OnInit {
     price: "",
     imgUrl: "",
     fname: "",
-    lname: ""
+    lname: "",
+    rating: null
   }
 
   reviews = []
@@ -53,16 +54,16 @@ export class StudentTutorProfileComponent implements OnInit {
         this.tutor.imgUrl = user.imgUrl;
         this.tutor.fname = user.firstName;
         this.tutor.lname = user.lastName;
+        this.tutor.rating = user.rate;
 
         this.reviews = res.json().reviews;
-        console.log(res.json().reviews);
       })
   }
 
   img: File;
 
   updateImage() {
-    
+
   }
 
   onSelectFile(event) {

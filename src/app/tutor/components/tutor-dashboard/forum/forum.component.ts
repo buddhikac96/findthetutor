@@ -13,27 +13,28 @@ interface Message {
 })
 export class ForumComponent implements OnInit {
 
-  // messages: Array<Message>;
-  // constructor(
-  //   private pusherService: PusherService
-  // ) {
-  //   this.messages = [];
-  // }
+ /*  messages: Array<Message>;
+  constructor(
+    private pusherService: PusherService
+  ) {
+    this.messages = [];
+  }
 
-  // ngOnInit() {
-  //   this.pusherService.messagesChannel.bind('client-new-message', (message) => {
-  //     this.messages.push(message);
-  //   });
-  // }
+  ngOnInit() {
+    this.pusherService.messagesChannel.bind('client-new-message', (message) => {
+      this.messages.push(message);
+    });
+  }
 
-  // sendMessage(user: string, text: string) {
-  //   const message: Message = {
-  //      user: user,
-  //      text: text,
-  //   }
-  //   this.pusherService.messagesChannel.trigger('client-new-message', message);
-  //   this.messages.push(message);
-  // }
+  sendMessage(user: string, text: string) {
+    const message: Message = {
+       user: user,
+       text: text,
+    }
+    this.pusherService.messagesChannel.trigger('client-new-message', message);
+    this.messages.push(message);
+  } */
 
-    ngOnInit(){}
+  ngOnInit(){}
+   
 }

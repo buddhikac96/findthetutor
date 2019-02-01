@@ -10,8 +10,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class RatingComponent implements OnInit {
 
   @Input() rating;
-  @Input() tutor: string;
-  currentRate = 0;
+  @Input() tutor;
+  currentRate;
   review = null;
 
   constructor(
@@ -22,7 +22,7 @@ export class RatingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentRate = parseInt(this.rating);
+    this.currentRate = this.rating;
   }
 
   reviewTutor() {
