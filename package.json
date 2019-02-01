@@ -25,7 +25,7 @@
     "@angular/platform-server": "^6.0.0-rc.1",
     "@angular/router": "^6.0.0-rc.1",
     "@auth0/angular-jwt": "^2.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^4.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.2",
     "angular-bootstrap-md": "6.2.6",
     "angular-star-rating": "^4.0.0-beta.3",
     "chart.js": "^2.5.0",

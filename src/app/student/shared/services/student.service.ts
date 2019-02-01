@@ -71,13 +71,17 @@ export class StudentService {
         return this.http.post('https://guarded-beyond-19031.herokuapp.com/viewMyRequests', {'student': student});
     }
 
-    rateTutor(rate){
-        return this.http.post("https://guarded-beyond-19031.herokuapp.com/rate", rate);
-    }
-
     cancelReq(id){
         console.log(id);
         return this.http.post("https://guarded-beyond-19031.herokuapp.com/cancelRequest",id);
+    }
+
+    rateTutor(rate){
+        return this.http.post("https://guarded-beyond-19031.herokuapp.com/rate",rate);
+    }
+
+    reviewTutor(review){
+        return this.http.post("https://guarded-beyond-19031.herokuapp.com/writeReview",review);
     }
  
 }

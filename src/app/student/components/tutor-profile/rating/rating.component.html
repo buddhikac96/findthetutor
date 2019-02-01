@@ -1,13 +1,29 @@
 <div class="container">
-  <div class="row">
-    <h4 class="grey-text">Review Me</h4>
+  <div class="row pl-2">
+
+    <div class="col">
+      <h4 class="grey-text">Review Me</h4>
+    </div>
+    <div class="col">
+      <h4 class="float-right pr-2 grey-text">Rate Me
+
+        <ngb-rating [(rate)]="currentRate">
+          <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100" [class.bad]="index < 4">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+      </h4>
+    </div>
+
+
     <hr>
   </div>
-  
-  <div class="row pl-4 pr-4">
-    <textarea name="review" id="" cols="180" rows="3" class="border"></textarea>
-  </div>
-  <div class="row pl-4">
-    <button class="btn btn-primary btn-sm">Submit</button>
-  </div>
+  <form>
+    <div class="row pl-4 pr-4">
+      <textarea name="review" id="" cols="180" rows="3" class="border" [(ngModel)]="review"></textarea>
+    </div>
+    <div class="row pl-3">
+      <button class="btn btn-primary btn-sm" (click)="reviewTutor()" type="reset">Submit</button>
+    </div>
+  </form>
 </div>

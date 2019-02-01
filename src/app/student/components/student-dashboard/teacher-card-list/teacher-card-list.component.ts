@@ -18,12 +18,12 @@ export class TeacherCardListComponent implements OnInit {
 
   constructor(
     private studentService: StudentService
-  ) { 
-    this.subcription = this.studentService.getMessage().subscribe(list=>{
+  ) {
+    this.subcription = this.studentService.getMessage().subscribe(list => {
       this.techerList = list.teachers;
-      if(this.techerList.length === 0){
+      if (this.techerList.length === 0) {
         this.isEmpty = true;
-      }else{
+      } else {
         this.isEmpty = false;
       }
     })
@@ -31,11 +31,16 @@ export class TeacherCardListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.studentService.getAllTeachers()
-      .subscribe(res=>{
-        this.techerList = res.json().user;
-        res.json().user.length === 0? this.isEmpty = true: this.isEmpty = false;
-      })
+    try {
+      this.studentService.getAllTeachers()
+        .subscribe(res => {
+          this.techerList = res.json().user;
+          res.json().user.length === 0 ? this.isEmpty = true : this.isEmpty = false;
+        });
+    } catch (e) {
+      alert("Something wrong...!");
+    }
+
   }
 
 

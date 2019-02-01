@@ -9,33 +9,67 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class RatingComponent implements OnInit {
 
-  @Input() rating: number;
-  @Input() itemId: number;
-  @Input() tutorEmail: string;
-  @Output() ratingClick: EventEmitter<any> = new EventEmitter<any>();
-  student;
+  @Input() rating;
+  @Input() tutor: string;
+  currentRate = 0;
+  review = null;
 
   constructor(
     private studentService: StudentService,
     private auth: AuthService
   ) {
+
   }
 
-  inputName: string;
   ngOnInit() {
-    this.inputName = this.itemId + '_rating';
-    this.student = this.auth.currentUser.user.email;
+    this.currentRate = parseInt(this.rating);
   }
 
-  onClick(rating: number): void {
-    this.rating = rating;
-    this.ratingClick.emit({
-      itemId: this.itemId,
-      rating: rating
-    });
-    this.studentService.rateTutor({ 'rate': rating, 'tutor': this.tutorEmail, 'student': this.student })
-      .subscribe(response => {
-        console.log(response);
+  reviewTutor() {
+    if (this.review === null) {
+      alert("Please write a review");
+      return;
+    }
+
+    if (this.currentRate === 0) {
+      alert("Please rate the tutor");
+      return;
+    }
+
+    let rate = {
+      'rate': this.currentRate/2,
+      'tutor': this.tutor,
+      'student': this.auth.currentUser.user.email,
+    };
+
+    let review = {
+      'content': this.review,
+      'tutor': this.tutor,
+      'student': this.auth.currentUser.user.email,
+    };
+
+    this.studentService.rateTutor(rate)
+      .subscribe(res => {
+        console.log(res.json());
+        if (!res.json().allowed) {
+          alert("Tutor must accept your request");
+          return;
+        }
+        this.currentRate = res.json().newRate;
       });
+
+    this.studentService.reviewTutor(review)
+      .subscribe(res => {
+        console.log(res.json());
+        if (!res.json().allowed) {
+          alert("Tutor must accept your request");
+          return;
+        }
+        alert("Thank you for your review");
+      });
+
+
   }
+
+
 }
