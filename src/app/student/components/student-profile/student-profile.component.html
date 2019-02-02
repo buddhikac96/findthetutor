@@ -1,13 +1,16 @@
 <div class="container p-4">
-  <div class="card testimonial-card">
+  <div class="border testimonial-card">
 
-    <div class="card-up heavy-rain-gradient lighten-4" style="height:30px;"></div>
-
-    <div class="avatar mx-auto white p-3">
-      <img 
-      (click)="editProfilePicture()"
-      src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle hover" alt="woman avatar">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="avatar mx-auto white p-3">
+          <img (click)="editProfilePicture()" src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle hover"
+            alt="woman avatar">
+        </div>
+      </div>
     </div>
+
+
 
     <div class="card-body">
       <div style="text-align:center;">
@@ -17,21 +20,7 @@
 
       </div>
     </div>
-    <div class="card-up heavy-rain-gradient lighten-4" style="height:30px;"></div>
   </div>
-
-  <div class="container p-3">
-    <div class="card">
-      <h5 class="card-header h5">My Reqeuets</h5>
-      <div class="card-body">
-      <app-allrequests></app-allrequests>
-      </div>
-    </div>
-  </div>
-
-
-
-
 </div>
 
 

@@ -10,7 +10,7 @@
     <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-md-3">
-          <div class="avatar mx-auto white p-4">
+          <div class="avatar mx-auto white pb-2 pt-4 pl-4 pr-4">
             <div class="view overlay">
               <img [src]="tutor.imgUrl" class="rounded-circle hoverable" height="170" width="170">
               <div class="mask flex-center rgba-black-light rounded-circle" style="height:170px; width:170px;">
@@ -19,14 +19,19 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-12 pb-2 text-center">
+            <app-request class="mr-4" [teacherId]="tutor.email"></app-request>
+        </div>
+      </div>
     </div>
   </div>
 
 
   <div class="container mt-5">
     <div class="row">
-      <div class="col-md-7 pr-2" style="overflow-y: scroll; height:436.48px;">
-        <div class="container border p-4">
+      <div class="col-md-7 pr-2">
+        <div class="container border p-4"  style="overflow-y: scroll; height:436.48px;">
           <h5 class="grey-text"><b> Reviews </b> </h5>
           <hr>
           <div *ngFor="let item of reviews">
@@ -49,6 +54,15 @@
 </div>
 
 
+<app-achievement *ngIf="tutor.email"
+  [email]="tutor.email"
+></app-achievement>
+
+<p
+  class="mt-5"
+></p>
+
+<hr class="mt-5 container"> 
 
 <app-rating *ngIf="tutor.rating"
   [tutor]="tutor.email"

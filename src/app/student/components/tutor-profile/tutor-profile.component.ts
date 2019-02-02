@@ -42,6 +42,7 @@ export class StudentTutorProfileComponent implements OnInit {
     let email = this.activatedRoute.snapshot.paramMap.get('id')
     this.tutorService.getTutorProfile(email)
       .subscribe(res => {
+        console.log(res.json());
         let user = res.json().profile;
         this.tutor.email = user.email;
         this.tutor.name = user.firstName + " " + user.lastName;

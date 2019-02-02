@@ -19,24 +19,24 @@
         <div class="modal-body">
   
           <form [formGroup]="form" (ngSubmit)="onSend(form)">
-            <label>Location</label>
+            <label class="float-left">Location</label>
             <select class="browser-default custom-select" formControlName="location">
               <option *ngFor="let item of districts">{{item}}</option>
             </select>
             <p></p>
-            <label>Subject</label>
+            <label class="float-left">Subject</label>
             <select class="browser-default custom-select" formControlName="subject">
               <option *ngFor="let item of subjects">{{item}}</option>
             </select>
             <p></p>
-            <label>Date</label>
+            <label class="float-left">Date</label>
             <select class="browser-default custom-select" formControlName="day">
               <option *ngFor="let item of days">{{item}}</option>
             </select>
             <div class="modal-footer">
-              <button type="button" mdbBtn color="red" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
-                mdbWavesEffect>Discard</button>
-              <button type="submit" mdbBtn color="green" class="relative waves-light"
+              <button type="button" mdbBtn color="secondary-color" class="secondary-color waves-light btn-sm" aria-label="Close" (click)="basicModal.hide()"
+                mdbWavesEffect>Cancel</button>
+              <button type="submit" mdbBtn color="blue" class="relative waves-light btn-sm"
               (click)="basicModal.hide()"
                 mdbWavesEffect>Send</button>
             </div>

@@ -16,7 +16,7 @@ export class StudentDashboardComponent implements OnInit {
       placment: 'br',
       effect: 'mfb-slidein',
       iconClass: 'fa fa-comment',
-      activeIconClass: 'fa fa-comment',
+      activeIconClass: 'fa fa-cog',
       toggle: 'hover',
       buttons: this.buttons
     };
@@ -28,19 +28,22 @@ export class StudentDashboardComponent implements OnInit {
   config;
   buttons: Array<FloatingActionButton> = [
     {
-      iconClass: 'fa fa-android',
-      onClick: ()=>{
-        this.router.navigate(['student/allrequests']);
-      }
-    },
-    {
-      iconClass: 'fa fa-address-book',
+      iconClass: 'fa fa-search',
+      label:"Search Tutors",
       onClick: ()=>{
         this.router.navigate(['student/teachers']);
       }
     },
     {
-      iconClass: 'fa fa-cab',
+      iconClass: 'fa fa-users',
+      label:"All Requests",
+      onClick: ()=>{
+        this.router.navigate(['student/allrequests']);
+      }
+    },
+    {
+      iconClass: 'fa fa-user',
+      label:"Profile",
       onClick: ()=>{
         this.router.navigate(['student/profile']);
       }

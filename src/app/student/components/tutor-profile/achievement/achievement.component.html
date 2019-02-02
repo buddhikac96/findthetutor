@@ -1,17 +1,35 @@
-<mdb-card>
-  <div class="view rgba-white-slight waves-light" mdbWavesEffect>
-    <mdb-card-img src="{{img}}" alt="Card image cap"></mdb-card-img>
-    <a>
-      <div class="mask">{{student}}</div>
-    </a>
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+
+    <mdb-carousel [isControls]="true" [animation]="'slide'">
+      <mdb-carousel-item *ngFor="let item of achievements">
+        <div class="container border pt-3">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col text-center">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Enabling_eCommerce-_Small_Enterprises%2C_Global_Players_%2839008130265%29_%28cropped%29.jpg/220px-Enabling_eCommerce-_Small_Enterprises%2C_Global_Players_%2839008130265%29_%28cropped%29.jpg" class="rounded-circle" height="100" width="100">
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 text-center">
+              <h5><strong>{{item.name}}</strong></h5>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <p class="text-center grey-text">{{item.description}}</p>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
   </div>
-  <mdb-card-body>
-    <mdb-card-title>
-      <h4>{{title}}</h4>
-    </mdb-card-title>
-    <mdb-card-text>
-      {{desc}}
-    </mdb-card-text>
-  </mdb-card-body>
-</mdb-card>
-<p></p>
+  <div class="col"></div>
+</div>

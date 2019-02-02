@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { StudentService } from 'src/app/student/shared/services/student.service';
 
 @Component({
   selector: 'app-achievement',
@@ -7,15 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AchievementComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private studentService: StudentService
+  ) { }
 
   ngOnInit() {
+    this.studentService.getAchievements(this.email)
+      .subscribe(res=>{
+        console.log(res.json());
+        this.achievements = res.json().achievements;
+      })
   }
 
-  @Input() student;
-  @Input() title;
-  @Input() desc;
-  @Input() img;
+  @Input() email;
 
+  achievements;
 
 }
