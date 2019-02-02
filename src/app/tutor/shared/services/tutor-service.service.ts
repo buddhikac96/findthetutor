@@ -8,50 +8,63 @@ export class TutorService {
     private http: Http
   ) { }
 
-  getAllSubjects(){
+  getAllSubjects() {
     return this.http.get("https://guarded-beyond-19031.herokuapp.com/subject");
   }
 
-  getTutorProfile(email: String){
-    return this.http.post('https://guarded-beyond-19031.herokuapp.com/viewProfile', {'email': email, 'role': 'tutor'});
+  getTutorProfile(email: String) {
+    return this.http.post('https://guarded-beyond-19031.herokuapp.com/viewProfile', { 'email': email, 'role': 'tutor' });
   }
 
-  getAllRequests(email){
-    return this.http.post('https://guarded-beyond-19031.herokuapp.com/viewAllRequests', {'tutor':email});
+  getAllRequests(email) {
+    return this.http.post('https://guarded-beyond-19031.herokuapp.com/viewAllRequests', { 'tutor': email });
   }
 
-  addAchievement(achievment){
+  addAchievement(achievment) {
     return this.http.post('https://guarded-beyond-19031.herokuapp.com/addAchievement', achievment);
   }
 
-  getAchievements(email){
-    return this.http.post('https://guarded-beyond-19031.herokuapp.com/getAchievements', {'tutor':email});
+  getAchievements(email) {
+    return this.http.post('https://guarded-beyond-19031.herokuapp.com/getAchievements', { 'tutor': email });
   }
 
-  deleteAchievement(p){
+  deleteAchievement(p) {
     return this.http.post('https://guarded-beyond-19031.herokuapp.com/deleteAchievement', p);
   }
 
-  hideAchievement(p){
+  hideAchievement(p) {
     return this.http.post('https://guarded-beyond-19031.herokuapp.com/toggleAchievement', p);
   }
 
-  acceptRequests(id){
-    return this.http.post('https://guarded-beyond-19031.herokuapp.com/acceptRequest', {'id':id});
+  acceptRequests(id) {
+    return this.http.post('https://guarded-beyond-19031.herokuapp.com/acceptRequest', { 'id': id });
   }
 
-  rejectRequests(id){
-    return this.http.post('https://guarded-beyond-19031.herokuapp.com/rejectRequest', {'id':id});
+  rejectRequests(id) {
+    return this.http.post('https://guarded-beyond-19031.herokuapp.com/rejectRequest', { 'id': id });
   }
 
-  editProfile(user){
+  editProfile(user) {
     return this.http.post('https://guarded-beyond-19031.herokuapp.com/editProfile', user);
   }
 
-  uploadImage(img){
+  uploadImage(img) {
     return this.http.post('https://guarded-beyond-19031.herokuapp.com/uploadImage', img);
   }
 
+  // ========= Boost ==========
+
+  boost(tutor) {
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/boost", tutor);
+  }
+
+  getCount(tutor) {
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/getCount", tutor);
+  }
+
+  acceptBoost(boost) {
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/boostProfile", boost);
+  }
 
 
 

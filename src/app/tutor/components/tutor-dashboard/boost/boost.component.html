@@ -11,13 +11,13 @@
 
 <div class="container pointer">
   <mdb-carousel [animation]="'slide'">
-    <mdb-carousel-item (click)="boostProfile('gold')">
+    <mdb-carousel-item>
       <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="First slide">
     </mdb-carousel-item>
-    <mdb-carousel-item (click)="boostProfile('silver')">
+    <mdb-carousel-item>
       <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide">
     </mdb-carousel-item>
-    <mdb-carousel-item (click)="boostProfile('bronze')">
+    <mdb-carousel-item>
       <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide">
     </mdb-carousel-item>
   </mdb-carousel>
@@ -27,7 +27,7 @@
   <div class="col">
 
 
-    <div>
+    <div *ngIf="boosted">
       <div class="jumbotron text-center">
         <h2 class="card-title h2">
           <img src="../../../../../assets/icons/boost.png" alt="">
@@ -36,10 +36,12 @@
         <div class="row d-flex justify-content-center">
           <div class="col-xl-7 pb-2">
 
-            <h1 class="display-1">543</h1>
+            <h1 class="display-1">{{reaches}}</h1>
           </div>
 
         </div>
+
+        <h6>You left {{boostUser.remaining}} days</h6>
 
         <hr class="my-4">
 
@@ -50,7 +52,7 @@
       </div>
     </div>
 
-    <div>
+    <div *ngIf="!boosted">
       <div class="jumbotron text-center">
         <h2 class="card-title h2">
           <img src="../../../../../assets/icons/sadface.png" alt="">
@@ -58,16 +60,12 @@
         <div class="row d-flex justify-content-center">
           <div class="col-xl-7 pb-2">
 
-            <h1 class="display-4">Boost your profile right now!</h1>
+            <h1 class="display-5">Boost your profile right now!</h1>
           </div>
 
         </div>
-
-        <hr class="my-4">
-
         <div class="pt-2">
-          <button type="button" class="btn btn-outline-primary waves-effect" (click)="frame.show()">Boost Profile<i
-              class="fa fa-plus ml-1"></i></button>
+          <img src="../../../../../assets/icons/hand.png" alt="">
         </div>
 
       </div>
@@ -79,12 +77,14 @@
 
 
   </div>
-  <div class="col pt-5 mt-5 text-center" (click)="frame.show()">
 
-    <img src="../../../../../assets/icons/boostbutton.png" class="pointer">
-    <p></p>
-    <h3 class="pointer mt-1">Boost Now</h3>
+  <div class="col pt-5  mt-5 text-center" (click)="frame.show()">
 
+    <div *ngIf="!boosted">
+      <img src="../../../../../assets/icons/boostbutton.png" class="pointer">
+      <p></p>
+      <h3 class="pointer mt-1">Choose your package</h3>
+    </div>
   </div>
 </div>
 
@@ -94,8 +94,8 @@
 
 
 
-<div mdbModal #frame="mdbModal" class="modal fade ml-5 mr-5" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
+<div mdbModal #frame="mdbModal" class="modal fade ml-5 mr-5" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-fluid" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -107,56 +107,64 @@
       <div class="modal-body">
 
         <div class="card-deck">
-          <div class="card mb-4">
-            <div class="view overlay">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
+
+          <!-- ===================== -->
+
+          <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
+
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+              <div>
+                <h5 class="pink-text"><i class="fa fa-chart-pie"></i></h5>
+                <h3 class="card-title pt-2"><strong *ngIf="pack1"> {{pack1.name}} </strong></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                  optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                  Odit sed qui, dolorum!.</p>
+                <a class="btn btn-danger" (click)="boostProfile(platinum)" (click)="frame.hide()"><i class="fa fa-clone left"></i> Boost </a>
+              </div>
             </div>
-            <div class="card-body">
-              <h4 class="card-title">Gold Package</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-              <button type="button" class="btn btn-light-blue btn-md">Boost</button>
-            </div>
+
           </div>
-          <div class="card mb-4">
-            <div class="view overlay">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
+
+          <!-- ================= -->
+
+          <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
+
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+              <div>
+                <h5 class="pink-text"><i class="fa fa-chart-pie"></i></h5>
+                <h3 class="card-title pt-2"><strong *ngIf="pack2">{{pack2.name}}</strong></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                  optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                  Odit sed qui, dolorum!.</p>
+                <a class="btn btn-danger"(click)="boostProfile(gold)" (click)="frame.hide()"><i class="fa fa-amazon-pay"></i> Boost </a>
+              </div>
             </div>
-            <div class="card-body">
-              <h4 class="card-title">Silver Package</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-              <button type="button" class="btn btn-light-blue btn-md">Boost</button>
-            </div>
+
           </div>
-          <div class="card mb-4">
-            <div class="view overlay">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
+
+          <!-- ======================== -->
+
+          <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
+
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+              <div>
+                <h5 class="pink-text"><i class="fa fa-chart-pie"></i></h5>
+                <h3 class="card-title pt-2"><strong *ngIf="pack3"> {{pack3.name}}</strong></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                  optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                  Odit sed qui, dolorum!.</p>
+                <a class="btn btn-danger" (click)="boostProfile(silver)" (click)="frame.hide()"><i class="fa fa-clone left"></i> Boost </a>
+              </div>
             </div>
-            <div class="card-body">
-              <h4 class="card-title">Bronze Package</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-              <button type="button" class="btn btn-light-blue btn-md">Boost</button>
-            </div>
+
           </div>
+
+
+
         </div>
 
 
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect data-dismiss="modal"
-          (click)="frame.hide()">Close</button>
       </div>
     </div>
   </div>

@@ -66,7 +66,7 @@ import { MessageComponent } from './components/shared/message/message.component'
     RegisterService,
     StudentService,
     TutorService,
-    PusherService
+    PusherService,
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ],

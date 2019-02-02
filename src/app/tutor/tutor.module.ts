@@ -23,6 +23,8 @@ import { NgChatModule } from 'ng-chat';
 import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import { BoostComponent } from './components/tutor-dashboard/boost/boost.component';
 
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+
 
 @NgModule({
   imports: [
@@ -33,6 +35,7 @@ import { BoostComponent } from './components/tutor-dashboard/boost/boost.compone
     NgChatModule,
     FormsModule,
     ReactiveFormsModule,
+    JwSocialButtonsModule
   ],
   declarations: [
     TutorDashboardComponent,
@@ -59,7 +62,7 @@ import { BoostComponent } from './components/tutor-dashboard/boost/boost.compone
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     TutorService,
-    CommonService
+    CommonService,
   ]
 })
 export class TutorModule { }
