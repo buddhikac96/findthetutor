@@ -28,9 +28,9 @@
 
 
     <div *ngIf="boosted">
-      <div class="jumbotron text-center">
+      <div class="jumbotron text-center animated slideInLeft">
         <h2 class="card-title h2">
-          <img src="../../../../../assets/icons/boost.png" alt="">
+          <img src="../../../../../assets/icons/boost.png">
           You are Boosted</h2>
         <p class="blue-text my-4 font-weight-bold">You have successfully reached this much students</p>
         <div class="row d-flex justify-content-center">
@@ -41,12 +41,13 @@
 
         </div>
 
-        <h6>You left {{boostUser.remaining}} days</h6>
+        <h6>You left  <span *ngIf="boostData"> {{boostData.remaining}} </span>   days..! Your package will expire on {{boostData.expiryDate | date}}.</h6>
 
         <hr class="my-4">
 
         <div class="pt-2">
-          <button type="button" class="btn btn-outline-primary waves-effect">Renew Package<i class="fa fa-plus ml-1"></i></button>
+          <button type="button" (click)="frame2.show()"
+           class="btn btn-outline-primary waves-effect">Renew Package<i class="fa fa-plus ml-1"></i></button>
         </div>
 
       </div>
@@ -55,7 +56,7 @@
     <div *ngIf="!boosted">
       <div class="jumbotron text-center">
         <h2 class="card-title h2">
-          <img src="../../../../../assets/icons/sadface.png" alt="">
+          <img src="../../../../../assets/icons/sadface.png" class="animated rotateIn">
           No student yet..?</h2>
         <div class="row d-flex justify-content-center">
           <div class="col-xl-7 pb-2">
@@ -156,15 +157,32 @@
                 <a class="btn btn-danger" (click)="boostProfile(silver)" (click)="frame.hide()"><i class="fa fa-clone left"></i> Boost </a>
               </div>
             </div>
-
           </div>
-
-
-
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
+
+
+
+<div mdbModal #frame2="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-info" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+      <div class="modal-body">
+        <img src="../../../../../assets/icons/boost.png" class="animated rotateIn" alt="">
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a mdbBtn color="info" outline="true" class="waves-effect" (click)="renewBoost()" (click)="frame2.hide()"
+          mdbWavesEffect>Yes</a>
+        <a type="button" mdbBtn color="info" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame2.hide()">No</a>
       </div>
     </div>
   </div>

@@ -66,6 +66,10 @@ export class TutorService {
     return this.http.post("https://guarded-beyond-19031.herokuapp.com/boostProfile", boost);
   }
 
+  renewBoost(boost) {
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/renewBoost", boost);
+  }
+
 
 
 

@@ -35,7 +35,8 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
     NgChatModule,
     FormsModule,
     ReactiveFormsModule,
-    JwSocialButtonsModule
+    JwSocialButtonsModule,
+
   ],
   declarations: [
     TutorDashboardComponent,

@@ -2,22 +2,24 @@
   <div class="border testimonial-card">
 
     <div class="card-up lighten-4 modal-header" style="height:80px;">
-      <strong> <b> <h3 class="p-1">{{tutor.name}}</h3> </b> </strong>
+      <strong> <b>
+          <h3 class="p-1">{{tutor.name}}</h3>
+        </b> </strong>
     </div>
 
     <div class="container">
       <div class="row d-flex justify-content-center">
-          <div class="avatar mx-auto white p-4">
-            <div class="view overlay" (click)="frame.show()">
-              <img [src]="tutor.imgUrl" class="rounded-circle hoverable" height="170" width="170">
-              <div class="mask flex-center rgba-black-light rounded-circle" style="height:170px; width:170px;">
-                <p class="white-text">Update Profile Picture</p>
-              </div>
+        <div class="avatar mx-auto white p-4">
+          <div class="view overlay" (click)="frame.show()">
+            <img [src]="tutor.imgUrl" class="rounded-circle hoverable" height="170" width="170">
+            <div class="mask flex-center rgba-black-light rounded-circle" style="height:170px; width:170px;">
+              <p class="white-text">Update Profile Picture</p>
             </div>
           </div>
+        </div>
       </div>
       <div class="row d-flex justify-content-center">
-        
+
       </div>
     </div>
   </div>
@@ -25,10 +27,10 @@
 
   <div class="container mt-5">
     <div class="row">
-      <div class="col-md-7 pr-2" style="overflow-y: scroll; height:436.48px;">
-        <div class="container border p-4">
-            <h5 class="grey-text"><b> Edit Profile </b> </h5>
-            <hr>
+      <div class="col-md-7 pr-2">
+        <div class="container border p-4" style="overflow-y: scroll; height:436.48px;">
+          <h5 class="grey-text"><b> My Reviewes </b> </h5>
+          <hr>
           <div *ngFor="let item of reviews">
             <app-review [studentName]="item.student" [date]="item.date" [content]="item.content" [studentImgUrl]="item.image"></app-review>
           </div>

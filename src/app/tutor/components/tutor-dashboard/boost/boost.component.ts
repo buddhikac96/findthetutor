@@ -20,6 +20,9 @@ export class BoostComponent implements OnInit {
       .subscribe(result => {
         let res = result.json();
         this.boosted = res.boost;
+        this.boostData = res.data;
+
+        console.log(result.json());
 
         this.pack1 = res.packages[0];
         this.pack2 = res.packages[1];
@@ -41,15 +44,14 @@ export class BoostComponent implements OnInit {
   }
 
 
+  boostData = null;
 
   boosted: Boolean = false;
-
 
   pack1 = null;
   pack2 = null;
   pack3 = null;
 
-  boostUser;
   reaches;
 
 
@@ -62,6 +64,23 @@ export class BoostComponent implements OnInit {
       .subscribe(res => {
         console.log(res.json());
         alert(res.json().msg);
+      })
+  }
+
+
+  renewBoost(){
+    let boost = {
+      'tutor' : this.auth.currentUser.user.email,
+      'end': this.boostData.expiryDate.substring(0,10)
+    }
+
+    console.log(boost);
+
+    this.tutorService.renewBoost(boost)
+      .subscribe(res=>{
+        if(res.json().success){
+          this.boostData.remaining += 7;
+        }
       })
   }
 
