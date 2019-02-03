@@ -24,6 +24,7 @@ import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import { BoostComponent } from './components/tutor-dashboard/boost/boost.component';
 
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+import { ClassRoomService } from './shared/services/classroom.service';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
   providers: [
     TutorService,
     CommonService,
+    ClassRoomService
   ]
 })
 export class TutorModule { }

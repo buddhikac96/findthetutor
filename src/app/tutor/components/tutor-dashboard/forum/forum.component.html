@@ -1,12 +1,21 @@
-<div *ngFor="let message of messages">
-        <b>{{ message.user }}</b>: {{ message.text }}
-      </div>
-    
-    
-      <label for="userName">Username</label>
-    <input type="text" id="userName" [(ngModel)]="userName">
-    
-    <label for="message">Message</label>
-    <input type="text" id="message" [(ngModel)]="messageText">
-    
-    <button (click)="sendMessage(userName, messageText)">Send</button>
+<div *ngIf="!auth" class="row" style="margin-top:20%;">
+  <div class="col-md-12 text-center">
+    <button class="btn black-text btn-outline-info" (click)="getAuthToken()">
+      <h3 class="pt-1">
+        <img src="../../../../../assets/icons/google.png">
+        Log into Google Classroom with your Gmail
+      </h3>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="authClicked" class="row" style="margin-top:20%;">
+  <div class="col-md-12 text-center">
+    <button class="btn black-text btn-outline-info" (keyup.enter)="authUser()">
+      <h3 class="pt-1">
+        <input type="text" [(ngModel)]="token" id="token" class="form-control">
+        <label for="token">Enter your authentication token here...</label>
+      </h3>
+    </button>
+  </div>
+</div>
