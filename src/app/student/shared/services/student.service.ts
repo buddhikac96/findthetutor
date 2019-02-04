@@ -72,8 +72,7 @@ export class StudentService {
     }
 
     cancelReq(id) {
-        console.log(id);
-        return this.http.post("https://guarded-beyond-19031.herokuapp.com/cancelRequest", id);
+        return this.http.post("https://guarded-beyond-19031.herokuapp.com/cancelRequest", {'id': id});
     }
 
     rateTutor(rate) {

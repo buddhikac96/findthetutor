@@ -75,6 +75,10 @@ export class TutorService {
     return this.http.get("https://guarded-beyond-19031.herokuapp.com/getNews");
   }
 
+  uploadAchievementImage(file){
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/uploadAchievementImage", file);
+  }
+
 
 
 }

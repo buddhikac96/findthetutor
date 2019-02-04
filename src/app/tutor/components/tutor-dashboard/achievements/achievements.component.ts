@@ -24,7 +24,7 @@ export class AchievementsComponent implements OnInit {
   achievement = {
     'tutor': this.auth.currentUser.user.email,
     'name': "",
-    'title':"",
+    'title': "",
     'description': ""
   }
 
@@ -54,7 +54,7 @@ export class AchievementsComponent implements OnInit {
   ngOnInit() {
     let email = this.auth.currentUser.user.email;
     this.tutorService.getAchievements(email)
-      .subscribe(res=>{
+      .subscribe(res => {
         console.log(res.json().achievements);
         this.achievements = res.json().achievements;
         console.log(this.achievements);
@@ -71,6 +71,8 @@ export class AchievementsComponent implements OnInit {
         this.url = event.target['result'];
       }
       this.imageView = true;
+
+      this.newImage = event.target.files[0];
     }
   }
 
@@ -81,23 +83,39 @@ export class AchievementsComponent implements OnInit {
     this.achievement.title = form.value.title;
     console.log(this.achievement);
     this.tutorService.addAchievement(this.achievement)
-      .subscribe(res=>{
-        if(res.json().success){
+      .subscribe(res => {
+        if (res.json().success) {
+          console.log(res.json());
           this.toastr.successToastr('Achievement added succesfully');
-        }else{
+          this.uploadAchievementImg(res.json().id);
+          this.achievements = res.json().achievements;
+        } else {
           this.toastr.errorToastr('There is some error in adding an achievement... please try again..!');
         }
-        this.uploadAchievementImg(res.json().id);
-        this.achievements = res.json().achievements;
+
       });
-      this.achievementForm.reset();
+    this.achievementForm.reset();
   }
 
-  uploadAchievementImg(id){
-    //upload img of achivement
+  newImage: File = null;
+
+  uploadAchievementImg(id) {
+    const fd = new FormData();
+    fd.append('image', this.newImage, this.newImage.name);
+
+    let file = {
+      'image': fd,
+      'id': id
+    } 
+
+    this.tutorService.uploadAchievementImage(file)
+      .subscribe(res=>{
+        console.log("Image uploading");
+        console.log(res.json());
+      })
   }
 
-  deleteAck(item){
+  deleteAck(item) {
     this.achievements.splice(this.achievements.indexOf(item), 1);
   }
 

@@ -1,5 +1,5 @@
-<div *ngFor="let item of reqests">
-    <div class="border hoverable">
+<!-- <div *ngFor="let item of reqests">
+    <div class="border hoverable" [class.border-danger]="item.status==='REJECTED'" [class.border-success]="item.status === 'ACCEPTED' ">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-9">
@@ -18,5 +18,18 @@
             </div>
         </div>
     </div>
-    <p></p>
+</div>
+ -->
+<div *ngFor="let item of reqests">
+
+    <p (click)="gotoTutor(item.tutor)" style="cursor:pointer;">Your request to <strong>{{item.FirstName + ' ' +
+            item.LastName}} for <strong>{{item.subject}}</strong> on</strong>
+        <strong>{{item.day}}</strong> at <strong>{{item.location}}</strong> has been
+
+        <span *ngIf="item.status === 'REJECTED' "><strong class="red-text">rejected.</strong></span>
+        <span *ngIf="item.status === 'ACCEPTED' "><strong class="green-text">accepted.</strong></span>
+        <span *ngIf="item.status === 'SENT' "><strong>sent.</strong></span>
+
+    </p>
+    <hr>
 </div>

@@ -57,7 +57,7 @@ export class TutorProfileComponent implements OnInit {
       })
   }
 
-  img: File;
+  img: File = null;
 
   updateImage() {
     if (this.img === null) {
@@ -68,16 +68,13 @@ export class TutorProfileComponent implements OnInit {
     console.log("update image");
     console.log(this.img);
 
-    let file = {
-      'image': this.img,
-      'role': 'tutor',
-      'email': this.authService.currentUser.user.email
-    }
+   const fd = new FormData();
+   fd.append('image', this.img, this.img.name)
 
-    this.tutorService.uploadImage(file)
-      .subscribe(res => {
-        console.log(res.json());
-      })
+    // this.tutorService.uploadImage({'image': fd, 'id': })
+    //   .subscribe(res => {
+    //     console.log(res.json());
+    //   })
 
 
   }
@@ -91,7 +88,8 @@ export class TutorProfileComponent implements OnInit {
       }
       this.imageView = true;
       this.img = event.target.files[0];
-      console.log(this.img);
+
+
     }
 
   }
