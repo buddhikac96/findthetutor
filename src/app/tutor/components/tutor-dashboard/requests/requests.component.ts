@@ -21,7 +21,6 @@ export class RequestsComponent implements OnInit {
     this.tutorService.getAllRequests(email)
       .subscribe(res=>{
         this.requests = res.json().request;
-        console.log(res.json().request);
       })
   }
 

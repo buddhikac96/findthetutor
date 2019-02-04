@@ -16,4 +16,8 @@ export class ClassRoomService {
     return this.http.post("https://guarded-beyond-19031.herokuapp.com/listCourses", token);
   }
 
+  createClass(token){
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/createCourse", token);
+  }
+
 }

@@ -10,6 +10,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthGaurd } from './shared/services/authguard.service';
+import { TutorAuthGuard } from './shared/services/tutorAuthGuard.service';
+import { StudentAuthGuard } from './shared/services/studentAuthGuard.service';
 
 
 export const routes: Routes = [
@@ -43,11 +46,13 @@ export const routes: Routes = [
     },
     {
         path: 'tutor',
-        loadChildren: './tutor/tutor.module#TutorModule'
+        loadChildren: './tutor/tutor.module#TutorModule',
+        canActivate: [AuthGaurd, TutorAuthGuard]
     },
     {
         path: 'student',
-        loadChildren: './student/student.module#StudentModule'
+        loadChildren: './student/student.module#StudentModule',
+        canActivate: [AuthGaurd, StudentAuthGuard]
     },
     {
         path: '**',

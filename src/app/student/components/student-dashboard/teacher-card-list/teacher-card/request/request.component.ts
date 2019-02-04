@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { TutorRequest } from 'src/app/shared/models/request.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { StudentService } from 'src/app/student/shared/services/student.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-request',
@@ -29,7 +30,8 @@ export class RequestComponent implements OnInit {
     private commonservice: CommonService,
     private fb: FormBuilder,
     private auth: AuthService,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private toastr: ToastrManager
   ) {
     this.form = this.fb.group({
       location: [''],
@@ -58,9 +60,10 @@ export class RequestComponent implements OnInit {
     this.studentService.sendRequest(request)
       .subscribe(response=>{
         console.log(response);
+        this.toastr.successToastr('Request Sent');
       }, err=>{
+        this.toastr.errorToastr('Request send error... please try again...!');
         console.log(err);
-        alert("request sending error");
       })
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { StudentService } from 'src/app/student/shared/services/student.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-rating',
@@ -16,7 +17,8 @@ export class RatingComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
-    private auth: AuthService
+    private auth: AuthService,
+    private toastr: ToastrManager
   ) {
 
   }
@@ -52,7 +54,7 @@ export class RatingComponent implements OnInit {
       .subscribe(res => {
         console.log(res.json());
         if (!res.json().allowed) {
-          alert("Tutor must accept your request");
+          this.toastr.warningToastr('Tutor must accept your request before rate him..!');
           return;
         }
         this.currentRate = res.json().newRate;
@@ -62,10 +64,10 @@ export class RatingComponent implements OnInit {
       .subscribe(res => {
         console.log(res.json());
         if (!res.json().allowed) {
-          alert("Tutor must accept your request");
+          this.toastr.warningToastr('Tutor must accept your request before review him..!');
           return;
         }
-        alert("Thank you for your review");
+        this.toastr.successToastr('Thank you for your review...!');
       });
 
 

@@ -3,7 +3,7 @@
 
     <div class="card-up lighten-4 modal-header" style="height:80px;">
       <strong> <b>
-          <h3 class="p-1">{{tutor.name}}</h3>
+          <h3 class="p-1"> <strong> {{tutor.name}}</strong></h3>
         </b> </strong>
     </div>
 
@@ -28,11 +28,13 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-7 pr-2">
-        <div class="container border p-4" style="overflow-y: scroll; height:436.48px;">
+        <div class="container border pt-4">
           <h5 class="grey-text"><b> My Reviewes </b> </h5>
           <hr>
-          <div *ngFor="let item of reviews">
-            <app-review [studentName]="item.student" [date]="item.date" [content]="item.content" [studentImgUrl]="item.image"></app-review>
+          <div class="container" style="overflow-y: scroll; height:436.48px;">
+            <div *ngFor="let item of reviews">
+              <app-review [studentName]="item.student" [date]="item.date" [content]="item.content" [studentImgUrl]="item.image"></app-review>
+            </div>
           </div>
 
         </div>

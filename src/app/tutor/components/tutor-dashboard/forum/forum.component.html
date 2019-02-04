@@ -1,3 +1,11 @@
+<div (click)="frame.show()">
+  <ng2-floating-action-menu [placement]="config.placment" [effect]="config.effect" [label]="config.label" [iconClass]="config.iconClass"
+    [activeIconClass]="config.activeIconClass" [toggle]="config.toggle" [buttons]="buttons">
+  </ng2-floating-action-menu>
+</div>
+
+
+
 <div *ngIf="!auth" class="row" style="margin-top:20%;">
   <div class="col-md-12 text-center">
     <button class="btn black-text btn-outline-info" (click)="getAuthToken()">
@@ -18,4 +26,76 @@
       </h3>
     </button>
   </div>
+</div>
+
+
+<div *ngIf="viewCourses">
+  <!-- courses cards -->
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of classes">
+      <div class="jumbotron text-center mdb-color lighten-2 white-text mx-2 mb-5">
+        <div style="height:150px;">
+          <h2 class="card-title h2">{{item.section}}</h2>
+          <p class="my-4 h6">{{item.name}}</p>
+          <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 pb-2">
+              <p class="card-text">{{item.descriptionHeading}}</p>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4 rgba-white-light">
+        <div class="pt-2">
+          <a type="button" class="btn btn-outline-white btn-sm" (click)="gotoClass(item.alternateLink)"> Goto Classroom</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div> <!-- courses cards -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <form [formGroup]="newclassForm" (ngSubmit)="createNewClass(newclassForm)">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Create new classroom</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+
+          <div class="md-form mb-5">
+            <input type="email" formControlName="classname" name="classname" class="form-control validate"
+              mdbInputDirective>
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Name</label>
+          </div>
+          <div class="md-form mb-5">
+            <input type="email" formControlName="section" name="section" class="form-control validate"
+              mdbInputDirective>
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Section</label>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button mdbBtn color="default" class="waves-light" mdbWavesEffect type="submit" (click)="frame.hide()">Create</button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

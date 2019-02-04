@@ -1,6 +1,7 @@
 import { AuthService } from './../../../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { TutorService } from 'src/app/tutor/shared/services/tutor-service.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-boost',
@@ -11,7 +12,8 @@ export class BoostComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private tutorService: TutorService
+    private tutorService: TutorService,
+    private toastr: ToastrManager
   ) { }
 
   ngOnInit() {
@@ -22,7 +24,6 @@ export class BoostComponent implements OnInit {
         this.boosted = res.boost;
         this.boostData = res.data;
 
-        console.log(result.json());
 
         this.pack1 = res.packages[0];
         this.pack2 = res.packages[1];
@@ -33,11 +34,10 @@ export class BoostComponent implements OnInit {
             .subscribe(result => {
               let res = result.json();
               if (res.success === false) {
-                console.log("reaches route has some problem");
+                this.toastr.warningToastr('Couting reaches has some problem.. Please check your connection..!');
                 return;
               }
               this.reaches = res.count % 100000;
-              console.log(this.reaches);
             });
         }
       });
@@ -62,8 +62,11 @@ export class BoostComponent implements OnInit {
     }
     this.tutorService.acceptBoost(boost)
       .subscribe(res => {
-        console.log(res.json());
-        alert(res.json().msg);
+        if(res.json().success){
+          this.toastr.successToastr("Your profile boosted successfully");
+        }else{
+          this.toastr.warningToastr(res.json().msg);
+        }
       })
   }
 
@@ -74,12 +77,13 @@ export class BoostComponent implements OnInit {
       'end': this.boostData.expiryDate.substring(0,10)
     }
 
-    console.log(boost);
-
     this.tutorService.renewBoost(boost)
       .subscribe(res=>{
         if(res.json().success){
+          this.toastr.successToastr('Your profile renewed succesfully..!');
           this.boostData.remaining += 7;
+        }else{
+          this.toastr.errorToastr('There is some error in renewing your profile.. Please try again..!');
         }
       })
   }

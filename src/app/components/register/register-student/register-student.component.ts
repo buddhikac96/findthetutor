@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/shared/services/register.service';
 import { PasswordValidator } from 'src/app/shared/validators/password.validator';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-register-student',
@@ -18,7 +19,8 @@ export class RegisterStudentComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    public toastr: ToastrManager
   ) {
     this.form = fb.group({
       fname: ['', Validators.required],
@@ -36,63 +38,64 @@ export class RegisterStudentComponent implements OnInit {
         PasswordValidator('password')
       ]]
     });
-   }
+  }
 
   ngOnInit() {
   }
 
-  get fname(){
+  get fname() {
     return this.form.get('fname');
   }
 
-  get lname(){
+  get lname() {
     return this.form.get('lname');
   }
 
-  get email(){
+  get email() {
     return this.form.get('email');
   }
 
-  get password(){
+  get password() {
     return this.form.get('password');
   }
 
-  get cpassword(){
+  get cpassword() {
     return this.form.get('cpassword');
   }
 
-  onSubmit(form){
+  onSubmit(form) {
     let user = form.value;
     user['role'] = 'student';
     this.registerService.registerUser(user).
       subscribe(response => {
         let res = response.json();
-        if(res.success){
+        if (res.success) {
+          this.toastr.successToastr('This is success toast.', 'Success!');
           localStorage.setItem('token', res.token);
           this.router.navigate(['student']);
-        }else{
-          if(res.has){
+        } else {
+          if (res.has) {
             this.has = true;
-          }else{
+          } else {
             this.regErr = true;
-            alert("Register error");
+            this.toastr.errorToastr('Register error, please check your details.', 'Oops!');
           }
         }
-      },err=>{
-          this.regErr = true;
-          alert("Register error");
-      }); 
-      form.reset();   
-  }  
+      }, err => {
+        this.regErr = true;
+        this.toastr.errorToastr('Register error, please check your details.', 'Oops!');
+      });
+    form.reset();
+  }
 
-  googleReg(){
+  googleReg() {
     this.registerService.googleRegister('student').
-      subscribe(response=>{
+      subscribe(response => {
         let res = response.json();
       });
   }
 
-  facebookRegister(){
+  facebookRegister() {
     this.registerService.facebokRegister('tutor')
       .subscribe(res => {
         console.log(res.json());

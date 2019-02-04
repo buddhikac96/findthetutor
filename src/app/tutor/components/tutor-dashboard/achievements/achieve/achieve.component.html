@@ -31,14 +31,14 @@
 
   <div class="row mb-3">
     <div class="col text-center">
-      <i class="fa fa-eye-slash hoverEf" (click)="hideAch()" *ngIf="hide"></i>
-      <i class="fa fa-eye hoverEf" (click)="hideAch()" *ngIf="!hide"></i>
+      <i class="fa fa-eye-slash hoverEf pointer" (click)="hideAch()" *ngIf="hide"></i>
+      <i class="fa fa-eye hoverEf pointer" (click)="hideAch()" *ngIf="!hide"></i>
     </div>
     <div class="col text-center hoverEf">
-      <i class="fa fa-cog" (click)="frame.show()" ></i>
+      <i class="fa fa-cog pointer" (click)="frame.show()" ></i>
     </div>
     <div class="col text-center hoverEf">
-      <i class="fa fa-trash" (click)="deleteAch()"></i>
+      <i class="fa fa-trash pointer" (click)="deleteAch()"></i>
     </div>
   </div>
 

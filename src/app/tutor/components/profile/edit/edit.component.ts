@@ -2,6 +2,7 @@ import { TutorService } from './../../../shared/services/tutor-service.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-tutor-profile-edit',
@@ -25,7 +26,8 @@ export class TutorProfileEditComponent implements OnInit {
   constructor(
     private tutorService: TutorService,
     private fb: FormBuilder,
-    private auth:AuthService
+    private auth:AuthService,
+    private toastr: ToastrManager
   ) { 
     this.form = fb.group({
       fname:[this.fname, Validators.required],
@@ -103,6 +105,9 @@ export class TutorProfileEditComponent implements OnInit {
     this.tutorService.editProfile(user)
       .subscribe(res=>{
         console.log(res.json());
+        if(res.json().success){
+          this.toastr.successToastr('Profile edited successfully!');
+        }
       })
   }
 

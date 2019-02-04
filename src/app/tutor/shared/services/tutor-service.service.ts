@@ -71,7 +71,9 @@ export class TutorService {
   }
 
 
-
+  getNews(){
+    return this.http.get("https://guarded-beyond-19031.herokuapp.com/getNews");
+  }
 
 
 

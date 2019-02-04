@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-login-student',
@@ -16,7 +17,8 @@ export class LoginStudentComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    public toastr: ToastrManager
   ) { 
     this.form = this.fb.group({
       username: ['', [
@@ -45,16 +47,17 @@ export class LoginStudentComponent implements OnInit {
       subscribe(response=>{
         let res = response.json();
         if(res.success){
+          this.toastr.successToastr('Login successfully.', 'Success!');
           localStorage.setItem('token', res.token);
           this.router.navigate(['student']);
         }else{
           this.loginErr = true; 
-          alert("Login err");
+          this.toastr.errorToastr('Login error, Check username or password.', 'Oops!');
         }
       },
       err => {
         this.loginErr = true;
-        alert("Login err");
+        this.toastr.errorToastr('Login error, Check username or password.', 'Oops!');
       });   
       this.form.reset();     
   }

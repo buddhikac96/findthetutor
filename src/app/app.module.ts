@@ -30,6 +30,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { PusherService } from './shared/services/pusher.service';
 import { MessageComponent } from './components/shared/message/message.component';
 import { ClassRoomService } from './tutor/shared/services/classroom.service';
+import { ToastrModule } from 'ng6-toastr-notifications';
 
 
 
@@ -61,6 +62,7 @@ import { ClassRoomService } from './tutor/shared/services/classroom.service';
     BarRatingModule,
     BlockUIModule.forRoot(),
     NgChatModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     AuthService,

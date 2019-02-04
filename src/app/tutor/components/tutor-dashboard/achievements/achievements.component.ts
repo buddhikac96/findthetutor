@@ -3,6 +3,7 @@ import { TutorService } from './../../../shared/services/tutor-service.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { FloatingActionButton } from 'ng2-floating-action-menu';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class AchievementsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private tutorService: TutorService,
-    private auth: AuthService
+    private auth: AuthService,
+    private toastr: ToastrManager
   ) {
     this.config = {
       placment: 'br',
@@ -80,7 +82,11 @@ export class AchievementsComponent implements OnInit {
     console.log(this.achievement);
     this.tutorService.addAchievement(this.achievement)
       .subscribe(res=>{
-        console.log(res.json());
+        if(res.json().success){
+          this.toastr.successToastr('Achievement added succesfully');
+        }else{
+          this.toastr.errorToastr('There is some error in adding an achievement... please try again..!');
+        }
         this.uploadAchievementImg(res.json().id);
         this.achievements = res.json().achievements;
       });
@@ -92,8 +98,6 @@ export class AchievementsComponent implements OnInit {
   }
 
   deleteAck(item){
-    console.log("delte");
-    console.log(item);
     this.achievements.splice(this.achievements.indexOf(item), 1);
   }
 

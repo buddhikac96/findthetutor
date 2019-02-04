@@ -13,7 +13,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-4">
-                <img src="{{teacher.imgURL}}" alt="..." class="mx-auto d-block img-thumbnail image">
+                <img src="{{teacher.imgUrl}}" alt="..." class="mx-auto d-block img-thumbnail image">
             </div>
             <div class="col-md-8">
                 <h5 class="card-title">{{teacher.subject}}</h5>
@@ -21,6 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-5">
+                        <p>Price: {{teacher.price}}</p>
                         <div *ngIf="isLogged">
                             <app-request [teacherId]="teacher.email"></app-request>
                         </div>

@@ -25,6 +25,7 @@ import { RatingComponent } from './components/tutor-profile/rating/rating.compon
 import { ReviewComponent } from './components/tutor-profile/review/review.component';
 import { StudentProfileComponent } from './components/student-profile/student-profile.component';
 import { DetailsComponent } from './components/tutor-profile/details/details.component';
+import { ToastrModule } from 'ng6-toastr-notifications';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { DetailsComponent } from './components/tutor-profile/details/details.com
     FloatingActionMenuModule,
     NgbModule,
     BarRatingModule,
+    ToastrModule
   ],
   declarations: [
     StudentDashboardComponent, 

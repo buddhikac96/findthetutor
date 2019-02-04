@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TutorService } from 'src/app/tutor/shared/services/tutor-service.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-request',
@@ -12,7 +13,8 @@ export class RequestComponent implements OnInit {
   reacted = false;
 
   constructor(
-    private tutorService: TutorService
+    private tutorService: TutorService,
+    private toastr: ToastrManager
   ) {
 
   }
@@ -24,8 +26,11 @@ export class RequestComponent implements OnInit {
   acceptReq() {
     this.tutorService.acceptRequests(this.requestObject.id)
       .subscribe(res => {
-        console.log(res.json());
-        alert("Requests accepted")
+        if(res.json().success){
+          this.toastr.successToastr("Request accepted!");
+        }else{
+          this.toastr.errorToastr("There is some problem with accepting the request..! Please try again..!");
+        }
         this.deleteComplete();
       });
     this.reacted = true;
@@ -34,8 +39,11 @@ export class RequestComponent implements OnInit {
   rejectReq() {
     this.tutorService.rejectRequests(this.requestObject.id)
       .subscribe(res => {
-        console.log(res.json());
-        alert("Requests rejected");
+        if(res.json().success){
+          this.toastr.successToastr("Request rejected!");
+        }else{
+          this.toastr.errorToastr("There is some problem with rejecting the request.. Please try again..!");
+        }
         this.deleteComplete();
       });
     this.reacted = true;

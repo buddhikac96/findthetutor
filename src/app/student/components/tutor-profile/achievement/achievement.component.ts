@@ -14,14 +14,21 @@ export class AchievementComponent implements OnInit {
 
   ngOnInit() {
     this.studentService.getAchievements(this.email)
-      .subscribe(res=>{
-        console.log(res.json());
-        this.achievements = res.json().achievements;
-      })
+      .subscribe(res => {
+        let arr = res.json().achievements;
+        for(let item of arr){
+          if(item.hide == 1){
+            arr.splice(arr.indexOf(item), 1);
+          }
+        }
+        this.achievements = arr;
+        console.log(this.achievements);
+      });
   }
 
   @Input() email;
+  @Input() image;
 
-  achievements;
+  achievements = [];
 
 }

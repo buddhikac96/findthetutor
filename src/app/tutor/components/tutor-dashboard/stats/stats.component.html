@@ -1,13 +1,26 @@
-<mat-expansion-panel>
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            This is the expansion title
-        </mat-panel-title>
-        <mat-panel-description>
-            This is a summary of the content
-        </mat-panel-description>
-    </mat-expansion-panel-header>
+<div class="row mt-5">
+    <div class="col-md-8">
 
-    <p>This is the primary content of the panel.</p>
 
-</mat-expansion-panel>
+            <app-district-chart></app-district-chart>
+
+    </div>
+    <div class="col-md-4 border">
+        <h4 class="grey-text text-center mt-4">Latest News</h4>
+        <hr>
+
+        <div style="overflow-y: scroll; height:500px;">
+            <div *ngFor="let item of news">
+                <h6 (click)="test.toggle()">{{item.title}}
+                    <img src="../../../../../assets/icons/right-arrow.png">
+                </h6>
+
+                <div mdbCollapse #test="bs-collapse">
+                    <p>{{item.content}}</p>
+                    <p>{{item.startDate | date}}</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>

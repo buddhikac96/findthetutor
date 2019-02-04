@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/shared/services/register.service';
 import { PasswordValidator } from 'src/app/shared/validators/password.validator';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-register-tutor',
@@ -19,7 +20,8 @@ export class RegisterTutorComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private toastr: ToastrManager
   ) {
     this.form = fb.group({
       fname: ['', Validators.required],
@@ -69,19 +71,19 @@ export class RegisterTutorComponent implements OnInit {
       subscribe(response => {
         let res = response.json();
         if(res.success){
+          this.toastr.successToastr('User registered succefully.', 'Success!');
           localStorage.setItem('token', res.token);
           this.router.navigate(['tutor']);
         }else{
           if(res.has){
             this.has = true;
+            this.toastr.warningToastr('Email already registered.', 'Oops!');
           }else{
             this.regErr = true;
-            alert("Register error")
-          }
+            this.toastr.errorToastr('Register error, please check your details.', 'Oops!');          }
         }
       }, err=>{
-        alert("Register error");
-      });   
+        this.toastr.errorToastr('Register error, please check your details.', 'Oops!');      });   
       form.reset();    
   }  
 
