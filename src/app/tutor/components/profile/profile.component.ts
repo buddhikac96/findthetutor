@@ -24,7 +24,8 @@ export class TutorProfileComponent implements OnInit {
     price: "",
     imgUrl: "",
     fname: "",
-    lname: ""
+    lname: "",
+    description: ""
   }
 
   reviews = []
@@ -45,15 +46,16 @@ export class TutorProfileComponent implements OnInit {
         this.tutor.mobile = user.mobile;
         this.tutor.location = user.location;
         this.tutor.subject = user.subject;
-        this.tutor.time = user.time;
         this.tutor.time = user.available;
         this.tutor.price = user.price;
         this.tutor.imgUrl = user.imgUrl;
         this.tutor.fname = user.firstName;
         this.tutor.lname = user.lastName;
+        this.tutor.description = user.description;
 
         this.reviews = res.json().reviews;
-        console.log(res.json().reviews);
+        // console.log(res.json().reviews);
+        console.log(res.json().profile);
       })
   }
 
@@ -68,13 +70,12 @@ export class TutorProfileComponent implements OnInit {
     console.log("update image");
     console.log(this.img);
 
-   const fd = new FormData();
-   fd.append('image', this.img, this.img.name)
+    let img = {'image': this.url, 'email':this.tutor.email, 'role':'tutor'}
 
-    // this.tutorService.uploadImage({'image': fd, 'id': })
-    //   .subscribe(res => {
-    //     console.log(res.json());
-    //   })
+    this.tutorService.uploadImage(img)
+      .subscribe(res=>{
+        console.log(res.json());
+      })
 
 
   }
@@ -88,8 +89,6 @@ export class TutorProfileComponent implements OnInit {
       }
       this.imageView = true;
       this.img = event.target.files[0];
-
-
     }
 
   }

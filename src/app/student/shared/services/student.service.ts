@@ -23,6 +23,7 @@ export class StudentService {
     }
 
     sendMessageLocation(location: string) {
+        // console.log(location + 'from service');
         this.d = location;
         this.getMessageTeacher();
     }
@@ -32,13 +33,31 @@ export class StudentService {
         this.getMessageTeacher();
     }
 
-    getMessageTeacher() {
-        console.log(this.d);
-        console.log(this.s);
-        this.http.post('https://guarded-beyond-19031.herokuapp.com/search', { 'district': this.d, 'subject': this.s })
+    sendMessageName(name: string) {
+        this.teacherList = [];
+        this.http.post('https://guarded-beyond-19031.herokuapp.com/searchByName', { 'name': name })
             .subscribe(res => {
                 this.teacherList = res.json().user;
-                this.subject.next({ teachers: this.teacherList });
+                this.subject.next({ 'teachers': this.teacherList });
+            });
+        this.d = 'all';
+        this.s = 'all';
+
+    }
+
+    getMessageTeacher() {
+        this.teacherList = [];
+        this.http.post('https://guarded-beyond-19031.herokuapp.com/newsearch', { 'district': this.d, 'subject': this.s, 'id': 0 })
+            .subscribe(res => {
+                console.log(res.json());
+                let arr = [res.json().gold, res.json().silver, res.json().bronze, res.json().nonBoosted];
+
+                for (let i of arr) {
+                    for (let item of i) {
+                        this.teacherList.push(item);
+                    }
+                }
+                this.subject.next({ 'teachers': this.teacherList });
             })
     }
 
@@ -72,7 +91,7 @@ export class StudentService {
     }
 
     cancelReq(id) {
-        return this.http.post("https://guarded-beyond-19031.herokuapp.com/cancelRequest", {'id': id});
+        return this.http.post("https://guarded-beyond-19031.herokuapp.com/cancelRequest", { 'id': id });
     }
 
     rateTutor(rate) {
@@ -86,6 +105,20 @@ export class StudentService {
 
     getAchievements(email) {
         return this.http.post('https://guarded-beyond-19031.herokuapp.com/getAchievements', { 'tutor': email });
+    }
+
+    newSearch(id) {
+        return this.http.post('https://guarded-beyond-19031.herokuapp.com/newsearch', { 'district': this.d, 'subject': this.s, 'id': id });
+    }
+
+    uploadImage(img) {
+        return this.http.post('https://guarded-beyond-19031.herokuapp.com/uploadImage', img);
+    }
+
+
+
+    getStudentProfile(email: String) {
+        return this.http.post('https://guarded-beyond-19031.herokuapp.com/viewProfile', { 'email': email, 'role': 'student' });
     }
 
 }

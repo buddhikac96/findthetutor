@@ -5,8 +5,9 @@
             <model-subject></model-subject>
         </ul>
         <form class="form-inline waves-light" mdbWavesEffect>
-            <div class="md-form mt-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <div class="md-form">
+                    <i class="fa fa-search"></i>
+                <input class="form-control mr-sm-2" type="text" placeholder="Search tutor by name" name="searchByName" (keyup.enter)="searchByName()" [(ngModel)]="tName">
             </div>
         </form>
     </links>

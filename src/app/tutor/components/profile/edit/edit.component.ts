@@ -20,7 +20,7 @@ export class TutorProfileEditComponent implements OnInit {
   @Input() subject;
   @Input() location;
   @Input() price;
-  @Input() desc;
+  @Input() description;
 
 
   constructor(
@@ -37,7 +37,7 @@ export class TutorProfileEditComponent implements OnInit {
       subject:[this.subject, Validators.required],
       location:[this.location, Validators.required],
       price:[this.price, Validators.required],
-      desc:[this.desc, Validators.required],
+      description:[this.description, Validators.required],
     });
   }
 
@@ -88,18 +88,23 @@ export class TutorProfileEditComponent implements OnInit {
     console.log(form.value);
     let email = this.auth.currentUser.user.email;
     let f = form.value;
+
+    let sub = this.selectedSubjects[0] === undefined ? this.subject : this.selectedSubjects[0];
+    let loc = this.selectedDistricts[0] === undefined ? this.location : this.selectedDistricts[0];
+
     
     let user = {
       'fname': f.fname,
       'lname': f.lname,
       'desc': f.desc,
       'mobile': f.mobile,
-      'subject': this.selectedSubjects[0],
-      'location': this.selectedDistricts[0],
+      'subject': sub,
+      'location': loc,
       'price': f.price,
-      'available': this.available,
+      'available': f.available,
       'role':'tutor',
-      'email':email
+      'email':email,
+      'description':f.description
     };
 
     this.tutorService.editProfile(user)
@@ -121,7 +126,7 @@ export class TutorProfileEditComponent implements OnInit {
       location: this.location,
       subject: this.subject,
       available: this.available,
-      desc: this.desc,
+      description: this.description,
     })
   }
 

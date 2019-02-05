@@ -1,0 +1,32 @@
+<div class="bg">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+
+      </div>
+      <div class="col-md-5 rounded white" style="margin-top:10%; height:80vh; position: relative;">
+        <div class="row" style="margin-top:50%;">
+          <div class="col-md-12 text-center">
+            <label for="pin">
+              <h3 class="display-5">
+                Enter your PIN
+              </h3>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <input type="password" class="form-control ml-4 mr-4" style="height:50px;" [(ngModel)]="pin">
+        </div>
+        <div class="row">
+          <div class="col text-center mt-1">
+            <button class="btn btn-primary" (click)="onSubmit()">Verify</button>
+          </div>
+        </div>
+        <p class="text-center" style="bottom:0; position: absolute;"> eTutor. Your tutor is at your finger tip. </p>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -14,6 +14,8 @@ export class LoginStudentComponent implements OnInit {
   form;
   loginErr: boolean = false;
 
+  spinner = false;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -41,24 +43,36 @@ export class LoginStudentComponent implements OnInit {
   
 
   onSubmit(form){
+    this.spinner = true;
     let user = form.value;
     user['role'] = 'student';
     this.authService.loginUser(user).
       subscribe(response=>{
+        this.spinner = false;
+        console.log(response.json());
         let res = response.json();
+
         if(res.success){
           this.toastr.successToastr('Login successfully.', 'Success!');
           localStorage.setItem('token', res.token);
+          window.location.reload();
           this.router.navigate(['student']);
         }else{
-          this.loginErr = true; 
-          this.toastr.errorToastr('Login error, Check username or password.', 'Oops!');
+          if(!response.json().confirmed){
+            this.router.navigate(['verify', {'email': response.json().email, 'role':'student'}]);
+            this.toastr.warningToastr('Please comfirm your email');
+          }else{
+            this.loginErr = true; 
+            this.toastr.errorToastr('Login error, Check username or password.', 'Oops!');
+          }
+
         }
       },
       err => {
         this.loginErr = true;
         this.toastr.errorToastr('Login error, Check username or password.', 'Oops!');
       });   
+      
       this.form.reset();     
   }
 

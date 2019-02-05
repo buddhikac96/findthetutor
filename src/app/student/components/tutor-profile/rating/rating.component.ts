@@ -14,6 +14,7 @@ export class RatingComponent implements OnInit {
   @Input() tutor;
   currentRate;
   review = null;
+  
 
   constructor(
     private studentService: StudentService,
@@ -33,21 +34,21 @@ export class RatingComponent implements OnInit {
       return;
     }
 
-    if (this.currentRate === 0) {
-      alert("Please rate the tutor");
-      return;
-    }
+
+
 
     let rate = {
       'rate': this.currentRate/2,
       'tutor': this.tutor,
       'student': this.auth.currentUser.user.email,
+      'priority': this.currentRate
     };
 
     let review = {
       'content': this.review,
       'tutor': this.tutor,
       'student': this.auth.currentUser.user.email,
+      'priority': 2
     };
 
     this.studentService.rateTutor(rate)

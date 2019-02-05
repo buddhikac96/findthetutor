@@ -20,6 +20,7 @@ export class TeacherCardListComponent implements OnInit {
     private studentService: StudentService
   ) {
     this.subcription = this.studentService.getMessage().subscribe(list => {
+      console.log(list);
       this.techerList = list.teachers;
       if (this.techerList.length === 0) {
         this.isEmpty = true;
@@ -30,17 +31,82 @@ export class TeacherCardListComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    try {
-      this.studentService.getAllTeachers()
-        .subscribe(res => {
-          this.techerList = res.json().user;
-          res.json().user.length === 0 ? this.isEmpty = true : this.isEmpty = false;
-        });
-    } catch (e) {
-      alert("Something wrong...!");
-    }
+  tempTutors: TeacherCard[] = [];
+  pageId = 0;
 
+  ngOnInit() {
+    // try {
+    //   this.studentService.getAllTeachers()
+    //     .subscribe(res => {
+    //       this.techerList = res.json().user;
+    //       res.json().user.length === 0 ? this.isEmpty = true : this.isEmpty = false;
+    //     });
+    // } catch (e) {
+    //   alert("Something wrong...!");
+    // }
+
+    
+
+    /* this.studentService.newSearch(this.pageId)
+      .subscribe(res => {
+        let arr = [res.json().gold, res.json().silver, res.json().bronze, res.json().nonBoosted];
+        for(let i of arr){
+          for(let item of i){
+            this.tempTutors.push(item);
+          }
+        }
+
+        console.log(this.tempTutors);
+
+        this.techerList = this.tempTutors;
+      }); */
+
+
+      this.searchTutors(0);
+
+
+  }
+
+  paginate(p){
+    this.pageId = p;
+    console.log(this.pageId);
+    this.searchTutors(p);
+  }
+
+
+
+  searchTutors(p){
+    this.tempTutors = [];
+    this.studentService.newSearch(p)
+      .subscribe(res => {
+        let arr = [res.json().gold, res.json().silver, res.json().bronze, res.json().nonBoosted];
+        for(let i of arr){
+          for(let item of i){
+            this.tempTutors.push(item);
+          }
+        }
+
+        console.log(this.tempTutors);
+
+        this.techerList = this.tempTutors;
+
+        // if(this.pageId == 0 && this.techerList.length < 10){
+        //   this.enablePagination = false;
+        // }
+      });
+  }
+
+  paginateNext(){
+    this.searchTutors(this.pageId + 1);
+    this.pageId++;
+  }
+
+  paginatePre(){
+    if(this.pageId == 0){
+      return;
+    }
+    this.searchTutors(this.pageId - 1);
+    this.pageId--;
   }
 
 

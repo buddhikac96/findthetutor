@@ -8,6 +8,8 @@ export class TeacherCard{
     imgUrl: String;
     price: number;
     time: String;
+    package: string;
+    description: string;
 }
 
 export class Price{

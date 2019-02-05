@@ -13,6 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AuthGaurd } from './shared/services/authguard.service';
 import { TutorAuthGuard } from './shared/services/tutorAuthGuard.service';
 import { StudentAuthGuard } from './shared/services/studentAuthGuard.service';
+import { VerificationComponent } from './components/shared/verification/verification.component';
 
 
 export const routes: Routes = [
@@ -35,6 +36,10 @@ export const routes: Routes = [
     {
         path: 'loginTutor',
         component: LoginTutorComponent
+    },
+    {
+        path: 'verify',
+        component: VerificationComponent
     },
     {
         path: 'registerTutor',

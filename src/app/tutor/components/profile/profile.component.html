@@ -31,7 +31,7 @@
         <div class="container border pt-4">
           <h5 class="grey-text"><b> My Reviewes </b> </h5>
           <hr>
-          <div class="container" style="overflow-y: scroll; height:436.48px;">
+          <div class="container" style="overflow-y: scroll; max-height:507px; min-height:507px;">
             <div *ngFor="let item of reviews">
               <app-review [studentName]="item.student" [date]="item.date" [content]="item.content" [studentImgUrl]="item.image"></app-review>
             </div>
@@ -42,9 +42,11 @@
       </div>
 
       <div class="col-md-5">
-        <div class="container border pt-3">
+        <div class="container border pt-3" style="min-height:520px;">
           <app-tutor-profile-edit [fname]="tutor.fname" [lname]="tutor.lname" [mobile]="tutor.mobile" [price]="tutor.price"
-            [location]="tutor.location" [subject]="tutor.subject" [available]="tutor.time"></app-tutor-profile-edit>
+            [location]="tutor.location" [subject]="tutor.subject" [available]="tutor.time"
+            [description]="tutor.description"
+            ></app-tutor-profile-edit>
         </div>
       </div>
     </div>

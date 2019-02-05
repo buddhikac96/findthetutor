@@ -101,10 +101,9 @@ export class AchievementsComponent implements OnInit {
 
   uploadAchievementImg(id) {
     const fd = new FormData();
-    fd.append('image', this.newImage, this.newImage.name);
 
     let file = {
-      'image': fd,
+      'image': this.url,
       'id': id
     } 
 

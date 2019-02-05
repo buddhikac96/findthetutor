@@ -4,8 +4,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <div class="avatar mx-auto white p-3">
-          <img (click)="editProfilePicture()" src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle hover"
-            alt="woman avatar">
+          <img [src]="image" class="rounded-circle hover" style="height:150px; width:150px;">
         </div>
       </div>
     </div>
@@ -14,7 +13,7 @@
 
     <div class="card-body">
       <div style="text-align:center;">
-        <p>0711765356 | Physics</p>
+        <p>{{name}} | {{mobile}}</p>
         <button type="button" mdbBtn class="special-color-dark relative waves-light btn-sm" (click)="basicModal.show()"
           mdbWavesEffect>Edit Profile</button>
 
@@ -62,8 +61,13 @@
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"
                 (change)="onSelectFile($event)">
-              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              <label class="custom-file-label" for="inputGroupFile01" *ngIf="!img">Choose File</label>
+              <label class="custom-file-label" for="inputGroupFile01" *ngIf="img">{{img.name}}</label>
             </div>
+          </div>
+         
+          <div class="mb-4" *ngIf="img">
+            <button class="btn btn-info btn-block" (click)="updateImage()">Save Image</button>
           </div>
 
 

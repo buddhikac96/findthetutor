@@ -2,7 +2,7 @@
     <div class="col-md-8">
 
 
-            <app-district-chart></app-district-chart>
+        <app-district-chart></app-district-chart>
 
     </div>
     <div class="col-md-4 border">
@@ -10,7 +10,7 @@
         <hr>
 
         <div style="overflow-y: scroll; height:500px;">
-            <div *ngFor="let item of news">
+            <div *ngFor="let item of news" style="cursor:pointer;">
                 <h6 (click)="test.toggle()">{{item.title}}
                     <img src="../../../../../assets/icons/right-arrow.png">
                 </h6>
@@ -19,8 +19,8 @@
                     <p>{{item.content}}</p>
                     <p>{{item.startDate | date}}</p>
                 </div>
+                <hr>
             </div>
-            <hr>
         </div>
     </div>
 </div>

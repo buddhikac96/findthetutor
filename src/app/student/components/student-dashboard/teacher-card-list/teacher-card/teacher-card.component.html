@@ -1,5 +1,5 @@
-<div class="border hoverable">
-    <div class="card-header  white-black grab" [routerLink]="[teacher.email]">
+<div class="border hoverable rounded">
+    <div class="card-header white-black  grab " [routerLink]="[teacher.email]">
         <h4>
             <img src="../../../../../../assets/icons/tutor.png" class="mr-3">
             <span><b> {{teacher.fname + " " + teacher.lname}} </b></span>
@@ -10,14 +10,14 @@
 
         </h4>
     </div>
-    <div class="card-body">
+    <div class="card-body {{packageCss}}">
         <div class="row">
             <div class="col-md-4">
                 <img src="{{teacher.imgUrl}}" alt="..." class="mx-auto d-block img-thumbnail image">
             </div>
             <div class="col-md-8">
                 <h5 class="card-title">{{teacher.subject}}</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">{{teacher.description}}</p>
 
                 <div class="row">
                     <div class="col-md-5">

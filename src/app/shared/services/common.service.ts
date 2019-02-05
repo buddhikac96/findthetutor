@@ -12,6 +12,13 @@ export class CommonService {
         return this.http.get("https://guarded-beyond-19031.herokuapp.com/subject");
     }
 
+
+    sendMessage(message){
+        return this.http.post("https://guarded-beyond-19031.herokuapp.com/makeSuggestion", message);
+    }
+
+
+
     
 
 }

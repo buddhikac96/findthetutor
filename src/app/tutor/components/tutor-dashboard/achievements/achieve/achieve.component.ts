@@ -77,7 +77,4 @@ export class AchieveComponent implements OnInit {
 
   editAch() {
   }
-
-  
-
 }

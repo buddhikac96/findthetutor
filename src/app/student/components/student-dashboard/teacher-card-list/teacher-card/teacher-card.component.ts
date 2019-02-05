@@ -20,7 +20,17 @@ export class TeacherCardComponent implements OnInit {
   isLogged: boolean = this.auth.isLogged();
 
   ngOnInit() {
+    if(this.teacher.package == null){
+      this.packageCss = "white-black";
+    }else if(this.teacher.package === "gold"){
+      this.packageCss = "rgba-orange-light";
+    }else if(this.teacher.package === "silver"){
+      this.packageCss = "rgba-blue-grey-light";
+    }else if(this.teacher.package === "bronze"){
+      this.packageCss = "rgba-brown-light";
+    }
   }
+
+  packageCss;
   
-  rate = 3.14;
 }

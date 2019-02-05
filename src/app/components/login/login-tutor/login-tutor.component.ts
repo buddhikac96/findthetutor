@@ -51,8 +51,13 @@ export class LoginTutorComponent implements OnInit {
           localStorage.setItem('token', res.token);
           this.router.navigate(['/tutor']);
         }else{
-          this.loginErr = true;
-          this.toastr.errorToastr('Login error, Check username or password.', 'Oops!');
+          if(!res.confirmed){
+            this.router.navigate(['verify', {'email': response.json().email, 'role':'tutor'}]);
+            this.toastr.warningToastr('Please comfirm your email');
+          }else{
+            this.loginErr = true;
+            this.toastr.errorToastr('Login error, Check username or password.', 'Oops!');
+          }
         }
       }, err=>{
         this.loginErr = true;

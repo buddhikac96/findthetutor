@@ -31,7 +31,7 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-7 pr-2">
-        <div class="container border p-4"  style="overflow-y: scroll; height:436.48px;">
+        <div class="container border p-4"  style="overflow-y: scroll; min-height:480px; max-height:480px;">
           <h5 class="grey-text"><b> Reviews </b> </h5>
           <hr>
           <div *ngFor="let item of reviews">
@@ -63,7 +63,6 @@
   class="mt-5"
 ></p>
 
-<hr class="mt-5 container"> 
 
 <app-rating *ngIf="tutor.rating"
   [tutor]="tutor.email"

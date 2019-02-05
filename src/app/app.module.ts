@@ -31,6 +31,9 @@ import { PusherService } from './shared/services/pusher.service';
 import { MessageComponent } from './components/shared/message/message.component';
 import { ClassRoomService } from './tutor/shared/services/classroom.service';
 import { ToastrModule } from 'ng6-toastr-notifications';
+import { VerificationComponent } from './components/shared/verification/verification.component';
+import { ContactComponent } from './components/shared/contact/contact.component';
+import { CommonService } from './shared/services/common.service';
 
 
 
@@ -49,6 +52,8 @@ import { ToastrModule } from 'ng6-toastr-notifications';
     SpinnerComponent,
     FooterComponent,
     MessageComponent,
+    VerificationComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,8 @@ import { ToastrModule } from 'ng6-toastr-notifications';
     StudentService,
     TutorService,
     PusherService,
-    ClassRoomService
+    ClassRoomService,
+    CommonService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ],
