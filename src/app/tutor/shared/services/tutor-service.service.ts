@@ -80,5 +80,10 @@ export class TutorService {
   }
 
 
+  graphService(subject){
+    return this.http.post("https://guarded-beyond-19031.herokuapp.com/graph", subject);
+  }
+
+
 
 }

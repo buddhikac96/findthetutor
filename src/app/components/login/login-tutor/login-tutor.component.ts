@@ -45,11 +45,13 @@ export class LoginTutorComponent implements OnInit {
     user['role'] = 'tutor';
     this.authService.loginUser(user).
       subscribe(response=>{
+        console.log(response.json());
         let res = response.json();
         if(res.success){
           this.toastr.successToastr('Login successfully', 'Success!');
           localStorage.setItem('token', res.token);
           this.router.navigate(['/tutor']);
+          window.location.reload();
         }else{
           if(!res.confirmed){
             this.router.navigate(['verify', {'email': response.json().email, 'role':'tutor'}]);

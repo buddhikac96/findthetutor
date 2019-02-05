@@ -22,30 +22,31 @@ export class AuthService {
   logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('gcrToken');
+    window.location.reload();
     this.router.navigate(['']);
   }
 
   isLogged() {
-      if(localStorage.getItem('token') == null){
-        return false;
-      }else{
-        return true;
-      }
+    if (localStorage.getItem('token') == null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
-  get currentUser(){
+  get currentUser() {
     let token = localStorage.getItem('token');
-    if(!token) return null;
-    
+    if (!token) return null;
+
     return this.helper.decodeToken(token);
   }
 
-  adminLogin(user){
+  adminLogin(user) {
     return this.http.post('http://localhost:3000/adminLogin', user);
   }
 
 
-  verifyEmail(p){
+  verifyEmail(p) {
     return this.http.post('https://guarded-beyond-19031.herokuapp.com/verify', p);
   }
 

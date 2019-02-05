@@ -27,6 +27,7 @@ export class FooterComponent implements OnInit {
   }
 
   sendMessage(form) {
+    console.log(form.value);
     this.common.sendMessage({
       'email': form.value.email,
       'content': form.value.content
@@ -37,6 +38,8 @@ export class FooterComponent implements OnInit {
         this.toastr.errorToastr("Making suggestion has some error.. Please try again..!");
       }
     })
+
+    this.contactForm.reset();
   }
 
 }
