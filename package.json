@@ -28,7 +28,7 @@
     "@angular/router": "^6.0.0-rc.1",
     "@auth0/angular-jwt": "^4.1.0",
     "@ng-bootstrap/ng-bootstrap": "^4.0.2",
-    "angular-bootstrap-md": "6.2.6",
+    "angular-bootstrap-md": "6.3.0",
     "angular-star-rating": "^4.0.0-beta.3",
     "chart.js": "^2.5.0",
     "classlist.js": "^1.1.20150312",
