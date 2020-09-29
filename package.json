@@ -50,7 +50,7 @@
     "ngx-toastr": "^9.1.1",
     "pusher-js": "^4.3.1",
     "rxjs": "^6.0.0-rc.1",
-    "web-animations-js": "^2.3.1",
+    "web-animations-js": "^2.3.2",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
