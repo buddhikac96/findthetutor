@@ -38,7 +38,7 @@
     "ionicons": "^5.1.2",
     "jw-angular-social-buttons": "^1.0.0",
     "ng-block-ui": "^3.0.2",
-    "ng-chat": "^2.0.0-rc.1",
+    "ng-chat": "^3.0.3",
     "ng-socket-io": "^0.2.4",
     "ng2-floating-action-menu": "^2.1.0",
     "ng2-toastr": "^4.1.2",
