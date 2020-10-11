@@ -47,7 +47,7 @@
     "ngc-float-button": "^1.2.1",
     "ngx-bar-rating": "^1.1.0",
     "ngx-floating-action-menu": "^0.2.5",
-    "ngx-toastr": "^9.1.1",
+    "ngx-toastr": "^10.2.0",
     "pusher-js": "^4.3.1",
     "rxjs": "^6.6.3",
     "web-animations-js": "^2.3.2",
