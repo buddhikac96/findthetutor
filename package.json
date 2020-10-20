@@ -30,7 +30,7 @@
     "@ng-bootstrap/ng-bootstrap": "^4.0.2",
     "angular-bootstrap-md": "6.3.0",
     "angular-star-rating": "^4.0.0-beta.3",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "classlist.js": "^1.1.20150312",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
