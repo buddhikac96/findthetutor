@@ -48,7 +48,7 @@
     "ngx-bar-rating": "^1.1.0",
     "ngx-floating-action-menu": "^0.2.5",
     "ngx-toastr": "^10.2.0",
-    "pusher-js": "^7.0.2",
+    "pusher-js": "^7.0.3",
     "rxjs": "^6.6.3",
     "web-animations-js": "^2.3.2",
     "rxjs": "^6.0.0-rc.1",
